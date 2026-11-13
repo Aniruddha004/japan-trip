@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<title>Japan 2026 — Itinerary &amp; Review (24 Nov – 7 Dec)</title>
+<style>
+:root{
+  --bg:#f6f4f0;--card:#fff;--ink:#1c1f26;--muted:#667085;--line:#e6e2da;--soft:#faf8f5;
+  --crit:#dc2626;--high:#ea580c;--med:#b45309;--tip:#2563eb;--good:#15803d;
+  --tokyo:#4f46e5;--fuji:#0d9488;--kyoto:#d9480f;--nara:#2f9e44;--osaka:#ae3ec9;--kamakura:#1c7ed6;
+  --transit:#94a3b8;--meal:#f59f00;--rest:#cbd5e1;--flight:#334155;
+  --radius:14px;--shadow:0 1px 2px rgba(16,24,40,.06),0 6px 20px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1015;--card:#171a22;--ink:#e7e9ee;--muted:#9aa3b2;--line:#283041;--soft:#1d212b;
+    --rest:#3b4352;--transit:#5b6578;--flight:#cbd5e1;--shadow:none}
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.muted{color:var(--muted)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#1e1b4b 0%,#3b1d5a 48%,#9f1239 100%);padding:40px 0 110px}
+.hero .sun{position:absolute;right:7%;top:28px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#ff7a7a,#e11d48 62%,#be123c);opacity:.8}
+.hero .wrap{position:relative;z-index:1}
+.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;opacity:.8;margin:0}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.05;margin:6px 0 8px;letter-spacing:-.02em}
+.hero h1 span{display:block;font-size:.42em;font-weight:600;opacity:.92;letter-spacing:0;margin-top:8px}
+.sub{opacity:.92;margin:0 0 18px;max-width:62ch}
+.flights{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.fl{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);padding:8px 12px;border-radius:10px;font-size:14px}
+.count{font-size:18px;font-weight:700}
+.count a{color:#fde047}
+.deadline{margin-top:6px;font-size:14px}
+.deadline b{background:#fde047;color:#422006;padding:1px 7px;border-radius:6px}
+.fuji{position:absolute;left:0;bottom:-1px;width:100%;height:110px}
+@media (max-width:600px){.hero{padding-bottom:90px}.hero .sun{width:90px;height:90px;top:14px;right:-18px;opacity:.55}.fuji{height:80px}}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:20;background:var(--bg);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+.nav a{white-space:nowrap;text-decoration:none;padding:6px 12px;border-radius:999px;font-size:14px;color:var(--muted)}
+.nav a:hover{background:var(--card);color:var(--ink)}
+.nav .sp{flex:1}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--muted)}
+
+section{padding:30px 0 6px}
+h2{font-size:24px;margin:0 0 4px;letter-spacing:-.01em}
+.lead{color:var(--muted);margin:0 0 16px;max-width:85ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/* Severity colour hooks */
+.crit{--sc:var(--crit)}.high{--sc:var(--high)}.med{--sc:var(--med)}.tip{--sc:var(--tip)}.good{--sc:var(--good)}
+
+/* Overview */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{padding:14px 16px}
+.stat b{display:block;font-size:26px;letter-spacing:-.02em;line-height:1.2}
+.stat span{color:var(--muted);font-size:13px}
+.stat.warn b{color:var(--crit)}
+.stat.amber b{color:var(--high)}
+.grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:16px}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.panel{padding:16px 20px}
+.panel h3{margin:0 0 10px;font-size:17px}
+.act{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.act li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}
+.act .k{flex:none;font-size:11px;font-weight:800;color:#fff;background:var(--sc);border-radius:6px;padding:2px 7px;margin-top:2px}
+.act a{font-weight:700;text-decoration:none;color:var(--sc)}
+.strong{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;font-size:14px}
+.strong li::before{content:"✓";color:var(--good);font-weight:800;margin-right:8px}
+
+/* Map */
+.mapcard{padding:10px 12px 8px}
+.map{width:100%;height:auto;display:block;color:var(--ink)}
+.map .m{fill:var(--muted)}
+.map .lbl{font-size:13px;font-weight:700;fill:var(--ink)}
+.map .sm{font-size:11px;fill:var(--muted)}
+.map .sea{font-size:13px;font-style:italic;fill:var(--muted);opacity:.7;letter-spacing:.2em}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12.5px;color:var(--muted);padding:4px 8px}
+.legend i{display:inline-block;width:26px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
+
+/* Calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.cal .hd{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:center}
+.cal .hd.we{color:var(--high);font-weight:700}
+.cell{position:relative;display:flex;flex-direction:column;gap:5px;min-height:122px;padding:10px 10px 10px 15px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);transition:transform .12s}
+.cell:hover{transform:translateY(-2px)}
+.cell::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:5px;border-radius:0 4px 4px 0;background:var(--rc)}
+.cell.blank{background:transparent;border:1px dashed var(--line);box-shadow:none;min-height:0}
+.cell.today{outline:3px solid #facc15;outline-offset:1px}
+.cd{display:flex;align-items:baseline;gap:6px}
+.cd b{font-size:20px;line-height:1}
+.cd span{font-size:12px;color:var(--muted);white-space:nowrap}
+.cd em{position:absolute;top:9px;right:9px;font-style:normal;font-size:9.5px;font-weight:800;color:var(--high);text-transform:uppercase;letter-spacing:.05em}
+.ct{font-size:13px;font-weight:650;line-height:1.3}
+.cr{font-size:11.5px;color:var(--rc);font-weight:700}
+.cm{margin-top:auto;display:flex;flex-wrap:wrap;gap:4px 8px;font-size:11.5px;color:var(--muted);align-items:center}
+.cm .iss{color:var(--crit);font-weight:700}
+.int{display:inline-flex;gap:2px;vertical-align:middle}
+.int i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.int i.on{background:var(--rc,var(--high))}
+@media (max-width:760px){.cal{grid-template-columns:repeat(2,1fr)}.cal .hd,.cell.blank{display:none}}
+
+/* Daily load chart */
+.gantt{padding:14px 16px 12px}
+.gaxis,.grow{display:grid;grid-template-columns:86px 1fr 60px;align-items:center;gap:10px}
+.gaxis .ticks{position:relative;height:18px}
+.gaxis .ticks span{position:absolute;transform:translateX(-50%);font-size:11px;color:var(--muted)}
+.gaxis .r{font-size:11px;color:var(--muted);text-align:right}
+.grow{padding:4px 0;border-top:1px dashed var(--line)}
+.grow.today .gtrack{outline:2px solid #facc15}
+.glabel{font-size:12px;text-decoration:none;line-height:1.15}
+.glabel b{display:block;font-size:13px}
+.glabel span{color:var(--muted)}
+.gtrack{position:relative;height:30px;border-radius:8px;background-color:var(--soft);background-image:repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px calc(100% / 19))}
+.gb{position:absolute;top:3px;bottom:3px;border-radius:6px;font-size:10.5px;line-height:24px;color:#fff;padding:0 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--c)}
+.gb.travel{background:repeating-linear-gradient(135deg,var(--transit) 0 6px,color-mix(in srgb,var(--transit) 70%,#fff) 6px 12px)}
+.gb.meal{background:var(--meal);color:#3b2600}
+.gb.rest{background:var(--rest);color:var(--ink)}
+.gb.flex{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 28%,transparent) 0 8px,transparent 8px 16px);color:var(--ink);border:1px dashed var(--c)}
+.gb.timed{box-shadow:inset 0 0 0 2px #fde047}
+.gb.flight{background:var(--flight);color:var(--card)}
+.gb.queue{background:repeating-linear-gradient(90deg,var(--transit) 0 3px,transparent 3px 6px);color:var(--ink)}
+.gb.narrow span{display:none}
+.sunset{position:absolute;top:-3px;bottom:-3px;width:2px;background:#f97316;border-radius:2px;z-index:2}
+.gout{font-size:12.5px;font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+.gout.hot{color:var(--crit)}.gout.warm{color:var(--high)}.gout.ok{color:var(--good)}.gout.na{color:var(--muted);font-weight:500}
+.glegend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin-top:10px}
+.glegend i{display:inline-block;width:18px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
+.callout{margin-top:12px;padding:10px 14px;border-radius:10px;font-size:14px;background:color-mix(in srgb,var(--sc) 10%,transparent);border-left:4px solid var(--sc)}
+@media (max-width:700px){.gaxis,.grow{grid-template-columns:50px 1fr 42px}.gb span{display:none}}
+
+/* Day cards */
+.days{display:flex;flex-direction:column;gap:16px}
+.day{overflow:hidden;border-left:6px solid var(--rc)}
+.day.today{outline:3px solid #facc15;outline-offset:2px}
+.day>header{display:flex;gap:14px;align-items:flex-start;padding:16px 18px 12px;background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 11%,transparent),transparent 65%)}
+.dnum{flex:none;width:54px;text-align:center;border-radius:10px;background:var(--rc);color:#fff;padding:6px 0}
+.dnum span{display:block;font-size:10px;letter-spacing:.12em;opacity:.85}
+.dnum b{font-size:22px;line-height:1}
+.ddate{font-size:13px;color:var(--muted);font-weight:600}
+.day h3{margin:2px 0 7px;font-size:19px;letter-spacing:-.01em;line-height:1.25}
+.pills{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pill{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--soft);border:1px solid var(--line);white-space:nowrap}
+.pill.we{color:var(--high);border-color:color-mix(in srgb,var(--high) 40%,transparent)}
+.pill.early{color:var(--tokyo);border-color:color-mix(in srgb,var(--tokyo) 40%,transparent)}
+.pill.today{background:#facc15;color:#422006;border-color:#facc15;font-weight:800}
+.dbody{display:grid;grid-template-columns:1.1fr 1fr;border-top:1px solid var(--line)}
+.plan{padding:14px 18px;border-right:1px solid var(--line)}
+.review{padding:14px 18px;background:var(--soft)}
+@media (max-width:900px){.dbody{grid-template-columns:1fr}.plan{border-right:0;border-bottom:1px solid var(--line)}}
+.prio{margin:0 0 10px;font-weight:600}
+.tt{width:100%;border-collapse:collapse;font-size:14px}
+.tt td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tt td.t{width:112px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tt tr.p1 td{background:color-mix(in srgb,#facc15 16%,transparent)}
+.tt tr.bk1 td:last-child{font-weight:650}
+.tt tr.warn td{background:color-mix(in srgb,var(--crit) 9%,transparent)}
+.subh{margin:14px 0 6px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.plist{margin:0;padding-left:18px;font-size:14px}
+.pnotes{margin:10px 0 0;padding:8px 12px;border-radius:8px;background:var(--soft);font-size:13.5px;color:var(--muted);list-style:none}
+.pnotes li::before{content:"📝 "}
+.review h4{margin:0 0 8px;font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.tips{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.tips li{display:flex;gap:9px;font-size:14px;line-height:1.45}
+.tips .dot{flex:none;width:9px;height:9px;border-radius:50%;margin-top:6px;background:var(--sc)}
+.ref{font-size:12px;font-weight:800;color:var(--sc);text-decoration:none;white-space:nowrap}
+details.rev{margin-top:14px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+details.rev summary{cursor:pointer;padding:9px 12px;font-weight:700;font-size:14px;color:var(--good)}
+details.rev .tt{font-size:13.5px}
+details.rev .tt td.t{width:96px}
+.gain{margin:8px 12px 12px;font-size:13px;color:var(--good);font-weight:650}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:600px){.opts{grid-template-columns:1fr}}
+.icons{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+
+/* Improvements */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.filters button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer}
+.filters button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.imps{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+@media (max-width:420px){.imps{grid-template-columns:1fr}}
+.imp{padding:14px 16px 12px;border-top:4px solid var(--sc);display:flex;flex-direction:column;gap:8px}
+.imp:target{outline:3px solid var(--sc);outline-offset:2px}
+.ih{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.no{font-weight:800;color:var(--sc)}
+.sev{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--sc);background:color-mix(in srgb,var(--sc) 13%,transparent);padding:2px 8px;border-radius:999px}
+.imp h3{margin:0;font-size:16px;line-height:1.3;width:100%}
+.why{margin:0;font-size:14px;color:var(--muted)}
+.fix{margin:0;padding-left:18px;font-size:14px}
+.fix li{margin:4px 0}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.dchip{font-size:12px;text-decoration:none;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:var(--soft)}
+.dchip:hover{border-color:var(--sc)}
+
+/* Bookings */
+.tablewrap{overflow-x:auto}
+table.bk{width:100%;border-collapse:collapse;font-size:14px;min-width:860px}
+.bk th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:10px;border-bottom:2px solid var(--line)}
+.bk td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.bk tr.grp td{background:var(--soft);font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.bk tr.done td{opacity:.55}
+.bk tr.done .item{text-decoration:line-through}
+.bk input{width:18px;height:18px;accent-color:var(--good)}
+.bk .item{font-weight:650}
+.st{--x:var(--muted);font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap;display:inline-block;color:var(--x);background:color-mix(in srgb,var(--x) 15%,transparent)}
+.st.booked{--x:var(--good)}.st.urgent{--x:var(--crit)}.st.onsale{--x:var(--high)}.st.soon{--x:var(--med)}.st.opt{--x:var(--tip)}.st.req{--x:var(--med)}
+.bkbar{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:0 0 12px;font-size:14px}
+.sync{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:-4px 0 12px;font-size:13px;color:var(--muted)}
+.sync button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:4px 10px;border-radius:999px;font:inherit;font-size:12px;cursor:pointer}
+.sync .err{color:#c0392b}
+.sync input{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:4px 8px;border-radius:8px;font:inherit;font-size:13px;width:150px}
+
+/* Getting around */
+details.legs{margin-top:14px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+details.legs summary{cursor:pointer;padding:9px 12px;font-weight:700;font-size:14px;color:var(--rc,var(--tokyo))}
+.lt{width:100%;border-collapse:collapse;font-size:13.5px}
+.lt td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+.lt td.t{width:50px;color:var(--muted);font-variant-numeric:tabular-nums}
+.lt td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.lt .rt{display:block;color:var(--muted);font-size:12.5px}
+.lt .nt{display:block;color:var(--muted);font-size:12px;font-style:italic}
+.lt .pill{font-size:11px;padding:0 7px;margin-left:4px}
+table.sum{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+.sum th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:10px;border-bottom:2px solid var(--line)}
+.sum td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.sum .n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.sum tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--line)}
+.sum a{text-decoration:none;font-weight:650}
+.sech{font-size:19px;margin:28px 0 6px;letter-spacing:-.01em}
+.foot-note{font-size:12.5px;color:var(--muted);margin:8px 2px 0}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.pkc{padding:14px 16px;border-top:4px solid var(--sc)}
+.pkc h4{margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--sc)}
+.pkc b.big{display:block;font-size:24px;letter-spacing:-.02em}
+.pkc span{display:block;font-size:13px;color:var(--muted)}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.qgrid{grid-template-columns:1fr}}
+.qgrid .card{padding:14px 16px}
+.qgrid h4{margin:0 0 8px;font-size:15px}
+.qt{width:100%;border-collapse:collapse;font-size:13.5px}
+.qt td,.qt th{padding:6px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.qt th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.qt .n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.qt tfoot td{font-weight:800;border-bottom:0}
+.qt .nt{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.steps{margin:8px 0 0;padding-left:20px;font-size:14px}
+.steps li{margin:4px 0}
+
+/* Guides */
+.guides{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;align-items:start}
+.guide{padding:14px 18px 16px}
+.guide h3{margin:0 0 4px;font-size:17px}
+.guide .why{margin:0 0 6px}
+.guide h4{margin:14px 0 4px;font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.guide ol,.guide ul{margin:0;padding-left:20px;font-size:14px}
+.guide li{margin:5px 0}
+
+/* Checklist */
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.cg{padding:14px 16px}
+.cg h3{font-size:15px;margin:0 0 6px}
+.cg label{display:flex;gap:9px;align-items:flex-start;padding:5px 0;font-size:14px;cursor:pointer}
+.cg input{margin-top:3px;width:16px;height:16px;accent-color:var(--good);flex:none}
+.cg label.done span{text-decoration:line-through;color:var(--muted)}
+.progress{height:8px;border-radius:999px;background:var(--line);overflow:hidden;margin:4px 0 14px}
+.progress i{display:block;height:100%;background:var(--good);width:0;transition:width .3s}
+
+footer{padding:26px 0 40px;color:var(--muted);font-size:13px}
+footer ul{padding-left:18px}
+
+@media print{
+  .nav,.filters,.hero .sun,.fuji,.btn{display:none!important}
+  .hero{background:none;color:var(--ink);padding:10px 0}
+  .fl{border-color:var(--line)}
+  .card{box-shadow:none;break-inside:avoid}
+  .day{break-inside:auto}
+  body{font-size:12px}
+}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker">Itinerary visualisation &amp; review · prepared 10 Nov 2026 · updated 11 Nov</p>
+    <h1>Japan 🇯🇵<span>Tue 24 Nov – Mon 7 Dec 2026 · 14 days · Tokyo base: a friend’s place in Nishikasai</span></h1>
+    <p class="sub">Tokyo · Hakone · Mt Fuji (Kawaguchiko + Fuji-Q Highland) · Kyoto · Nara · Osaka (USJ) · optional Kamakura</p>
+    <div class="flights">
+      <div class="fl">🧍 <b>You</b> · AI-356 from Mumbai · land HND T3 · Tue 24 Nov 04:55</div>
+      <div class="fl">🧍 <b>Divyank</b> · land NRT · Thu 26 Nov 15:20</div>
+      <div class="fl">✈️ <b>You</b> · AI-355 to Mumbai · HND T3 · Mon 7 Dec 10:50</div>
+    </div>
+    <div class="count" id="countdown"></div>
+    <div class="deadline" id="deadline"></div>
+  </div>
+  <svg class="fuji" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M380,120 L640,32 Q720,2 800,32 L1060,120 Z" fill="rgba(255,255,255,.16)"/>
+    <path d="M640,32 Q720,2 800,32 L782,42 L762,34 L744,46 L724,34 L704,46 L686,35 L662,44 Z" fill="rgba(255,255,255,.88)"/>
+    <path d="M0,120 L0,100 C300,80 520,108 760,98 C1000,88 1200,104 1440,92 L1440,120 Z" style="fill:var(--bg)"/>
+  </svg>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#overview">Overview</a>
+    <a href="#route">Route</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#load">Daily load</a>
+    <a href="#days">Day by day</a>
+    <a href="#transit">Getting around</a>
+    <a href="#improvements">Improvements</a>
+    <a href="#bookings">Bookings</a>
+    <a href="#guides">Guides</a>
+    <a href="#checklist">Checklist</a>
+    <span class="sp"></span>
+    <button class="btn" id="todayBtn" hidden>📍 Today</button>
+    <button class="btn" onclick="window.print()">🖨️ Print</button>
+  </div>
+</nav>
+
+<main>
+<section id="overview"><div class="wrap">
+  <h2>At a glance</h2>
+  <p class="lead">Your plan is visualised below as it stands. Review notes are colour-coded: <b style="color:var(--crit)">critical</b> (act this week), <b style="color:var(--high)">high</b> (fix before you fly), <b style="color:var(--med)">medium</b> (worth adjusting), <b style="color:var(--tip)">tip</b>, and <b style="color:var(--good)">working well</b>.</p>
+  <div class="stats" id="stats"></div>
+  <div class="grid2">
+    <div class="card panel crit"><h3>🔴 Do this week</h3><ul class="act" id="actnow"></ul></div>
+    <div class="card panel good"><h3>✅ What already works well</h3><ul class="strong" id="strengths"></ul></div>
+  </div>
+</div></section>
+
+<section id="route"><div class="wrap">
+  <h2>Route</h2>
+  <p class="lead">Schematic map, roughly to scale. Tokyo is the hub for three day trips, and one Shinkansen loop covers Kansai.</p>
+  <div class="card mapcard">
+    <svg class="map" viewBox="0 0 1000 330" role="img" aria-label="Route map: Tokyo base with day trips to Hakone, Kawaguchiko and Kamakura; Shinkansen to Kyoto, then Nara and Osaka, and back to Tokyo">
+      <rect x="0" y="0" width="1000" height="330" rx="12" style="fill:var(--soft)"/>
+      <text class="sea" x="250" y="52">SEA OF JAPAN</text>
+      <text class="sea" x="700" y="316">PACIFIC OCEAN</text>
+      <!-- Tokaido Shinkansen -->
+      <polyline points="122,276 132,262 175,218 263,158 360,186 500,280 609,226 654,192 735,168 852,88" fill="none" stroke="#475569" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline points="122,276 132,262 175,218 263,158 360,186 500,280 609,226 654,192 735,168 852,88" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray="6 6" opacity=".75"/>
+      <text class="sm" x="372" y="176">Nagoya</text>
+      <text class="sm" x="744" y="188">Odawara</text>
+      <text class="sm" x="330" y="318">🚅 Tokaido Shinkansen · 1 Dec ▶ Kyoto · 4 Dec ◀ Tokyo</text>
+      <!-- Fuji -->
+      <path d="M626,170 L650,134 L674,170 Z" fill="#64748b"/>
+      <path d="M642,146 L650,134 L658,146 L654,143 L650,148 L646,143 Z" fill="#fff"/>
+      <text class="sm" x="606" y="186">Mt Fuji</text>
+      <text class="sm" x="618" y="140" text-anchor="end" font-style="italic">Seat E → Fuji view (~40 min out of Tokyo)</text>
+      <!-- Day trips -->
+      <path d="M852,88 Q770,40 660,110" fill="none" stroke="var(--fuji)" stroke-width="3" stroke-dasharray="7 6"/>
+      <path d="M735,168 L712,198" fill="none" stroke="var(--fuji)" stroke-width="3" stroke-dasharray="7 6"/>
+      <path d="M852,88 Q842,136 800,156" fill="none" stroke="var(--kamakura)" stroke-width="3" stroke-dasharray="3 5"/>
+      <!-- Airports -->
+      <path d="M852,88 L835,130" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="2 4"/>
+      <path d="M852,88 L940,62" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="2 4"/>
+      <!-- Kansai -->
+      <path d="M175,218 L187,284" fill="none" stroke="var(--nara)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M187,284 L122,276" fill="none" stroke="var(--osaka)" stroke-width="4" stroke-linecap="round"/>
+      <!-- Nodes -->
+      <circle cx="852" cy="88" r="12" fill="none" stroke="var(--tokyo)" stroke-width="2"/>
+      <circle cx="852" cy="88" r="8" fill="var(--tokyo)" stroke="#fff" stroke-width="2"/>
+      <text class="lbl" x="852" y="64" text-anchor="middle">TOKYO · Nishikasai</text>
+      <text class="sm" x="852" y="50" text-anchor="middle">base · 24 Nov–1 Dec, 4–7 Dec</text>
+      <circle cx="835" cy="130" r="6" fill="#64748b" stroke="#fff" stroke-width="2"/>
+      <text class="sm" x="846" y="134">HND · 24 Nov in · 7 Dec out</text>
+      <circle cx="940" cy="62" r="6" fill="#64748b" stroke="#fff" stroke-width="2"/>
+      <text class="sm" x="940" y="86" text-anchor="middle">NRT · 26 Nov</text>
+      <circle cx="660" cy="110" r="7" fill="var(--fuji)" stroke="#fff" stroke-width="2"/>
+      <text class="lbl" x="660" y="96" text-anchor="middle">Kawaguchiko</text>
+      <text class="sm" x="660" y="82" text-anchor="middle">Mon 30 Nov · + Fuji-Q Highland</text>
+      <circle cx="712" cy="198" r="7" fill="var(--fuji)" stroke="#fff" stroke-width="2"/>
+      <text class="lbl" x="712" y="222" text-anchor="middle">Hakone</text>
+      <text class="sm" x="712" y="236" text-anchor="middle">Sun 29 Nov · day trip</text>
+      <circle cx="800" cy="156" r="6" fill="var(--kamakura)" stroke="#fff" stroke-width="2"/>
+      <text class="sm" x="812" y="176">Kamakura · 5 Dec (option)</text>
+      <circle cx="175" cy="218" r="9" fill="var(--kyoto)" stroke="#fff" stroke-width="2"/>
+      <text class="lbl" x="160" y="208" text-anchor="end">Kyoto</text>
+      <text class="sm" x="160" y="194" text-anchor="end">1–2 Dec · LOISIR Toji</text>
+      <circle cx="187" cy="284" r="8" fill="var(--nara)" stroke="#fff" stroke-width="2"/>
+      <text class="lbl" x="200" y="290">Nara</text>
+      <text class="sm" x="200" y="304">3 Dec (morning)</text>
+      <circle cx="122" cy="276" r="9" fill="var(--osaka)" stroke="#fff" stroke-width="2"/>
+      <text class="lbl" x="108" y="272" text-anchor="end">Osaka · USJ</text>
+      <text class="sm" x="30" y="304">3–4 Dec · New Osaka Hotel</text>
+    </svg>
+    <div class="legend">
+      <span><i style="border-color:#475569"></i>Shinkansen</span>
+      <span><i style="border-color:var(--fuji);border-top-style:dashed"></i>Fuji-area day trips</span>
+      <span><i style="border-color:var(--kamakura);border-top-style:dotted"></i>Optional day trip</span>
+      <span><i style="border-color:var(--nara)"></i>Kyoto → Nara</span>
+      <span><i style="border-color:var(--osaka)"></i>Nara → Osaka</span>
+      <span><i style="border-color:#94a3b8;border-top-style:dotted"></i>Airport transfer</span>
+    </div>
+  </div>
+</div></section>
+
+<section id="calendar"><div class="wrap">
+  <h2>Calendar</h2>
+  <p class="lead">Each day shows its region colour and intensity (●). 🌅 marks a departure before 07:00 and ⚠ counts open issues. Weekend days are flagged because crowds are heavier. Click a day for details.</p>
+  <div class="cal" id="cal"></div>
+</div></section>
+
+<section id="load"><div class="wrap">
+  <h2>Daily load</h2>
+  <p class="lead">Time out of the hotel each day, from 04:00 to 23:00. The orange line is sunset (~16:30 Tokyo, ~16:45 Kansai). Timed tickets have a yellow outline. Hover a block for details.</p>
+  <div class="card gantt" id="gantt"></div>
+</div></section>
+
+<section id="days"><div class="wrap">
+  <h2>Day by day</h2>
+  <p class="lead">Left: your plan, as written. Right: review notes; <b>#</b> links jump to the full improvement. Green “Suggested timeline” boxes show a concrete rework where it helps.</p>
+  <p class="icons">🥇 must-do early · ✅ booked · 🕓 requested, awaiting confirmation · 🎟️ needs booking · ⚠️ hard stop · 🌇 sunset</p>
+  <div class="days" id="daylist"></div>
+</div></section>
+
+<section id="transit"><div class="wrap">
+  <h2>Getting around</h2>
+  <p class="lead">Every station-to-station leg in your plan, looked up on Jorudan’s route planner for the planned date and time (checked 11 Nov 2026). Legs from or to your friend’s place run door to door, including the walk to Nishi-kasai Station; other legs run station to station. Times include changes and waits, but not walking to each sight. Distances are railway fare kilometres plus that walk (≈ road distance for buses). Fares are per adult. Each day card lists its legs under “🚇 Station to station”.</p>
+  <div class="callout tip" style="margin:0 0 14px">🏠 <b>Your friend’s place (from 26 Nov):</b> Nishikasai, Edogawa-ku (the full address for taxis is in your offline notes, not on this public page). Nishi-kasai Station (Tozai Line) is about 350 m away, a 5 min walk; legs from there allow 7 min from the door to the platform. Kasai Station (airport buses) is 1.75 km, a 22 min walk.</div>
+  <div class="stats" id="tstats"></div>
+  <div class="card tablewrap" style="margin-top:14px"><table class="sum" id="tsum"></table></div>
+  <p class="foot-note">Totals include the optional legs (Ueno on 27 Nov, Osaka Castle on 3 Dec, Option A on 5 Dec) and the reference airport route on 24 Nov. Romancecar seats, highway buses and the Hakone loop are at full price here; the Hakone Freepass covers most of 29 Nov.</p>
+  <h3 class="sech">💴 JR Pass or individual tickets?</h3>
+  <div id="quote"></div>
+</div></section>
+
+<section id="improvements"><div class="wrap">
+  <h2>Improvement areas</h2>
+  <p class="lead">Consolidated review, sorted by urgency. Facts were checked on 10 Nov 2026 (see the footer); re-check official sites a few days before each date.</p>
+  <div class="filters" id="filters"></div>
+  <div class="imps" id="imps"></div>
+</div></section>
+
+<section id="bookings"><div class="wrap">
+  <h2>Booking tracker</h2>
+  <p class="lead">Your final checklist plus items it's missing. Sale times are shown in JST and India time (IST = JST − 3 h 30 m). Ticks are saved in this browser, and after you log in (below) they also sync to your GitHub repo, so every device sees them.</p>
+  <div class="bkbar" id="bkbar"></div>
+  <div class="sync" id="sync"></div>
+  <div class="card tablewrap"><table class="bk" id="bk"></table></div>
+</div></section>
+
+<section id="guides"><div class="wrap">
+  <h2>Guides: Suica, cash, eSIM and departure from India</h2>
+  <p class="lead">Set-up steps for both of you, checked on 11 Nov 2026 against official sources where they were reachable (see the footer).</p>
+  <div class="guides">
+    <article class="card guide" id="g-suica">
+      <h3>💳 Suica / IC card</h3>
+      <p class="why">Suica isn’t an unlimited pass. It’s a prepaid tap card: you load yen and each ride deducts its fare. It works on the metro, JR local trains, private railways and buses in Tokyo and Kansai, and pays at convenience stores, vending machines and lockers. Your IC legs from 27 Nov to 6 Dec add up to about <b id="icbudget">—</b> per person (<span id="icbudget2">—</span> without Kamakura).</p>
+      <h4>Your pick with the Scapia card: TOURIST PASMO (any phone)</h4>
+      <p class="why">The visitor version of PASMO, Suica’s twin card. It works everywhere Suica does, and needs no app.</p>
+      <ol>
+        <li>After customs at <b>HND T3</b>, go to the <b>2F arrival lobby</b>. Use the travellers’ ticket machine next to the Keikyu Tourist Information Center, beside the Keikyu ticket gates, or ask at the counter.</li>
+        <li>Choose <b>¥10,000</b> (options run ¥1,000–10,000) and pay with your Scapia Visa, with no forex markup. That covers most of your fares; one ¥5,000 cash top-up later should see you through.</li>
+        <li>If you’ll meet Divyank at Narita, buy his card at the same time. Otherwise he can buy one at the Skyliner &amp; Keisei Information Center in the Narita T1/T2 station for ¥2,000.</li>
+        <li>It’s valid for 28 days, with no deposit and no refunds. Keep the reference paper it comes with.</li>
+        <li>Top-ups are <b>cash only</b>. They’re free at 7-Eleven ATMs (“Recharge E-money”, ¥1,000 steps) or at any station ticket machine, up to a maximum balance of ¥20,000.</li>
+      </ol>
+      <h4>Alternative · iPhone: Welcome Suica Mobile (JR East app)</h4>
+      <ul>
+        <li>Needs iOS 17.2 or later. You issue a Suica in the app with a “secret keyword”, with no deposit or fee.</li>
+        <li>Top-ups work only through <b>Apple Pay</b>. Apple’s India page names Axis Bank cards, not Federal Bank, so your Scapia card probably won’t add to Wallet, but your <b>Flipkart Axis</b> card should. Each top-up then costs about 3% extra (Axis’s 3.5% foreign fee plus GST, minus 1% cashback).</li>
+        <li>The balance expires 180 days after issue and can’t be refunded. Set it as the Express Transit card and carry the power bank.</li>
+      </ul>
+      <h4>Using it</h4>
+      <ul>
+        <li>Tap in and out at every gate. On buses, tap the reader as signed (Kyoto city buses are a flat ¥230).</li>
+        <li>Short on balance at the exit? Top up at the fare-adjustment machine beside the gates.</li>
+        <li>Paid separately: Shinkansen (Smart EX), Romancecar seat fees, highway buses, and the Hakone ropeway and cruise (Freepass).</li>
+        <li>Spend what’s left at a convenience store or the airport before you fly home.</li>
+      </ul>
+    </article>
+    <article class="card guide" id="g-cash">
+      <h3>💴 Cash and cards (Scapia Visa)</h3>
+      <p class="why">Your Scapia Federal credit card charges <b>no forex markup abroad</b>, so pay by card wherever Japan takes it. Keep cash for what doesn’t take cards: many temple counters, market stalls, small eateries and IC top-ups.</p>
+      <h4>How much yen to carry</h4>
+      <table class="qt"><tbody>
+        <tr><td>IC top-up after the ¥10,000 loaded by card</td><td class="n">¥5,000</td></tr>
+        <tr><td>Temple and castle entry (8–9 paid sights, often cash-only)</td><td class="n">¥6,000–8,000</td></tr>
+        <tr><td>Street food, market stalls, small eateries (≈ ¥1,000 a day)</td><td class="n">¥12,000–15,000</td></tr>
+        <tr><td>Lockers, charms and small extras</td><td class="n">¥2,000–3,000</td></tr>
+      </tbody><tfoot><tr><td>Carry per person</td><td class="n">¥30,000</td></tr>
+        <tr><td>For the two of you</td><td class="n">¥60,000 (≈ <span id="cashinr">—</span>)</td></tr></tfoot></table>
+      <h4>Getting yen in India</h4>
+      <ol>
+        <li>Order 2–3 days before you fly from any forex-enabled branch of your bank in the city you’re in (it doesn’t have to be your home branch), or from an RBI-authorised money changer (many take online orders and deliver to your door). Branches don’t always stock yen, and airport counters have the worst rates.</li>
+        <li>Take your passport, Japan visa, air ticket and PAN card. RBI makes PAN mandatory for every forex purchase.</li>
+        <li>Compare two or three quotes. They’re usually per ¥100: the reference is about ₹59.4 per ¥100, and dealers add a few percent on top.</li>
+        <li>Pay by UPI or bank transfer (cash is fine below ₹50,000). Expect a small GST line of about ₹65.</li>
+        <li>For ¥60,000, ask for 4 × ¥5,000 and 40 × ¥1,000. Stalls and temple counters are easier with small notes than with ¥10,000s.</li>
+        <li>Count the notes on delivery. Both the old and the new (2024) designs are valid in Japan.</li>
+      </ol>
+      <h4>In Japan</h4>
+      <ul>
+        <li>Pay with the Scapia card (tap or insert) at convenience stores, restaurants, hotels, USJ, Skytree, shops and taxis. If a terminal offers to charge in rupees, choose <b>yen</b>, because the rupee option adds the terminal’s own markup.</li>
+        <li>Need more cash? Use your <b>Axis debit card</b> at a 7-Eleven ATM (also at HND and NRT). Visa and Mastercard work 24 h; a RuPay card only works if it also carries a JCB or Discover logo. Axis charges ₹125 per withdrawal plus a 3.5% markup, with GST on top: about ₹640 (≈ 5%) on ¥20,000, plus 7-Eleven’s own fee shown on screen. Take ¥20,000–30,000 at a time (maximum ¥100,000).</li>
+        <li>At the ATM step “select the currency used to calculate your billing amount”, choose <b>Japanese yen</b>. Rupees adds the ATM’s conversion rate plus Axis’s separate 3.5% conversion fee.</li>
+        <li>Avoid the Scapia credit card at ATMs: it counts as a <b>cash advance</b>, with a fee per its MITC, interest from the day you withdraw, and no rewards.</li>
+        <li>Keep the <b>Flipkart Axis</b> credit card as a backup only. Axis adds a 3.5% foreign transaction fee plus GST (≈ 4.1%), and the same 3.5% on rupee payments to merchants registered abroad, against just 1% cashback. At ATMs it’s a cash advance: 2.5% (minimum ₹500) plus GST, and 3.75% a month interest from day one.</li>
+        <li>Spend your coins before you leave: money changers in India buy back notes, not coins. You can sell back leftover notes or keep them for a future trip.</li>
+      </ul>
+      <h4>Before you fly (Scapia app)</h4>
+      <ul>
+        <li>Turn on <b>international usage</b> and online payments, and set the card <b>PIN</b> (needed at ATMs and some chip terminals).</li>
+        <li>In the Axis Mobile app, switch on international ATM use for your debit card, as your cash backup. It’s off by default.</li>
+        <li>Keep your Indian SIM reachable for OTPs on online bookings (Smart EX, the Freepass, buses).</li>
+        <li>Save Federal Bank’s helpline for card problems abroad, <b>+91-484-6925000</b>, and carry a second card as a backup.</li>
+      </ul>
+    </article>
+    <article class="card guide" id="g-esim">
+      <h3>📶 eSIM from India (both phones)</h3>
+      <p class="why">A data-only Japan eSIM is usually much cheaper per GB than an Indian roaming pack. Set it up at home and switch it on when you land.</p>
+      <h4>Before you fly</h4>
+      <ol>
+        <li>Check the phone supports eSIM and is unlocked. iPhone: Settings → General → About → “Carrier Lock” should say <i>No SIM restrictions</i>. Android: Settings → Connections → SIM manager should offer “Add eSIM”.</li>
+        <li>Buy a Japan data plan valid for at least 15 days (24 Nov–7 Dec). Around 1 GB a day covers maps, translation and photos. Compare the price per GB, validity, hotspot use and which Japanese network it runs on (docomo, au or SoftBank).</li>
+        <li>Pay with your Scapia card (no forex markup) after switching on international online use in the Scapia app. Other Indian cards usually add a 2–3.5% markup.</li>
+        <li>Install it on home Wi-Fi from the QR code or the provider’s app. Label it “Japan”, keep your Indian SIM as the default for calls and SMS, and switch the Japan line off until you land. Don’t delete it: many eSIMs can’t be reinstalled.</li>
+        <li>Turn on international roaming for calls and SMS on your Indian number so bank OTPs still reach you. Ask your operator what incoming SMS costs abroad.</li>
+      </ol>
+      <h4>On landing at HND</h4>
+      <ol>
+        <li>Switch the Japan line on, choose it for mobile data, and turn <b>Data Roaming on</b> for that line.</li>
+        <li>Turn data roaming <b>off</b> on the Indian SIM, and turn off “Allow mobile data switching”, to avoid rupee charges.</li>
+        <li>Test Google Maps. No data? Toggle Airplane mode, then check the provider’s APN settings.</li>
+      </ol>
+      <p class="foot-note">Data-only eSIMs don’t include a Japanese phone number, so use WhatsApp or FaceTime for calls.</p>
+    </article>
+    <article class="card guide" id="g-depart">
+      <h3>🛫 Departure day in India (Mon 23 Nov)</h3>
+      <p class="why">You land at HND T3 at 04:55 on Tue 24 Nov, so you leave India on the evening of the 23rd.</p>
+      <h4>Before leaving home</h4>
+      <ul>
+        <li>Web check-in (usually opens 24–48 h before) and the boarding pass on your phone.</li>
+        <li>Documents: passport, Japan visa (for an eVISA, have the visa issuance notice ready on your phone as your eVISA email instructs), e-ticket, first hotel booking, return ticket and insurance.</li>
+        <li>Money: ¥30,000 each in cash (see “Cash and cards”), and the Scapia card with international use on. RBI limits: up to USD 3,000-equivalent in foreign notes per trip, and up to ₹25,000 in rupees.</li>
+        <li>Cabin bag: power bank and spare batteries (never in checked bags), liquids of 100 ml or less in one 1-litre clear bag, and medicines in their original packs with the prescription. Japan bans some cold and allergy medicines with stimulants (such as pseudoephedrine) and limits codeine, so check before packing.</li>
+        <li>Visit Japan Web: finish the immigration and customs steps and screenshot the QR code.</li>
+      </ul>
+      <h4>At the airport (arrive 3 h before departure)</h4>
+      <ol>
+        <li><b>Terminal entry:</b> show your passport and ticket at the entry gate.</li>
+        <li><b>Check-in and bag drop</b> (counters usually close 60–75 min before departure): show your passport and visa, and check the bag tags say HND.</li>
+        <li><b>Optional customs stop:</b> declare high-value items you’re taking out (camera, laptop, jewellery) at the customs desk before immigration, so they aren’t questioned when you return.</li>
+        <li><b>Emigration:</b> Indian-passport counters, or the e-gates if you’re enrolled in Fast Track Immigration (FTI-TTP). No departure card is needed.</li>
+        <li><b>Security:</b> laptop, tablet, liquids and power bank out unless told otherwise.</li>
+        <li><b>Airside:</b> eat and refill water, then be at the gate 45 min before departure (boarding usually closes 20–25 min before).</li>
+      </ol>
+      <h4>Last half-hour on airport Wi-Fi</h4>
+      <ul>
+        <li>Offline Google Maps for Tokyo, the HND T3 → hotel route saved, and Smart EX and GO logged in.</li>
+        <li>Indian SIM: data roaming off. Japan eSIM: installed and still switched off.</li>
+        <li>On board: set your watch to JST (IST + 3 h 30 min) and sleep, because the day starts at 04:55.</li>
+      </ul>
+      <h4>After landing at HND T3</h4>
+      <ol>
+        <li>Immigration and customs with the Visit Japan Web QR code.</li>
+        <li>Switch on the eSIM and buy your TOURIST PASMO on 2F with the Scapia card.</li>
+      </ol>
+    </article>
+  </div>
+</div></section>
+
+<section id="checklist"><div class="wrap">
+  <h2>Pre-trip checklist</h2>
+  <p class="lead">Small things that make the plan run smoothly. Ticks are saved in this browser and sync to GitHub along with the booking ticks.</p>
+  <div class="progress"><i id="chkbar"></i></div>
+  <div class="checks" id="checks"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap" id="foot"></div></footer>
+
+<noscript><p style="padding:20px;text-align:center">This page needs JavaScript to draw the calendar, chart and day cards.</p></noscript>
+<script>
+"use strict";
+const ARRIVE_UTC = Date.parse("2026-11-23T19:55:00Z");   // 24 Nov 04:55 JST
+const DEPART_UTC = Date.parse("2026-12-07T01:50:00Z");   // 7 Dec 10:50 JST
+
+const SEV = {
+  critical:{label:"Critical · act this week", short:"Critical", cls:"crit", icon:"🔴"},
+  high:{label:"High · fix before you fly", short:"High", cls:"high", icon:"🟠"},
+  medium:{label:"Medium · worth adjusting", short:"Medium", cls:"med", icon:"🟡"},
+  tip:{label:"Tip · nice to have", short:"Tip", cls:"tip", icon:"🔵"},
+  good:{label:"Working well", short:"Good", cls:"good", icon:"✅"}
+};
+const REG = {tokyo:"Tokyo", fuji:"Hakone & Fuji", kyoto:"Kyoto", nara:"Nara → Osaka", osaka:"Osaka → Tokyo", kamakura:"Kamakura / Tokyo"};
+
+/* ---------- Improvement areas (ordered by urgency) ---------- */
+const IMPS = [
+ {id:"shibuya-sky", sev:"critical", days:["d28"],
+  title:"Shibuya Sky: be online at 20:25 IST on Fri 13 Nov",
+  why:"Tickets go on sale 14 days ahead at 00:00 JST. For 28 Nov that is 14 Nov 00:00 JST = <b>13 Nov 20:30 IST</b>. Your “book 13 Nov” note is correct only in India time. Sunset slots usually sell out within minutes.",
+  fix:["Create the account and save card details beforehand, then refresh at exactly 20:30 IST.",
+       "Aim for a 15:40 entry (sunset ≈ 16:28). 15:20 or 16:00 are fine backups.",
+       "If you miss it, Skytree (booked) already gives you a sunset the evening before. On 28 Nov, use the free Tokyo Metropolitan Government Building observatory in Shinjuku for a night view."]},
+ {id:"book-now", sev:"critical", days:["d29","d30","d4"],
+  title:"10 of 15 bookings are still open, and most are already on sale",
+  why:"Sumo, Skytree, teamLab and the 1 Dec Shinkansen are confirmed, and Pokémon Café is with Reserve-Japan. JR seats go on sale 1 month ahead at 10:00 JST, so the 4 Dec Shinkansen has been bookable since 4 Nov. USJ Express Passes are date-specific and sell out in the Christmas season, and teamLab evening slots fill up.",
+  fix:["This week: a USJ Studio Pass and an Express Pass that <b>includes guaranteed Super Nintendo World entry</b> (4 Dec).",
+       "The 4 Dec Shinkansen in the <b>Smart EX</b> app (accepts foreign cards; changes are free before departure). A JR Pass doesn’t pay off on this plan (see Getting around).",
+       "Highway buses for 30 Nov (Shinjuku 07:55 → Fujisan; Fuji-Q Highland 17:08 → Shinjuku). Hakone transport plus the digital Hakone Freepass (29 Nov)."]},
+ {id:"pokemon", sev:"high", days:["d6"],
+  title:"Pokémon Café: requested through Reserve-Japan, not confirmed yet",
+  why:"Reserve-Japan works on a best-effort basis. Their terms don’t guarantee a seat, but you get a 100% refund if they can’t secure one. They also can’t pick a specific time slot, so the time is whatever they manage to get on your date. All December dates opened on the official site on 1 Nov at 18:00 JST (14:30 IST), and slots usually sell out within minutes.",
+  fix:["Watch for their confirmation (check spam). Then check the date, time and party size (2) under “Confirm Your Reservation” on the official reservation site. The café doesn’t allow changes to the number of people after booking.",
+       "Their order form takes up to three dates. If you gave only 6 Dec, ask them to add 5 Dec (your easy day) as a backup.",
+       "Once you have the time, fit the Palace, Ginza and Akihabara around it. Be at the café (Nihombashi Takashimaya S.C. East Building, 5F) 15 min early. Bookings are cancelled 10 min after the start time if you haven’t called, and seating is 90 min.",
+       "If they can’t get a slot: Pokémon Center Tokyo DX is in the same building and needs no booking, and Pokémon Center Skytree Town (Solamachi) is on your 27 Nov route. Use 11:30–13:00 for lunch in Nihombashi and give Ginza or Akihabara more time."]},
+ {id:"rush-luggage", sev:"high", days:["d7"],
+  title:"Rush-hour Tozai Line with suitcases (Mon 7 Dec 06:45)",
+  why:"Westbound from Nishikasai into central Tokyo, the Tozai Line is one of the city’s most crowded commuter routes, peaking around 07:30–09:00 on weekdays. The airport run is on a Monday morning with your large bags. (1 Dec is fine now: you travel with cabin bags only.)",
+  fix:["Take a taxi to HND T3 (about 23.5 km via the Bayshore Route, 35–45 min on a Monday morning, ≈ ¥10–12k incl. tolls; book in the GO app), or the airport bus from <b>Kasai Station</b>. Kasai is 1.75 km from your friend’s place (a 22 min walk), or one Tozai stop east, against the rush. Check the timetable on limousinebus.co.jp.",
+       "If you take the train anyway, avoid 07:30–09:00 and board at the rear end. On weekday mornings the front car is women-only until Ōtemachi."]},
+ {id:"fuji-days", sev:"high", days:["d29","d30"],
+  title:"Two weather-dependent Fuji trips on back-to-back days (Sun 29 & Mon 30 Nov)",
+  why:"Both days depend on seeing Fuji, and each involves ~4.5–5 h of round-trip travel from Nishikasai. One bad forecast could cost both days. Hakone also falls on a Sunday, with queues at Hakone-Yumoto, the ropeway and the Peace Torii.",
+  fix:["Book the Romancecar and both buses now: cancelling costs only ~¥100 a seat. Check the cloud forecast and the Fuji live webcams the evening before, and if it looks cloudy, swap with 5 Dec. Buy the Hakone Freepass and the Fuji-Q pass only once the forecast looks fine (on Sat 5 Dec the park is busier and passes cost ¥7,900 / ¥6,000).",
+       "Hakone via <b>Tokyo Station → Odawara Shinkansen</b> (Kodama/Hikari ~35–40 min) instead of Shinjuku + Romancecar. From east-Tokyo Nishikasai you leave ~45 min later for the same 08:26 arrival and get home ~15 min sooner, and unreserved cars mean the return isn’t tied to one train. It costs about ¥3,070 more per person (¥12,978 vs ¥9,904 including the Freepass and metro).",
+       "Alternative: one night at a Kawaguchiko ryokan. Sunrise is the most reliable time to see Fuji, and it saves one Tokyo round trip."]},
+ {id:"illumination", sev:"high", days:["d1","d2"],
+  title:"Kiyomizu-dera’s night illumination ends 30 Nov, the day before you arrive",
+  why:"Reported 2026 dates: Kiyomizu-dera 21–30 Nov. <b>Kōdai-ji</b> runs ~23 Oct–13 Dec (lights from 17:00) and <b>Tō-ji</b> ~31 Oct–13 Dec (18:00–21:30). Tō-ji is next to your LOISIR hotel.",
+  fix:["1 Dec: stay at Kōdai-ji past 17:00 for the light-up. It’s already on your route.",
+       "1 or 2 Dec evening: the Tō-ji light-up (five-storey pagoda and autumn leaves), a 5-minute walk from the hotel, last entry ≈ 21:00.",
+       "Re-check the official dates the week before."]},
+ {id:"nishiki", sev:"high", days:["d1","d2"],
+  title:"Nishiki Market falls on a Wednesday (2 Dec), and that afternoon doubles back",
+  why:"Many Nishiki shops close on Wednesdays, and most stalls shut around 17:00–18:00. Kinkaku-ji → Nishiki → Nijō also zig-zags across the city.",
+  fix:["Move Nishiki to <b>1 Dec lunch</b> (12:30–13:45). Grazing there doubles as lunch, and Kiyomizu-dera is a 15-minute taxi away.",
+       "2 Dec afternoon: Kinkaku-ji → Nijō Castle → hotel rest → Tō-ji light-up. Keep Nijō on Wednesday, because its Ninomaru Palace closes on Tuesdays in December.",
+       "Take taxis (GO app) between Arashiyama, Kinkaku-ji and Nijō. Buses can take 45–60 min in foliage season."]},
+ {id:"usj", sev:"high", days:["d4","d5"],
+  title:"4 Dec is a 16.5-hour day with a hard stop at 18:00",
+  why:"Wake at 05:45 and get back to Nishikasai around 22:45. The 18:00 hard stop cuts out the evening park (Christmas lights) and still leaves little slack if bags need collecting.",
+  fix:["Make sure the Express Pass guarantees a Super Nintendo World entry time. If not, claim an Area Timed Entry ticket in the USJ app as soon as you are through the gates. The Donkey Kong Country mine-cart ride has its own long queue, so check whether your pass covers it.",
+       "Book a ~19:30 Nozomi in Smart EX and move it for free if the day runs long or short.",
+       "Option: add one more Osaka night and return on the morning of 5 Dec. You’d lose Kamakura but get the USJ evening and avoid the 22:45 finish."]},
+ {id:"arrival", sev:"medium", days:["d24","d26"],
+  title:"Arrival: hostel check-in is 10 h after landing, and you move to your friend’s place on 26 Nov",
+  why:"You land at 04:55 after an overnight flight, but check-in is usually 15:00. Your 24–25 Nov stay is booked at Wise Owl Hostels River Tokyo, and you move to your friend’s place in Nishikasai on the afternoon Divyank lands.",
+  fix:["Booked: <b>Wise Owl Hostels River Tokyo</b>, 1-23-3 Mukōjima (4 min from Honjo-Azumabashi exit A4), mixed dorm for the nights of 24–25 Nov. Check-in 15:00–23:00, check-out 10:00.",
+       "On arrival (~07:00): leave your bag at the desk, then freshen up. Izumi Tenku no Yu, the onsen connected to HND T3, is ≈ ¥4,800 (baths close 10:00–12:30); Hotel Plus Hostel Asakusa’s day bath across the river is ¥700 (06:00–11:00). Rest in a café until 15:00.",
+       "26 Nov: check out by 10:00 and take the 10:30 Toei Asakusa Line from Honjo-Azumabashi, changing to the Tozai Line at Nihombashi, to reach your friend’s place by ~11:05."]},
+ {id:"fatigue", sev:"medium", days:["d27","d28","d29","d30","d1","d2","d3","d4"],
+  title:"Eight days in a row out of the hotel for 12+ hours (27 Nov–4 Dec)",
+  why:"These days average ~14 h out, with six departures before 07:00 and no rest day until 5 Dec. Energy usually drops by day 4–5 of a run like this.",
+  fix:["28 Nov now leaves at 06:20 instead of 06:00, and Meiji Shrine is still calm then.",
+       "Build in a hotel break on 2 Dec afternoon (the hotel is next to Tō-ji anyway).",
+       "Make 5 Dec Option B the default, and only choose Kamakura if you both feel fresh."]},
+ {id:"divyank", sev:"medium", days:["d26"],
+  title:"Divyank’s arrival on 26 Nov needs a concrete plan",
+  why:"Afternoon immigration at NRT can take 45–90 min, so leaving at 16:30 is optimistic. By rail, the last leg is the eastbound Tozai Line in the evening rush, with a suitcase.",
+  fix:["Decide whether you’ll meet at NRT (leave Nishikasai ~13:45) or at Nishikasai station.",
+       "Simplest transfer: the direct airport bus NRT → Kasai Station (check the timetable and book), then one Tozai stop west and a 5-minute walk, or a short taxi (Kasai Station is 1.75 km from your friend’s place).",
+       "Before departure, Divyank should have Visit Japan Web QR codes, an eSIM and offline maps."]},
+ {id:"taxfree", sev:"medium", days:["d6","d7"],
+  title:"Tax-free shopping changed on 1 Nov 2026 (new refund system)",
+  why:"Under the new system you pay the 10% tax in the shop. At departure you confirm export at an HND customs kiosk <b>before checking bags</b>, and the refund comes to your card later. Goods already checked in can’t be verified.",
+  fix:["7 Dec: arrive ~30 min earlier and use the kiosk before Air India check-in.",
+       "Keep tax-free purchases and receipts reachable, packed last.",
+       "Use the same passport for every purchase."]},
+ {id:"food", sev:"medium", days:["d26","d29","d30","d1","d2","d4"],
+  title:"Only one meal is planned, and vegetarian options thin out outside the cities",
+  why:"The plan names one restaurant (vegan ramen). Hakone, Kawaguchiko, Nara and USJ have few vegetarian options, and dashi (fish stock) is in most soups and sauces.",
+  fix:["Pin options per day on HappyCow. Nishikasai is Tokyo’s “Little India” (easy for the 26 Nov welcome dinner). T’s TanTan inside the JR gates at Tokyo Station suits 1 Dec. Shigetsu at Tenryū-ji serves shōjin-ryōri on 2 Dec.",
+       "Carry a Japanese “vegetarian card” and snacks on the Fuji days. USJ restricts outside food, so check its menu in advance."]},
+ {id:"weekend", sev:"medium", days:["d28","d29","d5"],
+  title:"Weekend crowds on Sat 28 Nov, Sun 29 Nov and Sat 5 Dec",
+  why:"Takeshita Street, Shibuya Crossing, the Hakone loop and Kamakura’s Enoden line are at their busiest on weekends, especially in foliage season.",
+  fix:["28 Nov: keep Gaien at 08:30 (a good call) and do Takeshita after lunch, when it’s livelier anyway.",
+       "29 Nov: if the Hakone Shrine Peace Torii queue is over 30 min, photograph it from the side.",
+       "5 Dec (Option A): Hase-dera opens at 08:00, so leave at 07:00."]},
+ {id:"decks", sev:"medium", days:["d25","d27","d28"],
+  title:"Three observation decks in four days",
+  why:"25 Nov lists an “observation deck”, then Skytree at sunset (27 Nov) and Shibuya Sky at sunset (28 Nov).",
+  fix:["Drop the solo deck on 25 Nov.",
+       "Treat Skytree (booked) as the safety net if the Shibuya Sky sunset slot is gone."]},
+ {id:"sunday-hokoten", sev:"tip", days:["d6"],
+  title:"6 Dec is a Sunday, so Ginza and Akihabara are pedestrian-only in the afternoon",
+  why:"Chūō-dōri in Ginza (weekends) and in Akihabara (Sundays) closes to cars in the afternoon (“Hokoten”).",
+  fix:["Keep Ginza 14:00–15:30 and Akihabara from 16:00. Walking down the middle of the closed road is the fun part."]},
+ {id:"hakone-tips", sev:"tip", days:["d29"],
+  title:"Hakone extras",
+  why:"A few details that make the Hakone loop smoother.",
+  fix:["A day-use onsen with private baths near Hakone-Yumoto (e.g. Hakone Yuryo) fits the 14:00–15:30 slot and is on your way back.",
+       "The Owakudani ropeway can stop for volcanic gas or wind. Check its status in the morning (replacement buses run).",
+       "If the return Romancecar is full: Hakone-Yumoto → Odawara → Shinkansen to Tokyo."]},
+ {id:"kawaguchiko-tips", sev:"tip", days:["d30"],
+  title:"Kawaguchiko extras",
+  why:"Small routing gains that buy Fuji time.",
+  fix:["For Chureito, get off at Fujisan Station (or the Chūō-dō Shimoyoshida stop if your bus calls there) instead of riding on to Kawaguchiko and coming back.",
+       "Chureito is 398 steps up. Clouds usually build around Fuji from late morning.",
+       "Buses also leave from Tokyo Station, which is closer to Nishikasai than Shinjuku, so compare timetables. Allow 30–60 min extra for road traffic on the way back.",
+       "Fuji-Q Highland has its own highway-bus stop at the park entrance. The 17:08 bus reaches Busta Shinjuku at 18:45."]},
+ {id:"kyoto-alt", sev:"tip", days:["d2"],
+  title:"Alternative for 2 Dec: Arashiyama at dawn, Fushimi Inari at dusk",
+  why:"The bamboo grove is packed by 09:00. Fushimi Inari is open 24 h, lantern-lit and quieter after dark.",
+  fix:["Bamboo grove 07:00 → Tenryū-ji 08:30 → Kinkaku-ji → Nijō → Fushimi Inari 16:00–17:30 (sunset ≈ 16:45) → JR to Kyoto Station (5 min) → Tō-ji light-up."]},
+ {id:"apps", sev:"tip", days:[],
+  title:"Apps, payments and clothing",
+  why:"Set up once and save time every day.",
+  fix:["An IC card (a TOURIST PASMO at HND T3, paid with the Scapia card), Smart EX, the USJ app, GO for taxis, and offline Google Maps. Set-up steps are in the Guides section.",
+       "Carry ¥30,000 each in cash for temples, lockers and market stalls, and pay for everything else with the Scapia card (no forex markup). 7-Eleven ATMs accept foreign cards.",
+       "Early mornings are ~3–7 °C in Tokyo and Kyoto and near freezing at Hakone and Kawaguchiko, so bring layers and gloves. teamLab has knee-deep water, so wear shorts or roll-up trousers."]}
+];
+
+const STRENGTHS = [
+ "Two jet-lag buffer days, with the headline sights saved for when Divyank is there.",
+ "Dawn starts where they matter: Sensō-ji, Meiji Shrine, Fushimi Inari, Chureito, Nara and USJ.",
+ "Sunset-aware tickets: Skytree 15:30 and Shibuya Sky 15:40 vs sunset ≈ 16:28.",
+ "Seat E (right side) on Tokyo → Kyoto for the Mt Fuji view.",
+ "1 Dec Higashiyama runs downhill: Kiyomizu → Sannenzaka → Kōdai-ji → Gion.",
+ "Gaien Ginkgo Avenue at 08:30 in peak-yellow season, before the crowds.",
+ "Kawaguchiko and Fuji-Q are on a Monday: shorter coaster queues, and the return bus misses the Sunday-evening expressway jams.",
+ "Pre-agreed fallbacks: drop Nijō first, and Option B recovery on 5 Dec.",
+ "A controlled final day and a ~3 h airport buffer for an international flight.",
+ "Sumo moved to Sat 28 Nov 10:00, so 27 Nov stays on the east side and skips ~1 h 40 min of rush-hour transit.",
+ "The booking tracker covers the whole plan, and every hotel and flight is confirmed (12 Nov).",
+ "Large bags stay at your friend’s place 1–4 Dec, so Kansai is cabin bags only: no oversized-baggage seats, easy Nara lockers and a hotel bag drop on USJ day."
+];
+
+/* ---------- Days (timetables copied from your plan) ---------- */
+const DAYS = [
+ {id:"d24", date:"2026-11-24", dow:"Tue", dm:"24 Nov", region:"tokyo", short:"Arrive HND · recover",
+  title:"Arrival in Tokyo", sub:"Solo / buffer day", who:"You (solo)", base:"Wise Owl Hostels River Tokyo ✅",
+  prio:"Recover from the overnight flight. Keep major attractions for when Divyank arrives.",
+  intensity:1, leave:"Lands 04:55", out:null, outLabel:"Arrive", early:false, sunset:16.48,
+  rows:[["04:55","Arrive Haneda Terminal 3"],["05:00–06:15","Immigration, baggage, customs"],["~06:15","Leave HND"],["~07:00","Wise Owl Hostels River Tokyo — luggage drop"],["07:30–09:00","Breakfast"],["Morning","Rest / easy neighbourhood exploration"],["15:00","Wise Owl check-in + nap"],["Evening","Light dinner"],["~21:00","Early night"]],
+  notes:["No major sightseeing planned."],
+  blocks:[[4.92,6.25,"flight","Land · immigration"],[6.25,7,"travel","→ hotel"],[7.5,9,"meal","Breakfast"],[9,12,"rest","Rest / easy walk"],[15,17,"rest","Check-in + nap"],[18.5,20,"meal","Light dinner"]],
+  tips:[{sev:"good",text:"Seat 34A on AI-356 ✅: a left window centred on the seat. You get the Sea Link and South Mumbai at sunset just after take-off, and a chance of a moonlit Mt Fuji ~20 min before landing."},
+        {sev:"medium",ref:"arrival",text:"Wise Owl check-in is 15:00: leave your bag there from ~07:00, and rest first at Izumi Tenku no Yu (the T3 onsen) or a café."},
+        {sev:"tip",text:"Before leaving HND: eSIM working and a TOURIST PASMO card from the Keikyu machine on 2F, paid with your Scapia card. Bring yen from India. See the Guides section."},
+        {sev:"good",text:"Keeping today free of sightseeing after an overnight flight is the right call."}]},
+ {id:"d25", date:"2026-11-25", dow:"Wed", dm:"25 Nov", region:"tokyo", short:"Solo flexible day",
+  title:"Tokyo · Solo Flexible Day", sub:"Status: TBD / buffer", who:"You (solo)", base:"Wise Owl Hostels River Tokyo ✅",
+  prio:"Keep this intentionally flexible.",
+  intensity:1, leave:"Flexible", out:null, outLabel:"Flex", early:false, sunset:16.48,
+  rows:[],
+  lists:[["Possible low-priority activities",["Shinjuku Gyoen","Hamarikyu Gardens","Shopping","Café hopping","Observation deck","Rest / jet-lag recovery"]],
+         ["Avoid using (save for Divyank)",["Sensō-ji","Shibuya","Meiji Shrine","Skytree","teamLab","Pokémon Café"]]],
+  notes:["Save those for Divyank."],
+  blocks:[[9,18,"flex","Flexible solo day"]],
+  tips:[{sev:"tip",text:"Use the solo day for set-up: scout Nishikasai and the Kasai Station airport-bus stop (for 7 Dec), and check your Smart EX bookings."},
+        {sev:"good",text:"Shinjuku Gyoen is at peak autumn colour in late November, and it’s open on Wednesdays."},
+        {sev:"medium",ref:"decks",text:"Skip the observation deck, since you’ll do two with Divyank."}]},
+ {id:"d26", date:"2026-11-26", dow:"Thu", dm:"26 Nov", region:"tokyo", short:"Divyank lands NRT 15:20",
+  title:"Divyank Arrival Day", sub:"NRT arrival 15:20", who:"You + Divyank", base:"Friend’s place, Nishikasai (from today)",
+  prio:"No major sightseeing. Get Divyank in, settled and fed.",
+  intensity:2, leave:"~12:00", out:[12,21], early:false, sunset:16.48,
+  rows:[["Morning","Flexible / rest"],["12:00–14:00","Lunch + light local activity"],["15:20","Divyank lands at NRT"],["~16:00–16:30","Immigration + baggage"],["~16:30","Leave Narita"],["~17:30–18:00","Reach Nishikasai"],["18:00–19:00","Check-in / freshen up"],["19:00–21:00","Welcome dinner near Nishikasai"],["21:00+","Rest"]],
+  notes:["No major sightseeing."],
+  blocks:[[12,14,"meal","Lunch + light activity"],[15.33,16.5,"flight","Divyank lands · immigration"],[16.5,18,"travel","NRT → Nishikasai"],[18,19,"rest","Check-in"],[19,21,"meal","Welcome dinner"]],
+  tips:[{sev:"medium",ref:"divyank",text:"NRT immigration can take 45–90 min, so expect to leave around 16:45–17:15. Decide who meets whom, and where."},
+        {sev:"tip",ref:"arrival",text:"Moving day: check out of Wise Owl by 10:00, then the 10:30 train from Honjo-Azumabashi gets you to your friend’s place by ~11:05."},
+        {sev:"tip",ref:"food",text:"Nishikasai is Tokyo’s “Little India”, with plenty of vegetarian-friendly places for the welcome dinner."}]},
+ {id:"d27", date:"2026-11-27", dow:"Fri", dm:"27 Nov", region:"tokyo", short:"Asakusa · Skytree · teamLab",
+  title:"Asakusa + Skytree + teamLab", sub:"🥇 Must do early: Sensō-ji", who:"You + Divyank", base:"Friend’s place, Nishikasai",
+  prio:"🥇 Must do early: Sensō-ji. Bookings: 15:30 Skytree ✅ → 18:30 teamLab ✅. Sumo moved to Sat 28 Nov ✅.",
+  intensity:4, leave:"06:40", out:[6.67,20.75], early:true, sunset:16.47,
+  rows:[["06:40","Leave Nishikasai"],["07:20–08:30","🥇 Sensō-ji at dawn: Kaminarimon, Hōzōmon, pagoda"],["08:30–09:30","Breakfast in Asakusa"],["09:30–11:00","Nakamise as shops open, plus the free 8F terrace at the Asakusa Culture Tourist Information Center"],["11:00–12:30","Kappabashi kitchen street, or Ueno Park & Ameyoko (5 min on the Ginza Line)"],["12:30–14:30","Lunch + café break (recharge before the evening)"],["14:40–15:20","Solamachi (Pokémon Center Skytree Town)"],["15:30–17:10","🗼 Skytree ✅: daylight → 🌇 16:28 → night skyline"],["17:10–18:10","→ Shin-Toyosu"],["18:30–20:00","🎨 teamLab Planets ✅"],["~20:45","Nishikasai"]],
+  notes:["Skytree 15:30 booking done (can be rescheduled) · teamLab ✅ 18:30, 2 adults · Sumo ✅ moved to Sat 28 Nov 10:00"],
+  blocks:[[6.67,7.33,"travel","→ Asakusa"],[7.33,8.5,"sight","Sensō-ji"],[8.5,9.5,"meal","Breakfast"],[9.5,11,"sight","Nakamise"],[11,12.5,"sight","Kappabashi / Ueno"],[12.5,14.5,"meal","Lunch + café"],[14.5,14.67,"travel","→ Skytree"],[14.67,15.33,"sight","Solamachi"],[15.5,17.17,"timed","Skytree ✅"],[17.17,18.17,"travel","→ Shin-Toyosu"],[18.5,20,"timed","teamLab ✅"],[20,20.75,"travel","→ home"]],
+  tips:[{sev:"good",text:"Sumo is now on 28 Nov, so today stays on the east side: about 1 h 40 min less rush-hour transit on Divyank’s first full day."},
+        {sev:"tip",text:"teamLab is barefoot with knee-deep water, so wear shorts or roll-up trousers."},
+        {sev:"good",text:"Skytree at 15:30, sunset at 16:28, then the night skyline: perfectly timed."}]},
+ {id:"d28", date:"2026-11-28", dow:"Sat", dm:"28 Nov", region:"tokyo", short:"Meiji · Sumo · Shibuya Sky",
+  title:"Meiji Shrine + Gaien + Sumo + Shibuya Sky", sub:"🥇 Must do early: Meiji Shrine", who:"You + Divyank", base:"Friend’s place, Nishikasai",
+  prio:"🥇 Must do early: Meiji Shrine. Bookings: 🤼 Sumo 10:00 ✅ (moved from 27 Nov) · 🎟️ Shibuya Sky (book 13 Nov), target 15:40–16:00.",
+  intensity:5, leave:"06:20", out:[6.33,21.3], early:true, sunset:16.47,
+  rows:[["06:20","Leave Nishikasai"],["07:10–08:10","🥇 Meiji Shrine"],["08:30–09:00","Meiji-Jingū Gaien Ginkgo Avenue"],["09:00–09:37","Walk to Aoyama-itchōme → Toei Ōedo Line to Higashi-Shinjuku (change at Tochōmae) → 7 min walk"],["09:50","Check-in · Shinjuku Sumo Club, Sekisaku Bldg 2F, 2-5-22 Ōkubo"],["10:00–11:30","🤼 Shinjuku Sumo Show & Experience ✅ (moved from 27 Nov)"],["11:35–11:55","Walk to Higashi-Shinjuku → Fukutoshin Line to Meiji-jingūmae (7 min)"],["12:00–13:00","Kyushu Jangara vegan ramen (Harajuku)"],["13:00–14:30","Takeshita Street & Omotesando"],["14:30–15:30","Shibuya Crossing / Hachikō"],["15:40–16:00","🌇 Shibuya Sky entry 🎟️"],["~16:28","Sunset"],["17:00–18:00","Shibuya evening"],["18:30–20:30","Shinjuku · Omoide Yokocho (+ free Metropolitan Government Building observatory)"],["~21:15","Nishikasai"]],
+  notes:["🤼 Sumo ✅ Sat 28 Nov 10:00 (check in 09:50) at the Shinjuku Sumo Club, Sekisaku Bldg 2F, 2-5-22 Ōkubo, 7 min on foot from Higashi-Shinjuku · 🎟️ Shibuya Sky — book 13 Nov · target 15:40–16:00"],
+  blocks:[[6.33,7.1,"travel","→ Meiji"],[7.17,8.17,"sight","Meiji Shrine"],[8.33,8.5,"travel","→ Gaien"],[8.5,9,"sight","Gaien Ginkgo"],[9,9.62,"travel","→ Sumo Club"],[9.83,11.5,"timed","Sumo ✅"],[11.58,11.92,"travel","→ Harajuku"],[12,13,"meal","Jangara ramen"],[13,14.5,"sight","Takeshita · Omotesando"],[14.5,15.5,"sight","Shibuya Crossing"],[15.67,17,"timed","Shibuya Sky"],[17,18,"sight","Shibuya"],[18.25,18.5,"travel","→ Shinjuku"],[18.5,20.5,"sight","Omoide Yokocho"],[20.5,21.3,"travel","→ home"]],
+  tips:[{sev:"critical",ref:"shibuya-sky",text:"Shibuya Sky sale opens 14 Nov 00:00 JST, which is 13 Nov 20:30 IST."},
+        {sev:"medium",ref:"weekend",text:"It’s a Saturday: Takeshita and Shibuya will be at peak crowds, so keep the early start."},
+        {sev:"tip",text:"Meiji Shrine → Gaien takes about 20 min (Chiyoda and Ginza lines plus a short walk). Gaien → sumo is about 35 min: walk 7 min to Aoyama-itchōme, take the Ōedo Line to Higashi-Shinjuku (change at Tochōmae), then 7 min on foot. Check-in is 09:50."},
+        {sev:"good",text:"Sumo now sits between Gaien and Harajuku: about 40 min of extra travel instead of 1 h 40 min on 27 Nov."},
+        {sev:"good",text:"Gaien Ginkgo Avenue at 08:30 in peak-yellow season is a great call."}]},
+ {id:"d29", date:"2026-11-29", dow:"Sun", dm:"29 Nov", region:"fuji", short:"Hakone day trip",
+  title:"Hakone Day Trip", sub:"🥇 Priority: Fuji views / Hakone early", who:"You + Divyank", base:"Friend’s place, Nishikasai",
+  prio:"🥇 Priority: Fuji views / Hakone early.",
+  intensity:4, leave:"05:50", out:[5.83,19], early:true, sunset:16.55,
+  rows:[["05:50","Leave Nishikasai"],["~06:30","Reach Shinjuku"],["~07:00","Shinjuku → Hakone"],["~08:30","Hakone area"],["Morning","Hakone Tozan Railway / cable car"],["Morning","🥇 Owakudani + Mt. Fuji views"],["~11:00","Ropeway"],["11:30–13:00","Lake Ashi cruise"],["13:00–14:00","Hakone Shrine"],["14:00–15:30","Lunch / onsen / flexible"],["~16:00","Start return"],["~18:00","Shinjuku"],["~18:45–19:00","Nishikasai"]],
+  notes:["Book: Shinjuku → Hakone transport / Romancecar 🎟️ · Hakone Free Pass 🎟️"],
+  blocks:[[5.83,8.5,"travel","→ Shinjuku → Hakone"],[8.5,11,"sight","Tozan · Owakudani"],[11,11.5,"sight","Ropeway"],[11.5,13,"sight","Lake Ashi"],[13,14,"sight","Hakone Shrine"],[14,15.5,"meal","Lunch / onsen"],[16,19,"travel","Return"]],
+  tips:[{sev:"high",ref:"fuji-days",text:"The Tokyo Station → Odawara Shinkansen lets you leave ~45 min later and gets you home ~15 min sooner, for about ¥3,070 more per person than the Romancecar."},
+        {sev:"tip",text:"On the Romancecar out, sit on the right (usually seat D): Mt Fuji shows near Shin-Matsuda, about 70 min after Shinjuku."},
+        {sev:"medium",ref:"weekend",text:"Sunday crowds: expect queues at Hakone-Yumoto, Sōunzan and the Peace Torii."},
+        {sev:"tip",ref:"hakone-tips",text:"Check the ropeway status in the morning. A private-bath onsen near Yumoto suits 14:00–15:30."},
+        {sev:"tip",ref:"food",text:"Lunch at 14:00 is late and vegetarian options are scarce, so pack snacks."}]},
+ {id:"d30", date:"2026-11-30", dow:"Mon", dm:"30 Nov", region:"fuji", short:"Chureito · Fuji-Q Highland",
+  title:"Chureito Pagoda + Kawaguchiko + Fuji-Q Highland", sub:"🥇 Must do first: Chureito Pagoda", who:"You + Divyank", base:"Friend’s place, Nishikasai",
+  prio:"🥇 Must do first: Chureito Pagoda, while Fuji is clearest. Then 🎢 Fuji-Q Highland from 13:00 (Afternoon Pass 🎟️).",
+  intensity:5, leave:"06:30", out:[6.5,19.55], early:true, sunset:16.58,
+  rows:[["06:30","Leave Nishikasai"],["~07:15","Reach Shinjuku (Busta Shinjuku)"],["07:55","Bus → Fujisan Station 🎟️"],["~09:50","Fujisan → Shimoyoshida (Fujikyu Railway, 5 min)"],["10:15–11:40","🥇 Chureito Pagoda (398 steps) + Arakura Fuji Sengen Shrine"],["11:52","Shimoyoshida → Kawaguchiko"],["12:05–12:55","Lawson Fuji photo stop + lunch near Kawaguchiko Station"],["13:03","Bus → Fuji-Q Highland (5 min)"],["13:15–17:00","🎢 Fuji-Q Highland · Afternoon Pass 🎟️ (park closes 17:00)"],["17:08","⚠️ Bus Fuji-Q Highland → Busta Shinjuku 🎟️"],["~18:45","Shinjuku"],["~19:35","Nishikasai"],["Evening","Pack for Kyoto"]],
+  notes:["Book both buses together 🎟️ (Shinjuku 07:55 → Fujisan; Fuji-Q Highland 17:08 → Shinjuku) · Fuji-Q Afternoon Pass ¥5,700 per adult on 30 Nov"],
+  blocks:[[6.5,9.87,"travel","→ Shinjuku → bus"],[10.13,10.25,"travel","→ Shimoyoshida"],[10.25,11.67,"sight","Chureito"],[11.87,12.08,"travel","→ Kawaguchiko"],[12.08,12.92,"meal","Lawson Fuji · lunch"],[12.92,13.23,"travel","→ Fuji-Q"],[13.25,17,"timed","Fuji-Q Highland"],[17.13,19.55,"travel","Bus → home"],[20,21,"rest","Pack"]],
+  tips:[{sev:"high",ref:"fuji-days",text:"Check the Fuji cloud forecast the night before, and swap with 5 Dec if it looks cloudy."},
+        {sev:"medium",ref:"fuji-days",text:"Buy the Fuji-Q Afternoon Pass (¥5,700) the evening before, once the forecast looks fine, or at the park. Passes can’t be refunded."},
+        {sev:"tip",text:"Fuji-Q on 30 Nov is open 10:00–17:00 with free entry. Nagashimasuka and Tekkotsu Banchō are closed for inspection that day, and coasters pause in strong wind, so check the official app’s live status."},
+        {sev:"tip",text:"On the bus out, sit on the left (A seats): Mt Fuji appears ahead-left after Ōtsuki."},
+        {sev:"tip",ref:"kawaguchiko-tips",text:"For Chureito (398 steps), get off at Fujisan Station or the Chūō-dō Shimoyoshida stop."},
+        {sev:"good",text:"A Monday at Fuji-Q means shorter coaster queues, and the return bus misses the Sunday-evening expressway jams."}]},
+ {id:"d1", date:"2026-12-01", dow:"Tue", dm:"1 Dec", region:"kyoto", short:"🚅 → Kyoto · Higashiyama",
+  title:"Tokyo → Kyoto + Higashiyama", sub:"🥇 Comfortable Shinkansen + Kyoto afternoon", who:"You + Divyank", base:"LOISIR Hotel Kyoto Toji",
+  prio:"🥇 Priority: comfortable Shinkansen + Kyoto afternoon. Don’t overload this day.",
+  intensity:3, leave:"08:30", out:[8.5,21], early:false, sunset:16.75,
+  rows:[["~07:30","Wake / breakfast"],["08:30","Leave Nishikasai"],["~09:00","Tokyo Station"],["~09:30","🚅 Shinkansen Tokyo → Kyoto ✅ (Seat E)"],["~11:45","Kyoto"],["~12:15","LOISIR HOTEL KYOTO TOJI — luggage drop"],["12:30–13:30","Lunch"],["14:00–15:30","Kiyomizu-dera"],["15:30–16:30","Sannenzaka / Ninenzaka"],["16:30–17:30","Kōdai-ji"],["17:30–19:00","Gion"],["Evening","Autumn illumination / dinner"],["~21:00","Hotel"]],
+  notes:["🚅 Tokyo → Kyoto Shinkansen ✅ booked 12 Nov, on the Mt Fuji side"],
+  blocks:[[8.5,9.5,"travel","→ Tokyo Stn"],[9.5,11.75,"travel","🚅 Shinkansen"],[11.75,12.5,"travel","Bag drop"],[12.5,13.5,"meal","Lunch"],[14,15.5,"sight","Kiyomizu-dera"],[15.5,16.5,"sight","Sannenzaka"],[16.5,17.5,"sight","Kōdai-ji"],[17.5,19,"sight","Gion"],[19,21,"meal","Dinner / lights"]],
+  tips:[{sev:"medium",text:"08:30 on a Tuesday is the Tozai Line’s peak rush. With cabin bags it’s manageable: keep the bag at your feet and skip the front car, which is women-only until Ōtemachi. A taxi (≈ ¥4–5k) is the comfortable option."},
+        {sev:"high",ref:"illumination",text:"Kiyomizu-dera’s light-up ends 30 Nov. Stay at Kōdai-ji past 17:00 instead."},
+        {sev:"high",ref:"nishiki",text:"Move Nishiki Market here as your lunch, since many shops close on Wednesdays."},
+        {sev:"good",text:"Large bags stay at your friend’s place, and cabin bags fit the Shinkansen overhead racks, so you don’t need an oversized-baggage seat."},
+        {sev:"good",text:"Seat E for Fuji (≈ 40 min after leaving Tokyo) and a downhill Higashiyama walk."}],
+  revised:{title:"Suggested timeline: travel light, Nishiki for lunch, Kōdai-ji light-up",
+   rows:[["08:30","Leave with cabin bags (large bags stay at your friend’s place), or a taxi (about 9 km, 20–30 min)"],["~09:30","🚅 Nozomi → Kyoto, Seat E (Fuji ≈ 40 min in)"],["~11:45","Kyoto → 12:15 bag drop at LOISIR Toji"],["12:30–13:45","Nishiki Market lunch-grazing (moved from Wednesday)"],["13:45","🚕 Taxi → Kiyomizu-dera (~15 min)"],["14:00–15:30","Kiyomizu-dera"],["15:30–16:30","Sannenzaka / Ninenzaka"],["16:30–18:00","Kōdai-ji, staying for the light-up from ~17:00"],["18:00–19:30","Gion · Hanamikoji · dinner"],["~20:00","Hotel (Tō-ji light-up next door if you still have energy; last entry ≈ 21:00)"]],
+   gain:"Same sights, plus Nishiki on an open day and an illumination that is actually running."}},
+ {id:"d2", date:"2026-12-02", dow:"Wed", dm:"2 Dec", region:"kyoto", short:"Inari · Arashiyama · Kinkaku-ji",
+  title:"Kyoto Full Day", sub:"🥇 Must do early: Fushimi Inari", who:"You + Divyank", base:"LOISIR Hotel Kyoto Toji",
+  prio:"🥇 Must do early: Fushimi Inari. This is one of the most important early starts of the trip.",
+  intensity:5, leave:"06:00", out:[6,20], early:true, sunset:16.75,
+  rows:[["06:00","Leave LOISIR Hotel Kyoto Toji"],["~06:30–06:40","Reach Fushimi Inari"],["06:40–08:15","🥇 Fushimi Inari"],["08:15–09:00","Travel → Arashiyama"],["09:00–10:30","Bamboo Grove + Tenryū-ji"],["10:30–11:00","Togetsukyō Bridge"],["11:00–12:00","Travel → Kinkaku-ji"],["12:00–13:00","Kinkaku-ji"],["13:00–14:00","Lunch"],["14:00–15:00","Nishiki Market"],["~15:00–16:00","Nijō Castle — optional"],["Evening","Dinner / Kyoto Station"]],
+  notes:["If tired: drop Nijō Castle first. Don’t sacrifice Fushimi Inari or Arashiyama."],
+  blocks:[[6,6.67,"travel","→ Inari"],[6.67,8.25,"sight","Fushimi Inari"],[8.25,9,"travel","→ Arashiyama"],[9,10.5,"sight","Bamboo · Tenryū-ji"],[10.5,11,"sight","Togetsukyō"],[11,12,"travel","→ Kinkaku-ji"],[12,13,"sight","Kinkaku-ji"],[13,14,"meal","Lunch"],[14,15,"sight","Nishiki"],[15,16,"sight","Nijō (opt.)"],[18,20,"meal","Dinner"]],
+  tips:[{sev:"high",ref:"nishiki",text:"It’s a Wednesday, when many Nishiki shops are closed. Reorder to Kinkaku-ji → Nijō."},
+        {sev:"tip",text:"Keep Nijō Castle on this day: the Ninomaru Palace is closed on Tuesdays in December."},
+        {sev:"high",ref:"illumination",text:"Evening: the Tō-ji light-up (18:00–21:30), a 5-minute walk from LOISIR."},
+        {sev:"tip",ref:"kyoto-alt",text:"Alternative: Arashiyama at dawn, Fushimi Inari at dusk."},
+        {sev:"good",text:"Agreeing in advance to drop Nijō first if tired is a smart fallback."}],
+  revised:{title:"Suggested timeline: one sweep west to centre, Tō-ji light-up at night",
+   rows:[["06:00","Leave hotel"],["06:40–08:15","🥇 Fushimi Inari"],["08:15–09:00","→ Arashiyama (JR via Kyoto Station)"],["09:00–10:30","Bamboo Grove + Tenryū-ji"],["10:30–11:00","Togetsukyō Bridge"],["11:00–12:00","Early lunch in Arashiyama (e.g. Shigetsu shōjin-ryōri inside Tenryū-ji)"],["12:00–12:25","🚕 Taxi → Kinkaku-ji"],["12:30–13:30","Kinkaku-ji"],["13:45–15:30","Nijō Castle (last entry 16:00)"],["15:30–17:30","Hotel rest"],["18:00–19:30","✨ Tō-ji autumn light-up (5-minute walk)"],["Evening","Dinner at Kyoto Station"]],
+   gain:"No backtracking, a 2-hour rest, and Nishiki moved to a day when it’s open."}},
+ {id:"d3", date:"2026-12-03", dow:"Thu", dm:"3 Dec", region:"nara", short:"Nara → Osaka",
+  title:"Kyoto → Nara → Osaka", sub:"🥇 Must do early: Nara Park + Tōdai-ji", who:"You + Divyank", base:"New Osaka Hotel (Shin-Osaka)",
+  prio:"🥇 Must do early: Nara Park + Tōdai-ji.",
+  intensity:4, leave:"07:30", out:[7.5,21], early:false, sunset:16.78,
+  rows:[["07:00","Breakfast / checkout"],["07:30","Leave Kyoto"],["~08:30","Reach Nara"],["08:30–09:00","Nara Park"],["09:00–10:30","🥇 Tōdai-ji / Great Buddha"],["10:30–11:30","Nara Park / deer"],["11:30–12:30","Kasuga Taisha"],["12:30–13:30","Lunch"],["~13:30","Leave Nara"],["~14:30","Osaka"],["15:00","Check in New Osaka Hotel (3 min from Shin-Osaka Station)"],["15:30–17:00","Osaka Castle if energy/time allows"],["18:00 onward","Dōtonbori / Shinsaibashi"],["~21:00","Hotel"]],
+  notes:[],
+  blocks:[[7,7.5,"meal","Breakfast"],[7.5,8.5,"travel","→ Nara"],[8.5,9,"sight","Nara Park"],[9,10.5,"sight","Tōdai-ji"],[10.5,11.5,"sight","Deer"],[11.5,12.5,"sight","Kasuga Taisha"],[12.5,13.5,"meal","Lunch"],[13.5,14.5,"travel","→ Osaka"],[15,15.5,"rest","Check-in"],[15.5,17,"sight","Osaka Castle (opt.)"],[18,21,"sight","Dōtonbori"]],
+  tips:[{sev:"tip",text:"Use Kintetsu (Kyoto → Kintetsu-Nara → Osaka-Namba). No booking needed: expresses and rapid expresses take your IC card. Skip trains marked 特急 (Limited Express): they need a reserved-seat ticket (+¥520) and aren’t faster on your routes. Kintetsu-Nara station is a 15–20 min walk from Tōdai-ji."},
+        {sev:"tip",text:"You reach Kintetsu-Nara at 08:21 with your cabin bags: use the station coin lockers before they fill (~10:00)."},
+        {sev:"tip",text:"Osaka Castle main tower: last entry 16:30. Sunset is ≈ 16:47, so the grounds glow."},
+        {sev:"good",text:"New Osaka Hotel is 3 min from Shin-Osaka Station (1 min from Midōsuji Line exit 7): Dōtonbori is 15 min away on the Midōsuji Line, and on 4 Dec your bags can wait there until the evening Shinkansen."}]},
+ {id:"d4", date:"2026-12-04", dow:"Fri", dm:"4 Dec", region:"osaka", short:"USJ → 🚅 Tokyo",
+  title:"Universal Studios Japan + Return to Tokyo", sub:"🥇 Must do early: USJ / Super Nintendo World", who:"You + Divyank", base:"Friend’s place, Nishikasai",
+  prio:"🥇 Must do early: USJ / Super Nintendo World. This is your hardest day.",
+  intensity:5, leave:"06:15", out:[6.25,22.75], early:true, sunset:16.78,
+  rows:[["05:45","Wake"],["06:15","Leave New Osaka Hotel"],["~07:00","Reach USJ"],["07:00 onward","Queue for entry"],["Opening–12:00","🎮 Super Nintendo World 🎟️"],["12:00–13:00","Lunch"],["13:00–17:30","USJ rides / Harry Potter / Express Pass attractions 🎟️"],["18:00","⚠️ Hard stop — leave USJ"],["~18:45","Shin-Osaka"],["~19:00–19:30","🚅 Shinkansen → Tokyo 🎟️"],["~21:30–22:00","Tokyo"],["~22:15–22:45","Nishikasai"]],
+  notes:["Book: USJ Studio Pass · USJ Express Pass · Super Nintendo World access · Shin-Osaka → Tokyo Shinkansen. Do not leave the return Shinkansen unreserved."],
+  blocks:[[6.25,7,"travel","→ USJ"],[7,8.5,"queue","Queue"],[8.5,12,"timed","Super Nintendo World"],[12,13,"meal","Lunch"],[13,17.5,"timed","Rides · Express"],[17.5,18,"sight","Wrap up"],[18,18.75,"travel","→ Shin-Osaka"],[19,21.75,"travel","🚅 → Tokyo"],[21.75,22.75,"travel","→ home"]],
+  tips:[{sev:"critical",ref:"book-now",text:"Studio Pass, Express Pass and Shinkansen are all still unbooked. Book this week."},
+        {sev:"high",ref:"usj",text:"Make sure the Express Pass guarantees Super Nintendo World entry."},
+        {sev:"good",text:"Your cabin bags wait at New Osaka Hotel: collect them after USJ, 3 min from the Shinkansen gates."},
+        {sev:"tip",text:"In Smart EX, book ~19:30 and move it for free if the day runs long or short."}]},
+ {id:"d5", date:"2026-12-05", dow:"Sat", dm:"5 Dec", region:"kamakura", short:"Flex: Kamakura or rest",
+  title:"Flexible Day", sub:"Decide based on how you feel after USJ", who:"You + Divyank", base:"Friend’s place, Nishikasai",
+  prio:"Option A: Kamakura + Enoshima (🥇 Hase-dera / Great Buddha early). Option B: recovery day. Don’t force Kamakura.",
+  intensity:3, leave:"07:30 (A)", out:[7.5,19], early:false, sunset:16.5, option:true,
+  rows:[],
+  optA:[["07:30","Leave Nishikasai"],["~09:00","Kamakura / Hase"],["09:00–10:00","🥇 Hase-dera"],["10:00–11:00","Great Buddha"],["11:30–13:00","Kamakura lunch / Komachi"],["13:30–16:30","Enoshima"],["~17:00","Return"],["~19:00","Nishikasai"]],
+  optB:["Sleep in","Ueno","Akihabara","Shopping","Café","Nishikasai early"],
+  notes:["Don’t force Kamakura."],
+  blocks:[[7.5,9,"travel","→ Kamakura"],[9,10,"sight","Hase-dera"],[10,11,"sight","Great Buddha"],[11.5,13,"meal","Lunch"],[13.5,16.5,"sight","Enoshima"],[17,19,"travel","Return"]],
+  tips:[{sev:"medium",ref:"fatigue",text:"Make Option B the default after 16.5 h at USJ, and decide the night before."},
+        {sev:"medium",ref:"weekend",text:"Option A on a Saturday: Hase-dera opens 08:00, so leave at 07:00."}]},
+ {id:"d6", date:"2026-12-06", dow:"Sun", dm:"6 Dec", region:"tokyo", short:"Palace · Pokémon · Ginza · Akiba",
+  title:"Central Tokyo + Pokémon Café", sub:"🥇 Priority: Imperial Palace first", who:"You + Divyank", base:"Friend’s place, Nishikasai",
+  prio:"🥇 Priority: Imperial Palace first. Booking: 🕓 Pokémon Café Tokyo, requested via Reserve-Japan; time slot TBC.",
+  intensity:3, leave:"08:00", out:[8,18.5], early:false, sunset:16.47,
+  rows:[["08:00","Leave Nishikasai"],["~08:30","Ōtemachi / Imperial Palace area"],["09:00–10:30","🥇 Imperial Palace East Gardens"],["10:30–11:00","Travel / walk → Nihombashi"],["11:30–13:00","⚡ Pokémon Café Tokyo 🕓 (time TBC)"],["13:00–13:45","Pokémon Center Tokyo DX"],["~14:00","Ginza"],["14:00–15:30","Ginza shopping"],["15:30–16:00","Travel → Akihabara"],["16:00–18:00","Akihabara"],["~18:30","Return Nishikasai"],["19:00","Dinner"],["19:30–21:00","Pack"],["~21:30","Sleep"]],
+  notes:["Keep this day controlled because of the early HND departure."],
+  blocks:[[8,8.5,"travel","→ Ōtemachi"],[9,10.5,"sight","East Gardens"],[10.5,11,"travel","→ Nihombashi"],[11.5,13,"timed","Pokémon Café (TBC)"],[13,13.75,"sight","Pokémon Center"],[14,15.5,"sight","Ginza"],[15.5,16,"travel","→ Akiba"],[16,18,"sight","Akihabara"],[18,18.5,"travel","→ home"],[19,19.5,"meal","Dinner"],[19.5,21,"rest","Pack"]],
+  tips:[{sev:"high",ref:"pokemon",text:"Requested via Reserve-Japan, not confirmed yet. They can’t choose the time, so fit the rest of the day around the slot they get."},
+        {sev:"good",ref:"sunday-hokoten",text:"It’s a Sunday, so Chūō-dōri in Ginza and Akihabara is pedestrian-only in the afternoon."},
+        {sev:"tip",text:"The East Gardens open at 09:00 (closed Mon and Fri; Sunday is fine). Walk past Nijūbashi first."},
+        {sev:"medium",ref:"taxfree",text:"When packing, keep tax-free items and their receipts in your cabin bag."}]},
+ {id:"d7", date:"2026-12-07", dow:"Mon", dm:"7 Dec", region:"tokyo", short:"✈️ AI-355 10:50",
+  title:"Departure", sub:"Flight AI-355 · HND Terminal 3 · 10:50", who:"You (Divyank isn’t on this flight)", base:"—",
+  prio:"Flight AI-355, HND Terminal 3, departs 10:50.",
+  intensity:2, leave:"06:45", out:[6.75,10.83], outLabel:"Fly", early:true, sunset:16.47,
+  rows:[["~06:15","Wake"],["06:30","Final checkout"],["06:45–07:00","Leave Nishikasai"],["~07:45–08:00","Reach Haneda Terminal 3"],["08:00–09:30","Check-in / baggage / security / immigration"],["09:30–10:15","Breakfast / duty free / gate"],["10:50","✈️ Depart Tokyo"]],
+  notes:[],
+  blocks:[[6.25,6.75,"rest","Checkout"],[6.75,8,"travel","→ HND"],[8,9.5,"travel","Check-in · security"],[9.5,10.25,"meal","Breakfast"],[10.83,11.6,"flight","✈ AI-355"]],
+  tips:[{sev:"high",ref:"rush-luggage",text:"It’s a Monday rush hour: take a taxi (about 23.5 km, 35–45 min) or the airport bus from Kasai Station."},
+        {sev:"medium",ref:"taxfree",text:"Use the tax-free export kiosk before check-in (new rules from 1 Nov 2026)."},
+        {sev:"good",text:"About 3 hours at the airport is the right buffer for an international flight."},
+        {sev:"good",text:"Your seat 43A is a well-aligned left window: Mt Fuji passes just 2–13 km away ~15 min after take-off, and you land in Mumbai at sunset with the skyline on the same side."}],
+  revised:{title:"Suggested timeline: luggage-friendly airport run",
+   rows:[["05:45","Wake · 06:15 checkout"],["06:15–07:00","🚕 Taxi (GO app) → HND T3, or airport bus from Kasai Station"],["~07:15","Tax-free export kiosk (before check-in)"],["07:30–09:30","Check-in · security · immigration"],["09:30–10:15","Breakfast · gate"],["10:50","✈️ AI-355"]],
+   gain:"No rush-hour Tozai Line with suitcases, and time for the new tax-free check."}}
+];
+
+/* ---------- Bookings ---------- */
+const BOOKINGS = [
+ {grp:"From your final checklist"},
+ {id:"skytree", item:"Tokyo Skytree", day:"d27", when:"Fri 27 Nov · 15:30", status:"booked", sale:"—", note:"Booked per your 27 Nov notes (15:30 entry, can be rescheduled)."},
+ {id:"teamlab", item:"teamLab Planets", day:"d27", when:"Fri 27 Nov · 18:30", status:"booked", sale:"—", note:"Booked 11 Nov: 2 adults, 18:30 entry."},
+ {id:"sumo", item:"Shinjuku Sumo Club · show & experience", day:"d28", when:"Sat 28 Nov · 10:00", status:"booked", sale:"—", note:"Rescheduled from 27 Nov on GetYourGuide (11 Nov). Venue: Sekisaku Bldg 2F, 2-5-22 Ōkubo, 7 min on foot from Higashi-Shinjuku. Check in by 09:50."},
+ {id:"shibuya", item:"Shibuya Sky (sunset slot)", day:"d28", when:"Sat 28 Nov · 15:40", status:"pending", opens:"2026-11-13T15:00:00Z", sale:"14 Nov 00:00 JST<br><b>13 Nov 20:30 IST</b>", note:"Log in by 20:25 IST. Sunset slots sell out in minutes.", ref:"shibuya-sky"},
+ {id:"romancecar", item:"Hakone transport (Romancecar, or Shinkansen to Odawara)", day:"d29", when:"Sun 29 Nov · ~07:00", status:"onsale", sale:"Since 29 Oct 10:00 JST (1 month ahead)", note:"Buy on EMot Online Tickets (English), ¥1,200 a seat each way. Going out, pick a right-hand window (usually D) for Mt Fuji near Shin-Matsuda; Hakone 1 is an EXE, so there are no observation seats, and the return runs after dark. On 13 Nov every 29 Nov train in both directions still showed plenty of seats, so booking 2–3 days ahead should work; booking now just locks in a right-side window. If you book early, a refund costs ¥100 a ticket before departure, same-day train changes are free and one date change is free. No-booking fallback: Shinkansen Tokyo → Odawara in the unreserved cars (Kodama 07:27 → 08:00, ¥3,280).", ref:"fuji-days"},
+ {id:"freepass", item:"Hakone Freepass", day:"d29", when:"Sun 29 Nov", status:"later", buy:"Buy after the forecast", sale:"Any time (digital or at the station)", note:"Buy the Digital Hakone Freepass from Shinjuku (¥7,100, QR code) on EMot Online Tickets once the forecast looks good. Take the Odawara version if you go by Shinkansen.", ref:"fuji-days"},
+ {id:"bus-out", item:"Bus Shinjuku → Fujisan Station", day:"d30", when:"Mon 30 Nov · 07:55", status:"onsale", sale:"On sale now", note:"Reaches Fujisan at 09:47; Shimoyoshida (Chureito) is two stops on. Book on highwaybus.com (English) and pick a left window (A seats): Mt Fuji appears ahead-left after Ōtsuki. Book now: the line sells out even on weekdays, and cancelling online before departure costs about ¥100 a seat. Train fallback: JR Fuji Excursion, Shinjuku 07:30 → Fujisan 09:18 (¥4,067 with a reserved seat).", ref:"kawaguchiko-tips"},
+ {id:"bus-back", item:"Bus Fuji-Q Highland → Shinjuku", day:"d30", when:"Mon 30 Nov · 17:08", status:"onsale", sale:"On sale now", note:"Reaches Busta Shinjuku at 18:45. It’s dark by then, so pick a front seat to get off quickly. Book it with the outbound (same ~¥100 to cancel), and allow for traffic.", ref:"kawaguchiko-tips"},
+ {id:"fujiq", item:"Fuji-Q Highland Afternoon Pass", day:"d30", when:"Mon 30 Nov · 13:00–17:00", status:"later", buy:"Buy 29 Nov evening", sale:"Online or at the park", note:"¥5,700 per adult on 30 Nov (One-day Pass ¥7,600). Buy it at fujiq.jp/en (QR ticket) the evening before, once the forecast looks fine: passes can’t be refunded.", ref:"fuji-days"},
+ {id:"shink-1", item:"Shinkansen Tokyo → Kyoto (Seat E)", day:"d1", when:"Tue 1 Dec · ~09:30", status:"booked", sale:"—", note:"Booked 12 Nov, on the Mt Fuji side. Check the train, car and seats in your confirmation; Smart EX changes are free until 4 min before departure."},
+ {id:"usj-pass", item:"USJ Studio Pass", day:"d4", when:"Fri 4 Dec", status:"onsale", sale:"On sale now", note:"Date-specific ticket.", ref:"book-now"},
+ {id:"usj-express", item:"USJ Express Pass", day:"d4", when:"Fri 4 Dec", status:"onsale", sale:"On sale now", note:"Christmas season: these sell out. Choose one with Nintendo entry.", ref:"usj"},
+ {id:"usj-snw", item:"Super Nintendo World access", day:"d4", when:"Fri 4 Dec", status:"onsale", sale:"With Express Pass, or in the app on the day", note:"Guaranteed with most Express Passes.", ref:"usj"},
+ {id:"shink-2", item:"Shinkansen Shin-Osaka → Tokyo", day:"d4", when:"Fri 4 Dec · ~19:30", status:"onsale", sale:"Since 4 Nov 10:00 JST (06:30 IST)", note:"Standard Smart EX (¥14,520) can be moved for free if USJ runs long. EX Hayatoku 21 (¥12,980) closes 13 Nov 23:30 JST and can’t be changed.", ref:"usj"},
+ {id:"pokemon", item:"Pokémon Café Tokyo (via Reserve-Japan)", day:"d6", when:"Sun 6 Dec · time TBC", status:"requested", sale:"Opened 1 Nov 18:00 JST<br>(14:30 IST)", note:"Best effort, with a 100% refund if they can’t get a seat. They assign the time, so tick this once their confirmation arrives.", ref:"pokemon"},
+ {grp:"Missing from your checklist"},
+ {id:"flight-in", item:"AI-356 Mumbai → Haneda T3 (you)", day:"d24", when:"Tue 24 Nov · lands 04:55", status:"confirm", done:true, sale:"—", note:"Confirmed 12 Nov. Boeing 787-8, older cabin (AeroLOPA 788-1). Seat 34A booked 12 Nov: left window behind the wing, with the window centred on the seat. Left side: the Sea Link and South Mumbai at sunset just after take-off. Mt Fuji passes ~75 km to the left ~20 min before landing, in the dark but under a 99% moon; ask the crew to clear the dimmed windows. Web check-in 24–48 h before; Visit Japan Web QR ready."},
+ {id:"hotel-1", item:"Wise Owl Hostels River Tokyo · nights of 24–25 Nov", day:"d24", when:"Tue 24 Nov · 07:00 arrival", status:"check", done:true, sale:"—", note:"Booked 12 Nov on Booking.com (mixed dorm). Ask them to hold your bag from ~07:00 on the 24th. Check-in 15:00–23:00, check-out 10:00.", ref:"arrival"},
+ {id:"flight-divyank", item:"Divyank’s flight to Narita", day:"d26", when:"Thu 26 Nov · lands 15:20", status:"confirm", done:true, sale:"—", note:"Confirmed 12 Nov. Note the terminal (T1, T2 or T3) for meeting him or for his train.", ref:"divyank"},
+ {id:"nrt-transfer", item:"Divyank: NRT → Nishikasai transfer", day:"d26", when:"Thu 26 Nov · ~16:45", status:"check", sale:"—", note:"Airport bus to Kasai Station (check the timetable).", ref:"divyank"},
+ {id:"storage", item:"Large bags at your friend’s place, 1–4 Dec", day:"d1", when:"1–4 Dec", status:"check", done:true, sale:"—", note:"Arranged 12 Nov: the large bags stay at your friend’s place and you take cabin bags to Kansai."},
+ {id:"hotel-kyoto", item:"LOISIR Hotel Kyoto Toji · nights of 1–2 Dec", day:"d1", when:"Tue 1 Dec · bag drop ~12:15", status:"confirm", done:true, sale:"—", note:"Confirmed 12 Nov. Ask them to hold bags from ~12:15; check-in is usually 15:00."},
+ {id:"hotel-osaka", item:"New Osaka Hotel (Shin-Osaka) · night of 3 Dec", day:"d3", when:"Thu 3 Dec · check-in 15:00", status:"confirm", done:true, sale:"—", note:"Confirmed 12 Nov: NEW OSAKA HOTEL, 5-14-10 Nishinakajima, 3 min from Shin-Osaka Station. Ask them to hold bags on 4 Dec until the evening Shinkansen.", ref:"usj"},
+ {id:"hnd-transfer", item:"Airport transfer Nishikasai → HND T3", day:"d7", when:"Mon 7 Dec · ~06:15", status:"check", sale:"—", note:"Taxi (GO app reservation) or airport bus from Kasai Station.", ref:"rush-luggage"},
+ {id:"flight-out", item:"AI-355 Haneda T3 → Mumbai (you)", day:"d7", when:"Mon 7 Dec · 10:50", status:"confirm", done:true, sale:"—", note:"Confirmed 12 Nov. Boeing 787-8, new 2026 cabin (AeroLOPA 788-3, only one plane so far). Seat 43A booked 12 Nov (₹1,405): left window behind the wing, rated above average by AeroLOPA. If Air India swaps in an older 787-8, 43A won’t exist, so recheck at web check-in. Mt Fuji passes 2–13 km to the left ~15 min after take-off. Web check-in 24–48 h before. Use the tax-free kiosk before bag drop.", ref:"taxfree"},
+ {id:"shigetsu", item:"Shigetsu lunch at Tenryū-ji (optional)", day:"d2", when:"Wed 2 Dec · ~11:00", status:"opt", sale:"Reservation recommended", note:"Buddhist vegetarian cuisine, on your Arashiyama route.", ref:"food"}
+];
+
+/* ---------- Pre-trip checklist ---------- */
+const CHECKS = [
+ ["Before you fly", ["Visit Japan Web QR codes (you and Divyank)","eSIM or roaming on both phones",{t:"Travel insurance for both", done:true},"Addresses saved offline: your friend’s place (in Japanese) and every hotel, incl. 24–25 Nov",{t:"Scapia app: international usage on and card PIN set", done:true},"Axis app: debit card international ATM use on (cash backup)"]],
+ ["Apps & money", ["IC card: TOURIST PASMO at HND T3, paid with the Scapia card (Welcome Suica Mobile only if a card of yours works in Apple Pay)","Smart EX account (both Shinkansen legs)","USJ app with tickets linked","GO taxi app","Google Maps offline: Tokyo, Kyoto, Osaka, Hakone, Fuji Five Lakes","¥30,000 each in cash (mostly ¥1,000 notes), plus a coin purse"]],
+ ["Packing", ["Layers + gloves for dawn starts (~0–7 °C)","Comfortable walking shoes (Fushimi Inari, Chureito steps)","Shorts or roll-up trousers for teamLab","Cabin bag packed for the 3 Kansai nights",{t:"Power bank", done:true},"Japanese vegetarian card (if needed)"]],
+ ["Ask your friend & hotels", [{t:"Friend: large bags stay at their place 1–4 Dec", done:true},{t:"Friend: OK for us to arrive with bags around 11:00 on 26 Nov?", done:true},"Wise Owl: hold my bag from ~07:00 on 24 Nov?","New Osaka Hotel: hold bags on 4 Dec?",{t:"Friend: a key or door code for the 05:50 starts and the ~22:40 return on 4 Dec", done:true}]]
+];
+
+/* ---------- Station-to-station legs ---------- */
+// Jorudan route search for each planned date and time (checked 11 Nov 2026). t = sample departure, m = minutes door to door
+// (changes and waits included), km = railway fare distance (approx: road estimate for buses), y = adult fare in yen,
+// k = how it's paid: ic = tap IC card, sk = Shinkansen ticket, rc = Romancecar (Freepass + seat fee), hb = highway bus, fp = Hakone Freepass.
+const LEGS = {
+ d24:[{t:"06:16",a:"Haneda T3",b:"Wise Owl (Mukōjima)",r:"Tokyo Monorail → Toei Asakusa Line (Access Express) → walk 4 min · change at Hamamatsuchō/Daimon",m:46,km:22.3,y:739,k:"ic",note:"Wise Owl is 4 min from Honjo-Azumabashi exit A4. Check-in is 15:00, so leave your bag at the desk."}],
+ d26:[{t:"10:26",a:"Wise Owl (Mukōjima)",b:"Friend’s place",r:"walk 4 min → Toei Asakusa Line → Tozai Line → walk 5 min · change at Nihombashi",m:39,km:13.4,y:317,k:"ic",note:"After the 10:00 check-out: train 10:30 from Honjo-Azumabashi, at your friend’s place by about 11:05."},
+      {t:"16:48",a:"Narita T1",b:"Friend’s place",r:"Keisei Main Line → JR Chūō-Sōbu local → Tozai Line → walk 5 min · change at Funabashi, Nishi-Funabashi, Urayasu",m:90,km:58.3,y:1165,k:"ic",note:"Divyank’s route. Tozai rapid trains skip Nishi-kasai, hence the change at Urayasu. If you go to meet him, leave at 13:45 for the 13:54 train and reach Narita T1 at 15:27 (1 h 42 min, ¥1,165)."}],
+ d27:[{t:"06:40",a:"Friend’s place",b:"Asakusa",r:"walk 5 min → Tozai Line (06:47) → Toei Asakusa Line · change at Nihombashi",m:37,km:12.4,y:317,k:"ic"},
+      {t:"11:02",a:"Asakusa",b:"Ueno",r:"Ginza Line",m:5,km:2.2,y:178,k:"ic",opt:"optional",note:"Only if you pick Ueno Park and Ameyoko. Kappabashi is about a 15 min walk from Asakusa instead."},
+      {t:"14:15",a:"Ueno",b:"Oshiage (Skytree)",r:"Ginza Line → Toei Asakusa Line · change at Asakusa",m:14,km:3.7,y:286,k:"ic",note:"From Asakusa instead, it’s one stop on the Toei Asakusa Line or a 20 min walk."},
+      {t:"17:10",a:"Oshiage (Skytree)",b:"Shin-Toyosu",r:"Hanzōmon Line → Toei Ōedo Line → Yūrakuchō Line → Yurikamome · change at Kiyosumi-Shirakawa, Tsukishima, Toyosu",m:33,km:9,y:653,k:"ic"},
+      {t:"20:00",a:"Shin-Toyosu",b:"Friend’s place",r:"Yurikamome → Yūrakuchō Line → Toei Ōedo Line → Tozai Line → walk 5 min · change at Toyosu, Tsukishima, Monzen-Nakachō",m:38,km:9.8,y:653,k:"ic"}],
+ d28:[{t:"06:20",a:"Friend’s place",b:"Meiji-jingūmae",r:"walk 5 min → Tozai Line (06:28) → Chiyoda Line · change at Ōtemachi",m:46,km:16.6,y:252,k:"ic"},
+      {t:"08:19",a:"Meiji-jingūmae",b:"Gaiemmae",r:"Chiyoda Line → Ginza Line · change at Omotesandō",m:6,km:1.6,y:178,k:"ic",note:"Add the walk out of the shrine and about 5 min from Gaiemmae to the ginkgo avenue."},
+      {t:"09:00",a:"Gaien Ginkgo Avenue",b:"Shinjuku Sumo Club",r:"walk 7 min to Aoyama-itchōme → Toei Ōedo Line (09:13) → walk 7 min from Higashi-Shinjuku · change at Tochōmae",m:37,km:7.4,y:220,k:"ic",note:"Arrives 09:37, 13 min before check-in. The club is on 2F of the Sekisaku Building, 2-5-22 Ōkubo."},
+      {t:"11:35",a:"Shinjuku Sumo Club",b:"Meiji-jingūmae (Harajuku)",r:"walk 7 min to Higashi-Shinjuku → Fukutoshin Line (11:47)",m:19,km:4.3,y:178,k:"ic",note:"Or walk 12 min to Shin-Okubo for the JR Yamanote Line to Harajuku (8 min)."},
+      {t:"14:30",a:"Omotesandō",b:"Shibuya",r:"Hanzōmon Line",m:2,km:1.3,y:178,k:"ic"},
+      {t:"18:15",a:"Shibuya",b:"Shinjuku",r:"JR Saikyō Line",m:4,km:3.4,y:199,k:"ic"},
+      {t:"20:30",a:"Shinjuku",b:"Friend’s place",r:"Marunouchi Line → Tozai Line → walk 5 min · change at Ōtemachi",m:48,km:17.9,y:252,k:"ic"}],
+ d29:[{t:"05:50",a:"Friend’s place",b:"Shinjuku",r:"walk 5 min → Tozai Line (06:02) → Marunouchi Line · change at Ōtemachi",m:54,km:17.9,y:252,k:"ic",note:"Arrives 06:44, 16 min before the Romancecar."},
+      {t:"07:00",a:"Shinjuku",b:"Hakone-Yumoto",r:"Odakyu Romancecar “Hakone 1” (reserved seat)",m:86,km:88.6,y:2461,k:"rc",note:"¥1,261 fare + ¥1,200 seat fee. A Freepass from Shinjuku covers the fare, not the seat fee."},
+      {t:"08:39",a:"Hakone-Yumoto",b:"Gōra",r:"Hakone Tozan Railway",m:38,km:8.9,y:460,k:"fp",note:"From here to the bus back to Yumoto, every leg is covered by the Hakone Freepass."},
+      {t:"09:31",a:"Gōra",b:"Owakudani",r:"Hakone Tozan Cable Car → Hakone Ropeway · change at Sōunzan",m:31,km:2.7,y:2430,k:"fp"},
+      {t:"11:00",a:"Owakudani",b:"Tōgendai",r:"Hakone Ropeway",m:30,km:2.5,y:2000,k:"fp"},
+      {t:"11:58",a:"Tōgendai",b:"Moto-Hakone-kō",r:"walk 2 min → Hakone Sightseeing Cruise (the pirate ship) across Lake Ashi",m:47,km:null,y:1700,k:"fp"},
+      {t:"16:00",a:"Moto-Hakone-kō",b:"Hakone-Yumoto",r:"Hakone Tozan Bus (route R) → walk 4 min",m:37,km:16.6,approx:true,y:1210,k:"fp"},
+      {t:"16:57",a:"Hakone-Yumoto",b:"Shinjuku",r:"Odakyu Romancecar “Hakone 40” (reserved seat)",m:88,km:88.6,y:2461,k:"rc"},
+      {t:"18:34",a:"Shinjuku",b:"Friend’s place",r:"Marunouchi Line → Tozai Line → walk 5 min · change at Ōtemachi",m:48,km:17.9,y:252,k:"ic"}],
+ d30:[{t:"06:30",a:"Friend’s place",b:"Shinjuku",r:"walk 5 min → Tozai Line (06:39) → Toei Shinjuku Line · change at Kudanshita",m:47,km:16.4,y:359,k:"ic",note:"Arrives 07:17, 38 min before the 07:55 bus. Busta Shinjuku is above the JR New South exit."},
+      {t:"07:55",a:"Busta Shinjuku",b:"Fujisan",r:"Chūō Highway Bus (Fuji Five Lakes line) → walk 5 min",m:117,km:100.5,approx:true,y:2200,k:"hb",note:"The first bus Jorudan lists after 07:40. Road traffic can add time."},
+      {t:"10:08",a:"Fujisan",b:"Shimoyoshida",r:"Fujikyu Railway",m:5,km:2.5,y:224,k:"ic",note:"Shimoyoshida is the station for Chureito Pagoda (398 steps up)."},
+      {t:"11:52",a:"Shimoyoshida",b:"Kawaguchiko",r:"Fujikyu Railway",m:13,km:5.5,y:305,k:"ic"},
+      {t:"12:55",a:"Kawaguchiko",b:"Fuji-Q Highland",r:"walk to bus stop 4 → Fujikyu bus (13:03) → walk 6 min",m:19,km:1.6,approx:true,y:210,k:"ic",note:"The 13:02 Fujisan View Express is quicker (2 min) but charges a limited-express fee."},
+      {t:"17:08",a:"Fuji-Q Highland",b:"Busta Shinjuku",r:"Chūō Highway Bus (Fuji Five Lakes line)",m:97,km:103.2,approx:true,y:2200,k:"hb",note:"Leaves from the park’s own bus stop. Road traffic can add time."},
+      {t:"18:53",a:"Shinjuku",b:"Friend’s place",r:"Toei Shinjuku Line → Tozai Line → walk 5 min · change at Kudanshita",m:39,km:16.4,y:359,k:"ic",note:"Allow about 8 min from Busta Shinjuku to the Toei Shinjuku Line platforms; if the bus is late, take the next train."}],
+ d1:[{t:"08:30",a:"Friend’s place",b:"Tokyo",r:"walk 5 min → Tozai Line (08:37) → Marunouchi Line · change at Ōtemachi",m:36,km:10,y:209,k:"ic",note:"Weekday rush hour: skip the front car (women-only until Ōtemachi). Allow about 10 min inside Tokyo Station to reach the Shinkansen gates. A taxi from your friend’s place is about 9 km (20–30 min in traffic, ≈ ¥4–5k)."},
+     {t:"09:30",a:"Tokyo",b:"Kyoto",r:"Shinkansen Nozomi 21 (reserved seat)",m:134,km:513.6,y:13970,k:"sk",note:"¥8,360 fare + ¥5,610 seat at the station (1 Dec is off-peak); Smart EX charges ¥13,770. The track itself is about 476 km."},
+     {t:"11:56",a:"Kyoto",b:"Tōji",r:"Kintetsu Kyoto Line",m:2,km:0.9,y:180,k:"ic"},
+     {t:"13:33",a:"Tōji",b:"Gojōzaka",r:"walk 5 min → City Bus 207 from Kujō Kintetsu-mae",m:27,km:4.4,approx:true,y:230,k:"ic",note:"Kiyomizu-dera is a 10–15 min uphill walk from Gojōzaka."},
+     {t:"19:31",a:"Gion-Shijō",b:"Tōji",r:"Keihan Line → Kintetsu Kyoto Line · change at Tambabashi",m:27,km:12.4,y:560,k:"ic"}],
+ d2:[{t:"06:05",a:"Tōji",b:"Inari",r:"Kintetsu Kyoto Line → JR Nara Line · change at Kyoto",m:22,km:3.6,y:330,k:"ic"},
+     {t:"08:20",a:"Inari",b:"Saga-Arashiyama",r:"JR Nara Line → JR Sagano Line · change at Kyoto",m:37,km:13,y:240,k:"ic"},
+     {t:"11:14",a:"Arashiyama (Hankyu)",b:"Kinkakuji-michi",r:"Hankyu Arashiyama Line → Hankyu Kyoto Line → City Bus 205 · change at Katsura, Saiin",m:47,km:11.6,approx:true,y:430,k:"ic",note:"The suggested timeline takes a taxi instead (about 25 min)."},
+     {t:"13:00",a:"Kinkakuji-michi",b:"Shijō-Kawaramachi",r:"City Bus 59",m:38,km:7.1,approx:true,y:230,k:"ic",note:"Nishiki Market is a few minutes’ walk west."},
+     {t:"15:02",a:"Shijō",b:"Nijōjō-mae",r:"Subway Karasuma Line → Subway Tōzai Line · change at Karasuma-Oike",m:10,km:1.7,y:220,k:"ic"},
+     {t:"16:00",a:"Nijōjō-mae",b:"Kyoto",r:"Subway Tōzai Line → Subway Karasuma Line · change at Karasuma-Oike",m:10,km:3.5,y:260,k:"ic"},
+     {t:"20:01",a:"Kyoto",b:"Tōji",r:"Kintetsu Kyoto Line",m:2,km:0.9,y:180,k:"ic"}],
+ d3:[{t:"07:36",a:"Tōji",b:"Kintetsu-Nara",r:"Kintetsu Kyoto Line → Kintetsu Nara Line · change at Yamato-Saidaiji",m:45,km:38.1,y:760,k:"ic",note:"Express, so no booking. The change at Yamato-Saidaiji is 1 min; with bags, the 07:46 express runs straight through to Kintetsu-Nara (arrives 08:35)."},
+     {t:"13:36",a:"Kintetsu-Nara",b:"New Osaka Hotel",r:"Kintetsu Nara Line (rapid express) → Osaka Metro Midōsuji Line → walk 1 min · change at Osaka-Namba",m:60,km:40.5,y:970,k:"ic",note:"At the hotel by ~14:36 for the 15:00 check-in."},
+     {t:"15:15",a:"New Osaka Hotel",b:"Tanimachi 4-chōme",r:"walk 1 min → Midōsuji Line → Tanimachi Line · change at Umeda/Higashi-Umeda",m:21,km:7.5,y:240,k:"ic",opt:"optional",note:"Osaka Castle’s main tower is a 15–20 min walk from here."},
+     {t:"17:15",a:"Tanimachi 4-chōme",b:"Namba",r:"Osaka Metro Tanimachi Line → Sennichimae Line · change at Tanimachi 9-chōme",m:11,km:3.6,y:240,k:"ic",opt:"optional"},
+     {t:"20:45",a:"Namba",b:"New Osaka Hotel",r:"Midōsuji Line → walk 1 min",m:16,km:7.6,y:290,k:"ic",note:"Dōtonbori to the hotel in about 15 min."}],
+ d4:[{t:"06:15",a:"New Osaka Hotel",b:"Universal City",r:"walk 3 min → JR Kobe Line → JR Osaka Loop Line → JR Yumesaki Line · change at Osaka, Nishikujō",m:31,km:10.8,y:240,k:"ic",note:"Leave your bags at the hotel for the day."},
+     {t:"18:00",a:"Universal City",b:"Shin-Osaka",r:"JR Yumesaki Line → JR Osaka Loop Line → JR Kyoto Line · change at Nishikujō, Osaka",m:20,km:10.6,y:240,k:"ic",note:"Collect your bags at the hotel (3 min each way) before the 19:30 Shinkansen."},
+     {t:"19:30",a:"Shin-Osaka",b:"Tokyo",r:"Shinkansen Nozomi 52 (reserved seat)",m:147,km:552.6,y:14720,k:"sk",note:"¥8,910 fare + ¥5,810 seat at the station; Smart EX charges ¥14,520. The track itself is about 515 km."},
+     {t:"22:11",a:"Tokyo",b:"Friend’s place",r:"Marunouchi Line → Tozai Line → walk 5 min · change at Ōtemachi",m:35,km:10,y:209,k:"ic"}],
+ d5:[{t:"07:30",a:"Friend’s place",b:"Hase",r:"walk 5 min → Tozai Line (07:38) → Ginza Line → JR Tōkaidō Line → JR Yokosuka Line → Enoden · change at Nihombashi, Shimbashi, Totsuka, Kamakura",m:100,km:61.7,y:1311,k:"ic",opt:"Option A",note:"Simpler: Tozai → Marunouchi → JR Yokosuka Line straight to Kamakura (3 changes) reaches Hase at 09:24."},
+     {t:"11:17",a:"Hase",b:"Kamakura",r:"Enoden",m:4,km:1.7,y:200,k:"ic",opt:"Option A"},
+     {t:"13:18",a:"Kamakura",b:"Enoshima",r:"Enoden",m:25,km:6.7,y:260,k:"ic",opt:"Option A"},
+     {t:"16:49",a:"Enoshima",b:"Friend’s place",r:"walk 11 min to Katase-Enoshima → Odakyu Enoshima Line → Odakyu Line → Chiyoda Line → Tozai Line → walk 5 min · change at Fujisawa, Yoyogi-Uehara, Ōtemachi",m:131,km:75.2,y:901,k:"ic",opt:"Option A"}],
+ d6:[{t:"08:00",a:"Friend’s place",b:"Ōtemachi",r:"walk 5 min → Tozai Line (08:08)",m:24,km:9.4,y:209,k:"ic"},
+     {t:"10:34",a:"Ōtemachi",b:"Nihombashi",r:"Tozai Line",m:1,km:0.8,y:178,k:"ic",note:"Or walk 15–20 min from the East Gardens."},
+     {t:"13:47",a:"Nihombashi",b:"Ginza",r:"Ginza Line",m:3,km:1.4,y:178,k:"ic"},
+     {t:"15:31",a:"Ginza",b:"Akihabara",r:"Hibiya Line",m:13,km:4.9,y:178,k:"ic"},
+     {t:"18:00",a:"Akihabara",b:"Friend’s place",r:"Hibiya Line → Tozai Line → walk 5 min · change at Kayabachō",m:30,km:10.5,y:209,k:"ic"}],
+ d7:[{t:"06:45",a:"Friend’s place",b:"Haneda T3",r:"walk 5 min → Tozai Line (06:53) → Toei Asakusa Line/Keikyu (through train) · change at Nihombashi",m:64,km:28.4,y:644,k:"ic",note:"Rail option for reference. With suitcases in the Monday rush, the plan prefers a taxi: about 23.5 km via the Bayshore Route, 35–45 min, ≈ ¥10–12k with tolls. Kasai Station (airport buses) is a 22 min walk or one Tozai stop away."}]
+};
+
+/* ---------- JR Pass vs individual tickets (per adult, yen) ---------- */
+const FX = {inr:0.59381, date:"10 Nov 2026"};   // ECB reference rate: ¥1 in rupees
+const JRPASS = {d7:50000, agent:53000, nozomi:4960};
+// JR rides a 7-day pass could cover in its best window (29 Nov – 5 Dec), at normal ticket prices from Jorudan.
+const JRCOVER = [
+ ["Sun 29 Nov","Tokyo ⇄ Odawara by Kodama, unreserved (only if you swap the Romancecar for the Shinkansen)",6560],
+ ["Tue 1 Dec","Tokyo → Kyoto, Nozomi reserved",13970],
+ ["Wed 2 Dec","Kyoto → Inari → Saga-Arashiyama (JR Nara and Sagano lines)",390],
+ ["Thu 3 Dec","Kyoto → Nara → Osaka on JR, instead of Kintetsu",1560],
+ ["Fri 4 Dec","Shin-Osaka → Universal City → Shin-Osaka (JR)",480],
+ ["Fri 4 Dec","Shin-Osaka → Tokyo, Nozomi reserved",14720],
+ ["Sat 5 Dec","Tokyo ⇄ Kamakura on the JR Yokosuka Line (Option A)",2068]
+];
+const SHINK = [
+ {ride:"Tue 1 Dec · Tokyo → Kyoto", std:["Nozomi 21 · 09:30 → 11:44 (2 h 14 min)", 13770],
+  disc:["EX Hayatoku 7 · Hikari 637 · 09:36 → 12:12 (2 h 36 min)", 11940],
+  rule:"✅ You booked this ride on 12 Nov. (EX Hayatoku 7 needed booking by 24 Nov and arrives 28 min later.)"},
+ {ride:"Fri 4 Dec · Shin-Osaka → Tokyo", std:["Nozomi 52 · 19:30 → 21:57 (2 h 27 min)", 14520],
+  disc:["EX Hayatoku 21 · any Nozomi with seats left", 12980],
+  rule:"Book by <b>13 Nov, 23:30 JST (20:00 IST)</b>. The train can’t be changed after booking; cancelling costs ¥320. EX Hayatoku 7 on Hikari 664 (19:21 → 22:18) is ¥12,490 until 27 Nov."}
+];
+/* ================= Rendering ================= */
+const $ = s => document.querySelector(s);
+DAYS.forEach((d, i) => { d.n = i + 1; });
+const DAYMAP = Object.fromEntries(DAYS.map(d => [d.id, d]));
+const IMPNO = Object.fromEntries(IMPS.map((m, i) => [m.id, i + 1]));
+const AX0 = 4, AX1 = 23, SPAN = AX1 - AX0;
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const pct = h => (h - AX0) / SPAN * 100;
+const pad = n => String(n).padStart(2, "0");
+const hhmm = h => { const t = Math.round(h * 60); return pad(Math.floor(t / 60)) + ":" + pad(t % 60); };
+const dayLabel = id => { const d = DAYMAP[id]; return d ? d.dow + " " + d.dm : id; };
+const outHours = d => d.out ? d.out[1] - d.out[0] : null;
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable: ticks just won't persist */ } },
+  del(k) { try { localStorage.removeItem(k); } catch (e) { /* storage unavailable: nothing to remove */ } }
+};
+const jstToday = new Date(Date.now() + 9 * 36e5).toISOString().slice(0, 10);
+const todayDay = DAYS.find(d => d.date === jstToday) || null;
+
+function fmtDur(ms) {
+  const m = Math.max(0, Math.floor(ms / 6e4)), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60), mi = m % 60;
+  return d ? `${d} d ${h} h` : h ? `${h} h ${mi} min` : `${mi} min`;
+}
+function fmtZone(ms, off, lab) {
+  const d = new Date(ms + off * 36e5);
+  return `${d.getUTCDate()} ${MON[d.getUTCMonth()]} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())} ${lab}`;
+}
+function dots(n) {
+  return `<span class="int" title="Intensity ${n}/5">${[1,2,3,4,5].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
+}
+function sevCounts() { return IMPS.reduce((a, m) => { a[m.sev] = (a[m.sev] || 0) + 1; return a; }, {}); }
+function streak() {
+  let best = [], cur = [];
+  DAYS.forEach(d => {
+    const h = outHours(d);
+    if (h !== null && h >= 12 && d.id !== "d7") { cur.push(d); if (cur.length > best.length) best = cur.slice(); }
+    else cur = [];
+  });
+  const avg = best.reduce((s, d) => s + outHours(d), 0) / (best.length || 1);
+  return {days: best, avg};
+}
+
+/* Bookings state */
+const bkKey = id => "jp26-bk-" + id;
+const isDone = b => { const v = store.get(bkKey(b.id)); return v === null ? (b.status === "booked" || b.done === true) : v === "1"; };
+const bkItems = () => BOOKINGS.filter(b => !b.grp);
+const listItems = () => bkItems().filter(b => ["booked","onsale","pending","urgent","requested","later"].includes(b.status));
+
+function renderCountdown() {
+  const now = Date.now(), el = $("#countdown"), dl = $("#deadline");
+  if (now < ARRIVE_UTC) {
+    const ms = ARRIVE_UTC - now, d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5);
+    el.textContent = `⏳ ${d} day${d === 1 ? "" : "s"} ${h} h until you land at Haneda`;
+  } else if (now < DEPART_UTC + 864e5) {
+    el.innerHTML = todayDay ? `🗾 Day ${todayDay.n} of 14 · today: <a href="#${todayDay.id}">${todayDay.title}</a>` : "🗾 You’re in Japan!";
+  } else {
+    el.textContent = "🏠 Trip complete. Hope it was amazing!";
+  }
+  const next = BOOKINGS.filter(b => b.opens && !isDone(b) && Date.parse(b.opens) > now)
+                       .sort((a, b) => Date.parse(a.opens) - Date.parse(b.opens))[0];
+  const pend = listItems().filter(b => !isDone(b));
+  const open = pend.filter(b => b.status !== "requested").length, waiting = pend.length - open;
+  const tally = [open && `${open} booking${open === 1 ? "" : "s"} still open`, waiting && `${waiting} awaiting confirmation`].filter(Boolean).join(" · ");
+  if (next) {
+    const t = Date.parse(next.opens);
+    dl.innerHTML = `⏰ Next deadline: <b>${next.item}</b> goes on sale in ${fmtDur(t - now)} · ${fmtZone(t, 5.5, "IST")} (${fmtZone(t, 9, "JST")}) · ${tally}`;
+  } else if (now < ARRIVE_UTC && tally) {
+    dl.innerHTML = `⏰ <b>${tally}</b>.${open ? " Every sale window has opened, so book now." : ""}`;
+  } else dl.textContent = "";
+}
+
+function renderStats() {
+  const c = sevCounts(), s = streak(), L = listItems(), done = L.filter(isDone).length;
+  const longest = DAYS.filter(d => d.out && d.id !== "d7").sort((a, b) => outHours(b) - outHours(a))[0];
+  const stats = [
+    ["14", "days · 13 nights (Tokyo 10 · Kyoto 2 · Osaka 1)"],
+    ["6 + 1", "regions (+ Kamakura option)"],
+    [`${done} / ${L.length}`, "bookings from your checklist confirmed", done < L.length ? "warn" : ""],
+    [`${c.critical || 0} · ${c.high || 0}`, "critical · high improvement items", "warn"],
+    [`${DAYS.filter(d => d.early).length}`, "departures before 07:00"],
+    [`${s.days.length} days`, `in a row ≥ 12 h out (avg ${s.avg.toFixed(1)} h)`, "amber"],
+    [`${outHours(longest).toFixed(1)} h`, `longest day · ${dayLabel(longest.id)}`]
+  ];
+  $("#stats").innerHTML = stats.map(([b, t, cls]) => `<div class="card stat ${cls || ""}"><b>${b}</b><span>${t}</span></div>`).join("");
+}
+
+const ACT = [
+  ["shibuya-sky", "Shibuya Sky (28 Nov): be online at <b>20:25 IST on Fri 13 Nov</b>."],
+  ["book-now", "4 Dec Shinkansen: only if you’re sure of the train, book EX Hayatoku 21 (¥12,980 vs ¥14,520) by <b>20:00 IST on Fri 13 Nov</b>. Otherwise keep the flexible standard fare."],
+  ["book-now", "Book the USJ Studio + Express passes, the 4 Dec Shinkansen, the 30 Nov buses and Hakone transport."],
+  ["arrival", "Message Wise Owl through Booking.com: arriving ~07:00 on 24 Nov, please hold my bag until check-in."]
+];
+function renderOverview() {
+  renderStats();
+  $("#actnow").innerHTML = ACT.map(([id, text]) => {
+    const m = IMPS[IMPNO[id] - 1];
+    return `<li class="${SEV[m.sev].cls}"><span class="k">#${IMPNO[id]}</span><span>${text} <a href="#imp-${id}">details</a></span></li>`;
+  }).join("");
+  $("#strengths").innerHTML = STRENGTHS.map(s => `<li>${s}</li>`).join("");
+}
+
+function renderCal() {
+  const hd = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  let html = hd.map((h, i) => `<div class="hd${i >= 5 ? " we" : ""}">${h}</div>`).join("");
+  html += `<div class="cell blank" aria-hidden="true"></div>`;              // Mon 23 Nov
+  DAYS.forEach(d => {
+    const we = d.dow === "Sat" || d.dow === "Sun";
+    const issues = d.tips.filter(t => ["critical","high","medium"].includes(t.sev)).length;
+    const crit = d.tips.some(t => t.sev === "critical");
+    const [num, mon] = d.dm.split(" ");
+    html += `<a class="cell${d === todayDay ? " today" : ""}" href="#${d.id}" style="--rc:var(--${d.region})">
+      <div class="cd"><b>${num}</b><span>${d.dow} · ${mon}</span>${we ? "<em>Weekend</em>" : ""}</div>
+      <div class="cr">${REG[d.region]}</div>
+      <div class="ct">${d.short}</div>
+      <div class="cm">${dots(d.intensity)}${d.early ? `<span title="Leaves before 07:00">🌅 ${d.leave}</span>` : ""}${issues ? `<span class="iss" title="Open review items">⚠ ${issues}${crit ? " 🔴" : ""}</span>` : ""}</div>
+    </a>`;
+  });
+  for (let i = 0; i < 6; i++) html += `<div class="cell blank" aria-hidden="true"></div>`;
+  $("#cal").innerHTML = html;
+}
+
+function renderGantt() {
+  const ticks = [];
+  for (let h = AX0; h <= AX1; h += 2) ticks.push(`<span style="left:${pct(h)}%">${pad(h)}</span>`);
+  let html = `<div class="gaxis"><div></div><div class="ticks">${ticks.join("")}</div><div class="r">Out</div></div>`;
+  DAYS.forEach(d => {
+    const blocks = d.blocks.map(([s, e, type, label]) => {
+      const w = pct(e) - pct(s);
+      return `<div class="gb ${type}${w < 4.6 ? " narrow" : ""}" style="left:${pct(s)}%;width:${w}%;--c:var(--${d.region})" title="${hhmm(s)}–${hhmm(e)} · ${label}"><span>${label}</span></div>`;
+    }).join("");
+    const h = outHours(d);
+    const cls = d.outLabel ? "na" : h >= 14 ? "hot" : h >= 12 ? "warm" : "ok";
+    const txt = d.outLabel || (h === null ? "—" : h.toFixed(1) + " h");
+    const [num, mon] = d.dm.split(" ");
+    html += `<div class="grow${d === todayDay ? " today" : ""}">
+      <a class="glabel" href="#${d.id}"><b>${d.dow} ${num}</b><span>${mon}${d.option ? " · opt A" : ""}</span></a>
+      <div class="gtrack">${blocks}<div class="sunset" style="left:${pct(d.sunset)}%" title="Sunset ≈ ${hhmm(d.sunset)}"></div></div>
+      <div class="gout ${cls}">${txt}</div></div>`;
+  });
+  html += `<div class="glegend">
+    <span><i style="background:var(--tokyo)"></i>Sightseeing (region colour)</span>
+    <span><i style="background:var(--tokyo);box-shadow:inset 0 0 0 2px #fde047"></i>Timed ticket</span>
+    <span><i style="background:repeating-linear-gradient(135deg,var(--transit) 0 4px,#fff 4px 6px)"></i>Travel</span>
+    <span><i style="background:var(--meal)"></i>Meal</span>
+    <span><i style="background:var(--rest)"></i>Rest / pack</span>
+    <span><i style="background:var(--flight)"></i>Flight / arrival</span>
+    <span><i style="background:#f97316;width:3px"></i>Sunset</span>
+    <span><b style="color:var(--crit)">≥14 h</b> · <b style="color:var(--high)">12–14 h</b> · <b style="color:var(--good)">&lt;12 h</b> out</span></div>`;
+  const s = streak();
+  if (s.days.length >= 3) {
+    html += `<div class="callout high">⚠️ <b>${s.days.length} consecutive days of 12 h+ out</b> (${dayLabel(s.days[0].id)} → ${dayLabel(s.days[s.days.length - 1].id)}, average ${s.avg.toFixed(1)} h) with no rest day until 5 Dec. See <a class="ref" href="#imp-fatigue">#${IMPNO.fatigue}</a>.</div>`;
+  }
+  $("#gantt").innerHTML = html;
+}
+
+function rowsTable(rows) {
+  return `<table class="tt"><tbody>${rows.map(([t, txt]) => {
+    const c = txt.includes("🥇") ? "p1" : txt.includes("⚠️") ? "warn" : txt.includes("✅") ? "bk1" : "";
+    return `<tr class="${c}"><td class="t">${t}</td><td>${txt}</td></tr>`;
+  }).join("")}</tbody></table>`;
+}
+function tipsList(tips) {
+  return `<ul class="tips">${tips.map(t => `<li class="${SEV[t.sev].cls}"><span class="dot" title="${SEV[t.sev].short}"></span><span>${t.text}${t.ref ? ` <a class="ref" href="#imp-${t.ref}">#${IMPNO[t.ref]}</a>` : ""}</span></li>`).join("")}</ul>`;
+}
+
+/* Transit legs and money */
+const fmtMin = m => m < 60 ? `${m} min` : `${Math.floor(m / 60)} h${m % 60 ? ` ${m % 60} min` : ""}`;
+const yen = n => "¥" + n.toLocaleString("en-US");
+const inr = n => "₹" + Math.round(n * FX.inr).toLocaleString("en-IN");
+const kmFmt = (km, approx) => `${approx ? "≈ " : ""}${km.toLocaleString("en-US", {minimumFractionDigits: 1, maximumFractionDigits: 1})} km`;
+const legKm = l => l.km === null ? "—" : kmFmt(l.km, l.approx);
+function legTotals(list) {
+  return list.reduce((s, l) => ({m: s.m + l.m, km: s.km + (l.km || 0), y: s.y + l.y, approx: s.approx || !!l.approx || l.km === null}),
+    {m: 0, km: 0, y: 0, approx: false});
+}
+function legsBlock(d) {
+  const L = LEGS[d.id];
+  if (!L) return "";
+  const s = legTotals(L);
+  return `<details class="legs"><summary>🚇 Station to station · ${L.length} leg${L.length > 1 ? "s" : ""} · ${fmtMin(s.m)} · ${kmFmt(s.km, s.approx)} · ${yen(s.y)} per person</summary>
+    <table class="lt"><tbody>${L.map(l => `<tr><td class="t">${l.t}</td>
+      <td><b>${l.a} → ${l.b}</b>${l.opt ? `<span class="pill">${l.opt}</span>` : ""}<span class="rt">${l.r}</span>${l.note ? `<span class="nt">${l.note}</span>` : ""}</td>
+      <td class="n">${fmtMin(l.m)}</td><td class="n">${legKm(l)}</td><td class="n">${yen(l.y)}</td></tr>`).join("")}</tbody></table></details>`;
+}
+function renderDays() {
+  $("#daylist").innerHTML = DAYS.map(d => {
+    const we = d.dow === "Sat" || d.dow === "Sun";
+    const h = outHours(d);
+    let plan = `<p class="prio">${d.prio}</p>`;
+    if (d.rows.length) plan += rowsTable(d.rows);
+    if (d.lists) plan += d.lists.map(([t, items]) => `<div class="subh">${t}</div><ul class="plist">${items.map(i => `<li>${i}</li>`).join("")}</ul>`).join("");
+    if (d.optA) plan += `<div class="opts"><div><div class="subh">Option A · Kamakura + Enoshima</div>${rowsTable(d.optA)}</div><div><div class="subh">Option B · Recovery day</div><ul class="plist">${d.optB.map(i => `<li>${i}</li>`).join("")}</ul></div></div>`;
+    if (d.notes && d.notes.length) plan += `<ul class="pnotes">${d.notes.map(n => `<li>${n}</li>`).join("")}</ul>`;
+    plan += legsBlock(d);
+    let review = `<h4>Review</h4>${tipsList(d.tips)}`;
+    if (d.revised) review += `<details class="rev"${d.id === "d27" ? " open" : ""}><summary>💡 ${d.revised.title}</summary>${rowsTable(d.revised.rows)}<p class="gain">✓ ${d.revised.gain}</p></details>`;
+    return `<article class="card day${d === todayDay ? " today" : ""}" id="${d.id}" style="--rc:var(--${d.region})">
+      <header><div class="dnum"><span>DAY</span><b>${d.n}</b></div>
+        <div><div class="ddate">${d.dow} ${d.dm} 2026 · ${REG[d.region]} · ${d.who}</div>
+        <h3>${d.title}</h3>
+        <div class="pills">${d === todayDay ? `<span class="pill today">TODAY</span>` : ""}${dots(d.intensity)}
+          <span class="pill">🛏️ ${d.base}</span>
+          <span class="pill${d.early ? " early" : ""}">${d.early ? "🌅 Leave" : "🚪"} ${d.leave}</span>
+          ${h !== null && !d.outLabel ? `<span class="pill">⏱️ ${h.toFixed(1)} h out${d.option ? " (A)" : ""}</span>` : ""}
+          <span class="pill">🌇 ${hhmm(d.sunset)}</span>
+          ${we ? `<span class="pill we">Weekend crowds</span>` : ""}</div></div></header>
+      <div class="dbody"><div class="plan">${plan}</div><aside class="review">${review}</aside></div></article>`;
+  }).join("");
+}
+
+function renderTransit() {
+  const days = DAYS.map(d => ({d, L: LEGS[d.id] || []}));
+  const all = days.flatMap(x => x.L), T = legTotals(all);
+  const ic = all.filter(l => l.k === "ic").reduce((s, l) => s + l.y, 0);
+  $("#tstats").innerHTML = [
+    [`${all.length}`, "station-to-station legs"],
+    [fmtMin(T.m), "in transit, door to door"],
+    [`≈ ${Math.round(T.km).toLocaleString("en-US")} km`, "by rail, bus and boat"],
+    [yen(T.y), `fares per person (≈ ${inr(T.y)})`],
+    [yen(ic), "of that paid by IC card tap"]
+  ].map(([b, t]) => `<div class="card stat"><b>${b}</b><span>${t}</span></div>`).join("");
+  let html = `<thead><tr><th>Day</th><th class="n">Legs</th><th class="n">In transit</th><th class="n">Distance</th><th class="n">Fares</th><th>Longest leg</th></tr></thead><tbody>`;
+  days.forEach(({d, L}) => {
+    const s = legTotals(L), top = L.slice().sort((a, b) => b.m - a.m)[0];
+    html += `<tr><td><a href="#${d.id}">${d.dow} ${d.dm}</a> <span class="muted">· ${d.short}${d.option ? " (Option A)" : ""}</span></td>` + (L.length
+      ? `<td class="n">${L.length}</td><td class="n">${fmtMin(s.m)}</td><td class="n">${kmFmt(s.km, s.approx)}</td><td class="n">${yen(s.y)}</td><td>${top.a} → ${top.b} · ${fmtMin(top.m)}</td>`
+      : `<td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="muted">Flexible day, nothing fixed</td>`) + `</tr>`;
+  });
+  $("#tsum").innerHTML = html + `</tbody><tfoot><tr><td>Whole trip</td><td class="n">${all.length}</td><td class="n">${fmtMin(T.m)}</td><td class="n">${kmFmt(T.km, T.approx)}</td><td class="n">${yen(T.y)}</td><td></td></tr></tfoot>`;
+  // Suica budget per person: the days you're both out (27 Nov – 6 Dec), excluding the one-person airport runs.
+  const core = ["d27","d28","d29","d30","d1","d2","d3","d4","d5","d6"];
+  const icOf = ids => ids.flatMap(id => LEGS[id] || []).filter(l => l.k === "ic").reduce((s, l) => s + l.y, 0);
+  $("#icbudget").textContent = yen(icOf(core));
+  $("#icbudget2").textContent = yen(icOf(core.filter(id => id !== "d5")));
+  $("#cashinr").textContent = inr(60000);
+  renderQuote();
+}
+
+function renderQuote() {
+  const cover = JRCOVER.reduce((s, r) => s + r[2], 0), gap = JRPASS.d7 - cover;
+  const flex = SHINK.reduce((s, r) => s + r.std[1], 0), low = SHINK.reduce((s, r) => s + r.disc[1], 0);
+  const two = n => `${yen(n * 2)} for two (${inr(n * 2)})`;
+  $("#quote").innerHTML = `
+  <div class="callout good"><b>Verdict: skip the JR Pass and book the two Shinkansen rides individually.</b> Even in its best 7-day window, a pass would replace only ${yen(cover)} of JR tickets on your plan. That’s ${yen(gap)} (${inr(gap)}) less than the ${yen(JRPASS.d7)} it costs, per person.</div>
+  <div class="pk">
+    <div class="card pkc good"><h4>Flexible · recommended</h4><b class="big">${yen(flex)}</b><span>per person: both rides at the standard Smart EX fare, free to change before departure</span><span><b>${two(flex)}</b></span></div>
+    <div class="card pkc tip"><h4>Lowest price</h4><b class="big">${yen(low)}</b><span>per person: EX Hayatoku 7 on 1 Dec (Hikari) plus EX Hayatoku 21 on 4 Dec (fixed train)</span><span><b>${two(low)}</b></span></div>
+    <div class="card pkc crit"><h4>7-day JR Pass</h4><b class="big">${yen(JRPASS.d7)}</b><span>per person online (${yen(JRPASS.agent)} through agents), plus ${yen(JRPASS.nozomi)} for each Nozomi ride</span><span><b>${two(JRPASS.d7)}</b></span></div>
+  </div>
+  <div class="qgrid">
+    <div class="card"><h4>🚅 Your two Shinkansen rides (per person)</h4>
+      <table class="qt"><thead><tr><th>Ride</th><th>Standard (Smart EX)</th><th>Cheapest discount</th></tr></thead><tbody>
+      ${SHINK.map(s => `<tr><td><b>${s.ride}</b></td><td>${s.std[0]}<br><b>${yen(s.std[1])}</b></td><td>${s.disc[0]}<br><b>${yen(s.disc[1])}</b><span class="nt">${s.rule}</span></td></tr>`).join("")}
+      </tbody><tfoot><tr><td>Both rides</td><td>${yen(flex)}</td><td>${yen(low)}</td></tr></tfoot></table>
+      <p class="foot-note">Standard prices are Smart EX’s, ¥200 below the station price; your Smart EX quote of ¥27,540 for two on 1 Dec matches. Discounts are from JR Central’s Smart EX fare tables. Hayatoku seats are limited per train.</p>
+    </div>
+    <div class="card"><h4>🎫 What a 7-day JR Pass would replace (29 Nov – 5 Dec)</h4>
+      <table class="qt"><tbody>${JRCOVER.map(([d, t, y]) => `<tr><td style="white-space:nowrap">${d}</td><td>${t}</td><td class="n">${yen(y)}</td></tr>`).join("")}</tbody>
+      <tfoot><tr><td colspan="2">Same rides on normal tickets</td><td class="n">${yen(cover)}</td></tr>
+        <tr><td colspan="2">7-day JR Pass (Hikari included; Nozomi +${yen(JRPASS.nozomi)} per ride)</td><td class="n">${yen(JRPASS.d7)}</td></tr></tfoot></table>
+      <p class="foot-note">Your other legs use the metro, Odakyu, highway buses, Kintetsu, Keihan, Hankyu and Hanshin, which the pass doesn’t cover. Any other 7-day window covers less.</p>
+    </div>
+  </div>
+  <div class="card panel" style="margin-top:16px"><h3>📲 Booking both rides in Smart EX</h3>
+    <ol class="steps">
+      <li>Install the smartEX app (or use smart-ex.jp/en) and register with an email address and your Scapia Visa card. Switch on international online use in the Scapia app first.</li>
+      <li>Search the date and route, choose 2 adults and the fare type. On 1 Dec pick seats <b>D and E</b> together: E is the window on the Mt Fuji side. <b>Car 5</b> stops closest to the Kintetsu transfer at Kyoto; on 4 Dec a car around <b>11–12</b> is closest to the Marunouchi Line at Tokyo. Skip car 7 (the S Work car, where phone calls are allowed); cars 8–10 are Green.</li>
+      <li>Pay, and the app gives you QR tickets to scan at the Shinkansen gates. The metro to and from Tokyo or Shin-Osaka station goes on your IC card.</li>
+      <li>Standard tickets can be changed for free, as often as you like, up to 4 min before departure, which suits USJ day. If you miss the train anyway, a standard ticket still lets you ride the unreserved cars (at the car 1 end) of a later train that day; Hayatoku tickets don’t. Refunds cost ¥320 per person.</li>
+      <li>Your cabin bags go on the overhead rack, so you don’t need a “seat with oversized baggage area” (the last row of cars 3–6 and 12–16). That’s only for bags over 160 cm (length + width + height).</li>
+    </ol>
+    <p class="foot-note">Smart EX or Klook? For 1 Dec, Smart EX’s ¥27,540 for two comes to about ${inr(27540)} on your Scapia card, against ₹16,674 on Klook. Smart EX also lets you change trains yourself, free, until 4 min before departure, pick seats D and E on the seat map, and board with its QR codes.</p>
+    <p class="foot-note">Rupee amounts use the ECB reference rate (¥1 = ₹${FX.inr}, ${FX.date}). Your Scapia card adds no forex markup; most other Indian cards add 2–3.5%.</p>
+  </div>`;
+}
+
+function renderImps() {
+  const c = sevCounts();
+  $("#filters").innerHTML = ["all","critical","high","medium","tip"].map(k =>
+    `<button type="button" data-f="${k}" class="${k === "all" ? "on" : ""}">${k === "all" ? `All (${IMPS.length})` : `${SEV[k].icon} ${SEV[k].short} (${c[k] || 0})`}</button>`).join("");
+  $("#imps").innerHTML = IMPS.map((m, i) => `<article class="card imp ${SEV[m.sev].cls}" id="imp-${m.id}" data-sev="${m.sev}">
+      <div class="ih"><span class="no">#${i + 1}</span><span class="sev">${SEV[m.sev].label}</span></div>
+      <h3>${m.title}</h3>
+      <p class="why">${m.why}</p>
+      <ul class="fix">${m.fix.map(f => `<li>${f}</li>`).join("")}</ul>
+      ${m.days.length ? `<div class="dchips">${m.days.map(id => `<a class="dchip" href="#${id}">${dayLabel(id)}</a>`).join("")}</div>` : ""}
+    </article>`).join("");
+  $("#filters").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x === b));
+    document.querySelectorAll("#imps .imp").forEach(el => { el.hidden = !(b.dataset.f === "all" || el.dataset.sev === b.dataset.f); });
+  });
+}
+
+function statusPill(b, now) {
+  if (b.status === "booked") return `<span class="st booked">✅ Booked</span>`;
+  if (b.status === "urgent") return `<span class="st urgent">🔴 Urgent</span>`;
+  if (b.status === "requested") return `<span class="st req">🕓 Awaiting confirmation</span>`;
+  if (b.status === "later") return `<span class="st soon">🗓 ${b.buy}</span>`;
+  if (b.status === "confirm") return `<span class="st soon">🔎 Confirm booking</span>`;
+  if (b.status === "check") return `<span class="st">❓ To arrange</span>`;
+  if (b.status === "opt") return `<span class="st opt">Optional</span>`;
+  if (b.opens && Date.parse(b.opens) > now) return `<span class="st soon">⏳ Opens in ${fmtDur(Date.parse(b.opens) - now)}</span>`;
+  return `<span class="st onsale">🟠 On sale, book now</span>`;
+}
+function renderBookings() {
+  const now = Date.now();
+  let html = `<thead><tr><th>Done</th><th>Booking</th><th>For</th><th>Status</th><th>Sale window</th><th>Notes</th></tr></thead><tbody>`;
+  BOOKINGS.forEach(b => {
+    if (b.grp) { html += `<tr class="grp"><td colspan="6">${b.grp}</td></tr>`; return; }
+    const done = isDone(b);
+    html += `<tr class="${done ? "done" : ""}" data-id="${b.id}">
+      <td><input type="checkbox" aria-label="Done: ${b.item}"${done ? " checked" : ""}></td>
+      <td class="item">${b.item}</td>
+      <td><a class="dchip" href="#${b.day}">${b.when}</a></td>
+      <td>${done && b.status !== "booked" ? `<span class="st booked">✅ Done</span>` : statusPill(b, now)}</td>
+      <td>${b.sale}</td>
+      <td>${b.note}${b.ref ? ` <a class="ref tip" href="#imp-${b.ref}">#${IMPNO[b.ref]}</a>` : ""}</td></tr>`;
+  });
+  $("#bk").innerHTML = html + `</tbody>`;
+  const L = listItems(), extra = bkItems().filter(b => b.status === "check" || b.status === "confirm");
+  $("#bkbar").innerHTML = `<span>📋 From your checklist: <b>${L.filter(isDone).length} / ${L.length}</b> done</span>
+    <span>➕ Missing items arranged: <b>${extra.filter(isDone).length} / ${extra.length}</b></span>
+    <span class="muted">Tick a row once it’s booked.</span>`;
+}
+
+function renderChecks() {
+  $("#checks").innerHTML = CHECKS.map(([g, items], gi) => `<div class="card cg"><h3>${g}</h3>${items.map((t, ii) => {
+    const k = `jp26-ck-${gi}-${ii}`, v = store.get(k), on = v === null ? t.done === true : v === "1";
+    return `<label class="${on ? "done" : ""}"><input type="checkbox" data-k="${k}"${on ? " checked" : ""}><span>${t.t || t}</span></label>`;
+  }).join("")}</div>`).join("");
+  updateChkBar();
+}
+function updateChkBar() {
+  const all = [...document.querySelectorAll("#checks input")], on = all.filter(i => i.checked).length;
+  const bar = $("#chkbar");
+  bar.style.width = (all.length ? on / all.length * 100 : 0) + "%";
+  bar.parentElement.title = `${on} of ${all.length} done`;
+}
+
+function renderFooter() {
+  $("#foot").innerHTML = `<p><b>Facts checked on 10 Nov 2026</b> (web sources; re-verify a few days before each date):</p>
+  <ul>
+    <li>Pokémon Café Tokyo (re-checked 11 Nov): all December dates opened on 1 Nov at 18:00 JST (official news, 26 Oct). Arrive 15 min early; seating is 90 min; bookings are cancelled 10 min after the start time if you haven’t called.</li>
+    <li>Reserve-Japan (re-checked 11 Nov): best-effort agent. It can’t choose a time slot and refunds 100% if it can’t secure a seat (its café reservation terms).</li>
+    <li>Shibuya Sky: online tickets are released 14 days ahead at 00:00 JST.</li>
+    <li>Kyoto light-ups (reported 2026 dates): Kiyomizu-dera 21–30 Nov · Kōdai-ji ~23 Oct–13 Dec · Tō-ji ~31 Oct–13 Dec.</li>
+    <li>Nishiki Market: many shops close on Wednesdays. Nijō Castle: the Ninomaru Palace is closed on Tuesdays in December.</li>
+    <li>Osaka Castle main tower: last entry 16:30. teamLab Planets: 08:00–22:00 (last entry 21:00).</li>
+    <li>Izumi Tenku no Yu (connected to HND T3): open 24 h; baths close 10:00–12:30 for cleaning.</li>
+    <li>Japan tax-free shopping: refund-at-departure system from 1 Nov 2026.</li>
+    <li>Airport buses to HND and NRT stop at <b>Kasai Station</b> (one Tozai stop from Nishikasai). Check exact times on limousinebus.co.jp / keiseibus.co.jp.</li>
+    <li>Your friend’s place in Nishikasai (11 Nov): the block address was geocoded with GSI (Japan’s national mapping agency). Walks use OpenStreetMap foot routing: 350–370 m (≈ 5 min) to Nishi-kasai Station and 1.75 km to Kasai Station. Taxi distances use OSRM road routing: 23.5 km to HND T3 and 9.1 km to Tokyo Station. Trains leaving from there were re-checked on Jorudan for the time you’d reach the platform.</li>
+    <li>Station-to-station legs (11 Nov): Jorudan route search for each planned date and time; sample trains, minutes, fare distance and adult fares. Bus distances are OpenStreetMap (OSRM) road estimates; the lake cruise is from Jorudan’s timetable.</li>
+    <li>JR Pass (11 Nov, japanrailpass.net): 7-day ordinary ¥50,000 online, ¥53,000 through agents; NOZOMI/MIZUHO ticket ¥4,960 Tokyo–Kyoto or Shin-Osaka.</li>
+    <li>Smart EX (11 Nov, smart-ex.jp): EX Hayatoku 21 Tokyo–Kyoto ¥12,430 and –Shin-Osaka ¥12,980 (Nozomi, book ≥21 days ahead, no changes); EX Hayatoku 7 ¥11,940 and ¥12,490 (Hikari/Kodama, ≥7 days ahead); refund fee ¥320. FAQ: a missed standard booking is valid in unreserved seats on a later train that day (not Hayatoku). Car 7 is the S Work car. Price changes announced 16 Oct 2026 apply only to purchases from 1 Jul 2027.</li>
+    <li>Shinjuku Sumo Club (Japanese business listings, 11 Nov): Sekisaku Bldg 2F, 2-5-22 Ōkubo, Shinjuku-ku; 550 m (≈ 7 min) on foot from Higashi-Shinjuku and 1.7 km from Shinjuku Station (OpenStreetMap routing). Check the address against your GetYourGuide confirmation.</li>
+    <li>Fuji-Q Highland (fujiq.jp, 11 Nov): free entry; Mon 30 Nov open 10:00–17:00 with Nagashimasuka and Tekkotsu Banchō closed for inspection (Sat 5 Dec 09:00–18:00). Per adult: One-day Pass ¥7,600 and Afternoon Pass (rides from 13:00) ¥5,700 on 30 Nov; ¥7,900 and ¥6,000 on 5 Dec.</li>
+    <li>Cars (JR Central, 11 Nov): Green cars are 8–10; seats with an oversized baggage area are the last rows of cars 3–6 and 12–16. Best cars for connections from Jorudan: car 5 for Kintetsu at Kyoto, cars 11–12 for the Marunouchi Line at Tokyo.</li>
+    <li>Tozai Line (Wikipedia ja, citing Tokyo Metro and MLIT; 12 Nov): on weekday mornings the front car (car 10) of westbound trains is women-only from Nishi-Funabashi to Ōtemachi, until 09:00. Peak crowding (Kiba → Monzen-nakachō, 07:50–08:50) was 150% in FY2024.</li>
+    <li>Kintetsu (official Limited Express page and Jorudan, 12 Nov): Limited Express trains are all reserved and need a Limited Express ticket on top of the fare (¥520 Kyoto–Nara). Expresses and rapid expresses need only the fare, paid by IC card. On 3 Dec no Limited Express beats the express (Tōji → Kintetsu-Nara) or the rapid express (Kintetsu-Nara → Osaka-Namba).</li>
+    <li>Booking flexibility (12 Nov): Odakyu refunds a Romancecar ticket for ¥100 before departure, allows unlimited same-day train changes and one free date change (official refund page). The Shinjuku–Fuji Five Lakes highway bus sells out on weekdays and weekends; online cancellation is open until a set time before departure for a per-ticket fee, about ¥100 according to booking guides (highwaybus.com). Jorudan: Kodama Tokyo → Odawara ¥3,280 unreserved; JR Fuji Excursion Shinjuku 07:30 → Fujisan 09:18 ¥4,067.</li>
+    <li>Where to buy (13 Nov): Romancecar seats (¥1,200 each way Shinjuku ⇄ Hakone-Yumoto) and the Digital Hakone Freepass (¥7,100 from Shinjuku) on Odakyu’s EMot Online Tickets; the Shinjuku–Fuji Five Lakes bus on highwaybus.com (English, linked from fuji.highwaybus.com/en); the Fuji-Q Afternoon Pass (up to ¥5,700, after 13:00, no refunds) on fujiq.jp. Fuji sides from travel guides: Romancecar to Hakone on the right (around Shin-Matsuda and Kaisei), bus to Kawaguchiko on the left.</li>
+    <li>Hakone cost per person (13 Nov, Odakyu prices and Jorudan): Romancecar route ¥9,904 (Freepass from Shinjuku ¥7,100, two online Romancecar seats at ¥1,150, metro ¥252 each way), leaving Nishikasai 06:02 for Hakone-Yumoto 08:26 and back 16:57 → 19:10. Shinkansen route ¥12,978 (Freepass from Odawara ¥6,000, two unreserved Kodama tickets at ¥3,280, metro ¥209 each way), leaving 06:49 for 08:26 and back 16:59 → 18:54. JR Tōkaidō local route ¥9,608, leaving 06:02 for 08:13.</li>
+    <li>Romancecar seats (e-Romancecar availability, 13 Nov): every Sun 29 Nov train showed ○ (plenty) both ways, including Hakone 1 (EXE10, 07:00) and Hakone 40 (EXE6, 16:57); Sat 5 Dec returns too. The GSE Hakone 18 (15:14 back) had its front observation seats sold out.</li>
+    <li>Flight views (12 Nov): on FlightAware tracks, AI-355 (9 flights, 29 Oct–12 Nov) passed Mt Fuji 2–13 km to the left 13–15 min after take-off, and AI-356 (4 flights) turned left over the sea after leaving Mumbai and passed Fuji 73–76 km to the left ~20 min before landing. Seat maps: AeroLOPA (Air India 787-8 layouts 788-1 for AI-356 and 788-3 for AI-355, matched seat by seat to your Air India seat maps). Sun and moon: US Naval Observatory (moon 99% full on 24 Nov, sets 05:51 JST; Mumbai sunset 17:59 on 23 Nov and 18:01 on 7 Dec).</li>
+    <li>Window alignment (AeroLOPA seat notes, 12 Nov): on AI-356’s layout, 31A–35A have no window issues (measured: 34A’s window spans 33–81% of the seat from the front, 35A’s 0–46%), 36A’s window is set behind the seat, 37A has no window and 30A’s window sits well behind. On AI-355’s layout, 43A is rated above average and 39A–41A and 44A have no issues; 38A and 42A have the window behind the seat and 45A has no usable window.</li>
+    <li>IC cards (11 Nov): Welcome Suica Mobile (App Store listing, v1.3.0, 29 Oct 2026): iOS 17.2+, Apple Pay top-ups only, balance expires after 180 days. TOURIST PASMO (pasmo.co.jp): HND T3 Keikyu counter and machine, NRT Keisei centres, valid 28 days. Apple Pay in India: apple.com/in names Axis Bank credit cards.</li>
+    <li>Exchange rate: ECB reference ¥1 = ₹0.59381 (10 Nov 2026).</li>
+    <li>Scapia Federal credit card (cardholder agreement, Mar 2026): zero forex mark-up abroad; Visa card; international usage, PIN and cash limit are set in the app; cash-advance charges follow the MITC and run from the date of withdrawal. Abroad helpline from scapia.cards.</li>
+    <li>7-Eleven ATMs (sevenbank.co.jp, 11 Nov): Visa 24 h, up to ¥100,000 per withdrawal, fee by card brand; you choose yen or home-currency billing (DCC) at step 7; Suica/PASMO cash top-ups free, ¥1,000 steps up to ¥20,000.</li>
+    <li>Axis Bank debit card (11 Nov): fees page for the standard savings account lists ₹125 per international ATM withdrawal, a 3.5% cross-currency mark-up and a 3.5% DCC mark-up; the MITC says international use is off until enabled in the app, internet banking or a branch.</li>
+    <li>Axis credit cards incl. Flipkart Axis (schedule of charges, 11 Nov): 3.5% foreign transaction fee and 3.5% DCC mark-up (nil on the Scapia Axis card); cash withdrawal 2.5% (min ₹500); 3.75% a month interest; GST on fees. Flipkart Axis cashback terms: 1% on other eligible spends, with no exclusion for foreign spends.</li>
+  </ul>
+  <p>Taxi fares, travel times and sunset times (~) are estimates. JST = UTC+9, IST = UTC+5:30. This page is self-contained. Its only network requests are the optional tick sync with your GitHub repo (api.github.com).</p>`;
+}
+
+/* ---------- Optional tick sync: ticks.json + login.json on a "ticks" branch of your GitHub Pages repo ---------- */
+// login.json holds your GitHub token encrypted with the shared username and password (PBKDF2-SHA256 + AES-GCM).
+// After logging in, the decrypted token is kept only in this browser's localStorage. Reads need no login on a public repo.
+const SYNC = (() => {
+  const TOKEN = "jp26-gh-token", REPO = "jp26-gh-repo", BRANCH = "ticks", TICKS = "ticks.json", LOGIN = "login.json";
+  const KEY_OK = /^jp26-(bk|ck)-[A-Za-z0-9-]+$/;
+  const onPages = /\.github\.io$/i.test(location.hostname);
+  const enc = new TextEncoder(), pending = new Map();
+  let timer = null, busy = false, draft = null, root = null;
+  const escHtml = s => String(s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+  const now = () => new Date().toTimeString().slice(0, 5);
+  const b64 = u8 => btoa(String.fromCharCode(...u8)), unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const repoName = () => {
+    const saved = store.get(REPO);
+    if (saved) return saved;
+    if (!onPages) return null;
+    const owner = location.hostname.split(".")[0], first = location.pathname.split("/").filter(Boolean)[0];
+    return `${owner}/${first && !first.includes(".") ? first : owner + ".github.io"}`;
+  };
+  const idle = () => store.get(TOKEN) ? `Logged in · up to date ${now()}` : repoName() ? "Showing the saved ticks · log in to update them" : "Off";
+
+  function status(msg, err) {
+    if (!root) return;
+    const repo = repoName(), on = !!store.get(TOKEN);
+    root.innerHTML = `<span>☁️ ${repo ? `GitHub sync: <b>${escHtml(repo)}</b>` : "GitHub sync is off"}</span>`
+      + `<span class="${err ? "err" : ""}">${escHtml(msg)}</span>`
+      + `<button type="button" data-act="${on ? "logout" : "login"}">${on ? "Log out" : "Log in"}</button>`;
+  }
+  function form(first, msg) {
+    if (!root) return;
+    const d = draft || {};
+    root.innerHTML = `<span>☁️ ${first ? "First-time set-up creates the shared login" : "Log in to update the ticks"}</span>`
+      + (onPages ? "" : `<input data-f="repo" placeholder="owner/repo" autocomplete="off" value="${escHtml(d.repo || store.get(REPO) || "")}">`)
+      + `<input data-f="user" placeholder="Username" autocomplete="username" autocapitalize="none" value="${escHtml(d.user || "")}">`
+      + `<input data-f="pass" type="password" placeholder="Password" autocomplete="current-password" value="${escHtml(d.pass || "")}">`
+      + (first ? `<input data-f="tok" type="password" placeholder="GitHub token (only this once)" autocomplete="off">` : "")
+      + `<button type="button" data-act="${first ? "setup" : "submit"}">${first ? "Create login" : "Log in"}</button>`
+      + `<button type="button" data-act="cancel">Cancel</button>`
+      + (msg ? `<span class="err">${escHtml(msg)}</span>` : "");
+    const f = root.querySelector(first ? '[data-f="tok"]' : '[data-f="user"]'); if (f && f.focus) f.focus();
+  }
+
+  function api(path, opts = {}, token = store.get(TOKEN)) {
+    const headers = {Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"};
+    if (token) headers.Authorization = `Bearer ${token}`;
+    if (opts.body) headers["Content-Type"] = "application/json";
+    return fetch(`https://api.github.com/repos/${repoName()}${path}`, {...opts, headers, cache: "no-store"});
+  }
+  async function getFile(name) {
+    let r = await api(`/contents/${name}?ref=${BRANCH}`);
+    if (r.status === 401 && store.get(TOKEN)) { store.del(TOKEN); r = await api(`/contents/${name}?ref=${BRANCH}`, {}, null); }
+    if (r.status === 404) return {data: null, sha: null};
+    if (!r.ok) throw new Error(`GitHub ${r.status}`);
+    const j = await r.json();
+    return {data: JSON.parse(atob(j.content.replace(/\s/g, ""))), sha: j.sha};
+  }
+  function putFile(name, data, sha, message) {
+    const body = {message, branch: BRANCH, content: btoa(JSON.stringify(data, null, 1))};
+    if (sha) body.sha = sha;
+    return api(`/contents/${name}`, {method: "PUT", body: JSON.stringify(body)});
+  }
+  async function pull() {
+    const {data, sha} = await getFile(TICKS), ticks = {};
+    for (const [k, v] of Object.entries((data && data.ticks) || {})) if (KEY_OK.test(k) && (v === "0" || v === "1")) ticks[k] = v;
+    return {ticks, sha};
+  }
+  async function ensureBranch() {
+    const r = await api(`/git/ref/heads/${BRANCH}`);
+    if (r.ok) return;
+    if (r.status !== 404) throw new Error(`GitHub ${r.status}`);
+    const repo = await (await api("")).json();
+    const base = await (await api(`/git/ref/heads/${repo.default_branch}`)).json();
+    const c = await api("/git/refs", {method: "POST", body: JSON.stringify({ref: `refs/heads/${BRANCH}`, sha: base.object.sha})});
+    if (!c.ok && c.status !== 422) throw new Error(`GitHub ${c.status}`);
+  }
+
+  async function keyFor(user, pass, salt, iter) {
+    const base = await crypto.subtle.importKey("raw", enc.encode(`${user.trim().toLowerCase()}\n${pass}`), "PBKDF2", false, ["deriveKey"]);
+    return crypto.subtle.deriveKey({name: "PBKDF2", hash: "SHA-256", salt, iterations: iter}, base, {name: "AES-GCM", length: 256}, false, ["encrypt", "decrypt"]);
+  }
+  async function seal(token, user, pass) {
+    const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12)), iter = 600000;
+    const ct = new Uint8Array(await crypto.subtle.encrypt({name: "AES-GCM", iv}, await keyFor(user, pass, salt, iter), enc.encode(token)));
+    return {v: 1, kdf: "PBKDF2-SHA256", iter, salt: b64(salt), iv: b64(iv), ct: b64(ct)};
+  }
+  async function unseal(box, user, pass) {
+    const iter = Math.min(Math.max(Number(box.iter) || 0, 100000), 5000000);
+    const pt = await crypto.subtle.decrypt({name: "AES-GCM", iv: unb64(box.iv)}, await keyFor(user, pass, unb64(box.salt), iter), unb64(box.ct));
+    return new TextDecoder().decode(pt);
+  }
+
+  async function flush() {
+    if (busy) { timer = setTimeout(flush, 1000); return; }
+    if (!pending.size) return;
+    busy = true;
+    const batch = new Map(pending); pending.clear();
+    try {
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const cur = await pull();
+        if (!store.get(TOKEN)) throw new Error("logged out");
+        if (!cur.sha) await ensureBranch();
+        const ticks = {...cur.ticks}; batch.forEach((v, k) => { ticks[k] = v; });
+        const r = await putFile(TICKS, {updated: new Date().toISOString(), ticks}, cur.sha, `Update ${batch.size} tick${batch.size > 1 ? "s" : ""}`);
+        if (r.ok) { status(`Saved ${now()}`); return; }
+        if (r.status !== 409 && r.status !== 422) throw new Error(`GitHub ${r.status}`);
+      }
+      throw new Error("the file kept changing");
+    } catch (e) {
+      batch.forEach((v, k) => { if (!pending.has(k)) pending.set(k, v); });
+      status(`Not saved yet (${e.message}); it retries with your next tick`, true);
+    } finally { busy = false; }
+  }
+  function queue(k, v) {
+    if (!store.get(TOKEN) || !repoName()) return;
+    pending.set(k, v); clearTimeout(timer); timer = setTimeout(flush, 1500); status("Saving…");
+  }
+  const refresh = () => { renderBookings(); renderStats(); renderCountdown(); renderChecks(); };
+  async function load() {
+    if (!repoName()) { status("Open the page on your GitHub Pages site, or log in to pick a repo"); return null; }
+    try {
+      const {ticks} = await pull();
+      let changed = 0;
+      for (const [k, v] of Object.entries(ticks)) if (store.get(k) !== v) { store.set(k, v); changed++; }
+      if (changed) refresh();
+      status(idle());
+      return ticks;
+    } catch (e) { status(`Couldn’t reach GitHub (${e.message})`, true); return null; }
+  }
+  async function afterLogin() {
+    const remote = await load();
+    if (!remote) return;
+    // Upload ticks this browser has that the repo doesn't know about yet.
+    try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (KEY_OK.test(k) && !(k in remote)) queue(k, store.get(k)); } } catch (e) { /* storage unavailable */ }
+  }
+  function useRepo(vals) {
+    if (onPages) return true;
+    if (!/^[\w.-]+\/[\w.-]+$/.test(vals.repo)) return false;
+    store.set(REPO, vals.repo);
+    return true;
+  }
+  async function submit(vals) {
+    draft = vals;
+    if (!useRepo(vals)) return form(false, "Use the form owner/repo");
+    if (!vals.user || !vals.pass) return form(false, "Enter the username and password");
+    status("Checking…");
+    let box;
+    try { box = (await getFile(LOGIN)).data; } catch (e) { return form(false, `Couldn’t reach GitHub (${e.message})`); }
+    if (!box) return form(true, "No login exists yet: paste your GitHub token once to create it");
+    let token;
+    try { token = await unseal(box, vals.user, vals.pass); } catch (e) { return form(false, "Wrong username or password"); }
+    const r = await api("", {}, token).catch(() => null);
+    if (!r || !r.ok) return form(true, "The saved login’s token no longer works: paste a new token to renew it");
+    store.set(TOKEN, token); draft = null;
+    await afterLogin();
+  }
+  async function setup(vals) {
+    draft = vals;
+    if (!useRepo(vals)) return form(true, "Use the form owner/repo");
+    if (!vals.user || !vals.pass || !vals.tok) return form(true, "Fill in the username, password and token");
+    status("Setting up…");
+    const r = await api("", {}, vals.tok).catch(() => null);
+    if (!r || !r.ok) return form(true, `Token not accepted${r ? ` (GitHub ${r.status})` : ""}`);
+    store.set(TOKEN, vals.tok);
+    try {
+      await ensureBranch();
+      const cur = await getFile(LOGIN);
+      const w = await putFile(LOGIN, await seal(vals.tok, vals.user, vals.pass), cur.sha, "Set up the shared login");
+      if (!w.ok) throw new Error(`GitHub ${w.status}`);
+    } catch (e) { store.del(TOKEN); return form(true, `Couldn’t save the login (${e.message})`); }
+    draft = null;
+    await afterLogin();
+  }
+  function bind(el) {
+    root = el;
+    const val = f => { const i = root.querySelector(`[data-f="${f}"]`); return i ? i.value : ""; };
+    const read = () => ({repo: val("repo").trim(), user: val("user").trim(), pass: val("pass"), tok: val("tok").trim()});
+    root.addEventListener("click", e => {
+      const act = e.target && e.target.dataset ? e.target.dataset.act : null;
+      if (act === "login") form(false);
+      else if (act === "logout") { store.del(TOKEN); status("Logged out on this device"); }
+      else if (act === "cancel") { draft = null; status(idle()); }
+      else if (act === "submit") submit(read());
+      else if (act === "setup") setup(read());
+    });
+    root.addEventListener("keydown", e => {
+      if (e.key !== "Enter" || !e.target || !e.target.dataset || !e.target.dataset.f) return;
+      const b = root.querySelector('[data-act="submit"],[data-act="setup"]'); if (b) b.click();
+    });
+  }
+  function init() { status(repoName() ? "Checking…" : "Off"); load(); }
+  return {init, queue, bind};
+})();
+
+function wire() {
+  $("#bk").addEventListener("change", e => {
+    const tr = e.target.closest("tr[data-id]"); if (!tr) return;
+    store.set(bkKey(tr.dataset.id), e.target.checked ? "1" : "0");
+    SYNC.queue(bkKey(tr.dataset.id), e.target.checked ? "1" : "0");
+    renderBookings(); renderStats(); renderCountdown();
+  });
+  $("#checks").addEventListener("change", e => {
+    const k = e.target.dataset.k; if (!k) return;
+    store.set(k, e.target.checked ? "1" : "0");
+    SYNC.queue(k, e.target.checked ? "1" : "0");
+    e.target.closest("label").classList.toggle("done", e.target.checked);
+    updateChkBar();
+  });
+  SYNC.bind($("#sync"));
+  window.addEventListener("hashchange", () => {
+    const t = document.getElementById(location.hash.slice(1));
+    if (t && t.hidden) { document.querySelector('#filters button[data-f="all"]').click(); t.scrollIntoView(); }
+  });
+  window.addEventListener("beforeprint", () => document.querySelectorAll("details").forEach(d => { d.open = true; }));
+  if (todayDay) {
+    const b = $("#todayBtn"); b.hidden = false;
+    b.addEventListener("click", () => document.getElementById(todayDay.id).scrollIntoView());
+  }
+  setInterval(renderCountdown, 60000);
+  // Deep links to day/improvement cards target content rendered above, so re-apply the fragment.
+  if (location.hash) {
+    const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (t) t.scrollIntoView();
+  }
+}
+
+renderCountdown();
+renderOverview();
+renderCal();
+renderGantt();
+renderDays();
+renderTransit();
+renderImps();
+renderBookings();
+renderChecks();
+renderFooter();
+wire();
+SYNC.init();
+</script>
+</body>
+</html>
