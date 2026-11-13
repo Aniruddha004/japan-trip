@@ -271,6 +271,7 @@ table.sum{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
 .cg h3{font-size:15px;margin:0 0 6px}
 .cg label{display:flex;gap:9px;align-items:flex-start;padding:5px 0;font-size:14px;cursor:pointer}
 .cg input{margin-top:3px;width:16px;height:16px;accent-color:var(--good);flex:none}
+.cg label:has(input:disabled),.bk input:disabled{cursor:default}
 .cg label.done span{text-decoration:line-through;color:var(--muted)}
 .progress{height:8px;border-radius:999px;background:var(--line);overflow:hidden;margin:4px 0 14px}
 .progress i{display:block;height:100%;background:var(--good);width:0;transition:width .3s}
@@ -445,7 +446,7 @@ footer ul{padding-left:18px}
 
 <section id="bookings"><div class="wrap">
   <h2>Booking tracker</h2>
-  <p class="lead">Your final checklist plus items it's missing. Sale times are shown in JST and India time (IST = JST − 3 h 30 m). Ticks are saved in this browser, and after you log in (below) they also sync to your GitHub repo, so every device sees them.</p>
+  <p class="lead">Your final checklist plus items it's missing. Sale times are shown in JST and India time (IST = JST − 3 h 30 m). Everyone sees the latest ticks; log in (below) with the shared username and password to update them from any device.</p>
   <div class="bkbar" id="bkbar"></div>
   <div class="sync" id="sync"></div>
   <div class="card tablewrap"><table class="bk" id="bk"></table></div>
@@ -574,7 +575,7 @@ footer ul{padding-left:18px}
 
 <section id="checklist"><div class="wrap">
   <h2>Pre-trip checklist</h2>
-  <p class="lead">Small things that make the plan run smoothly. Ticks are saved in this browser and sync to GitHub along with the booking ticks.</p>
+  <p class="lead">Small things that make the plan run smoothly. Ticks are shared with the booking ticks; log in under the booking tracker to update them.</p>
   <div class="progress"><i id="chkbar"></i></div>
   <div class="checks" id="checks"></div>
 </div></section>
@@ -599,15 +600,9 @@ const REG = {tokyo:"Tokyo", fuji:"Hakone & Fuji", kyoto:"Kyoto", nara:"Nara → 
 
 /* ---------- Improvement areas (ordered by urgency) ---------- */
 const IMPS = [
- {id:"shibuya-sky", sev:"critical", days:["d28"],
-  title:"Shibuya Sky: be online at 20:25 IST on Fri 13 Nov",
-  why:"Tickets go on sale 14 days ahead at 00:00 JST. For 28 Nov that is 14 Nov 00:00 JST = <b>13 Nov 20:30 IST</b>. Your “book 13 Nov” note is correct only in India time. Sunset slots usually sell out within minutes.",
-  fix:["Create the account and save card details beforehand, then refresh at exactly 20:30 IST.",
-       "Aim for a 15:40 entry (sunset ≈ 16:28). 15:20 or 16:00 are fine backups.",
-       "If you miss it, Skytree (booked) already gives you a sunset the evening before. On 28 Nov, use the free Tokyo Metropolitan Government Building observatory in Shinjuku for a night view."]},
  {id:"book-now", sev:"critical", days:["d29","d30","d4"],
-  title:"10 of 15 bookings are still open, and most are already on sale",
-  why:"Sumo, Skytree, teamLab and the 1 Dec Shinkansen are confirmed, and Pokémon Café is with Reserve-Japan. JR seats go on sale 1 month ahead at 10:00 JST, so the 4 Dec Shinkansen has been bookable since 4 Nov. USJ Express Passes are date-specific and sell out in the Christmas season, and teamLab evening slots fill up.",
+  title:"10 of 16 bookings are still open, and most are already on sale",
+  why:"Sumo, Skytree, teamLab, Shibuya Sky and the 1 Dec Shinkansen are confirmed, and Pokémon Café is with Reserve-Japan. JR seats go on sale 1 month ahead at 10:00 JST, so the 4 Dec Shinkansen has been bookable since 4 Nov. USJ Express Passes are date-specific and sell out in the Christmas season, and teamLab evening slots fill up.",
   fix:["This week: a USJ Studio Pass and an Express Pass that <b>includes guaranteed Super Nintendo World entry</b> (4 Dec).",
        "The 4 Dec Shinkansen in the <b>Smart EX</b> app (accepts foreign cards; changes are free before departure). A JR Pass doesn’t pay off on this plan (see Getting around).",
        "Highway buses for 30 Nov (Shinjuku 07:55 → Fujisan; Fuji-Q Highland 17:08 → Shinjuku). Hakone transport plus the digital Hakone Freepass (29 Nov)."]},
@@ -658,7 +653,7 @@ const IMPS = [
   why:"These days average ~14 h out, with six departures before 07:00 and no rest day until 5 Dec. Energy usually drops by day 4–5 of a run like this.",
   fix:["28 Nov now leaves at 06:20 instead of 06:00, and Meiji Shrine is still calm then.",
        "Build in a hotel break on 2 Dec afternoon (the hotel is next to Tō-ji anyway).",
-       "Make 5 Dec Option B the default, and only choose Kamakura if you both feel fresh."]},
+       "Make 5 Dec Option B the default, and only choose Kamakura if you both feel fresh, since the JDM night follows in the evening."]},
  {id:"divyank", sev:"medium", days:["d26"],
   title:"Divyank’s arrival on 26 Nov needs a concrete plan",
   why:"Afternoon immigration at NRT can take 45–90 min, so leaving at 16:30 is optimistic. By rail, the last leg is the eastbound Tozai Line in the evening rush, with a suitcase.",
@@ -683,10 +678,10 @@ const IMPS = [
        "29 Nov: if the Hakone Shrine Peace Torii queue is over 30 min, photograph it from the side.",
        "5 Dec (Option A): Hase-dera opens at 08:00, so leave at 07:00."]},
  {id:"decks", sev:"medium", days:["d25","d27","d28"],
-  title:"Three observation decks in four days",
-  why:"25 Nov lists an “observation deck”, then Skytree at sunset (27 Nov) and Shibuya Sky at sunset (28 Nov).",
+  title:"Four observation decks in four days",
+  why:"25 Nov lists an “observation deck”, then Skytree at sunset (27 Nov), and on 28 Nov the Metropolitan Government Building at sunset plus Shibuya Sky after dark.",
   fix:["Drop the solo deck on 25 Nov.",
-       "Treat Skytree (booked) as the safety net if the Shibuya Sky sunset slot is gone."]},
+       "Skytree and the free Metropolitan Government Building both give you a sunset, and Shibuya Sky (booked, 18:40) adds the open-air rooftop at night, so each one shows something different."]},
  {id:"sunday-hokoten", sev:"tip", days:["d6"],
   title:"6 Dec is a Sunday, so Ginza and Akihabara are pedestrian-only in the afternoon",
   why:"Chūō-dōri in Ginza (weekends) and in Akihabara (Sundays) closes to cars in the afternoon (“Hokoten”).",
@@ -719,7 +714,7 @@ const IMPS = [
 const STRENGTHS = [
  "Two jet-lag buffer days, with the headline sights saved for when Divyank is there.",
  "Dawn starts where they matter: Sensō-ji, Meiji Shrine, Fushimi Inari, Chureito, Nara and USJ.",
- "Sunset-aware tickets: Skytree 15:30 and Shibuya Sky 15:40 vs sunset ≈ 16:28.",
+ "Sunsets from Skytree (27 Nov) and the free Metropolitan Government Building (28 Nov), then Shibuya Sky’s open-air rooftop after dark.",
  "Seat E (right side) on Tokyo → Kyoto for the Mt Fuji view.",
  "1 Dec Higashiyama runs downhill: Kiyomizu → Sannenzaka → Kōdai-ji → Gion.",
  "Gaien Ginkgo Avenue at 08:30 in peak-yellow season, before the crowds.",
@@ -778,12 +773,13 @@ const DAYS = [
         {sev:"good",text:"Skytree at 15:30, sunset at 16:28, then the night skyline: perfectly timed."}]},
  {id:"d28", date:"2026-11-28", dow:"Sat", dm:"28 Nov", region:"tokyo", short:"Meiji · Sumo · Shibuya Sky",
   title:"Meiji Shrine + Gaien + Sumo + Shibuya Sky", sub:"🥇 Must do early: Meiji Shrine", who:"You + Divyank", base:"Friend’s place, Nishikasai",
-  prio:"🥇 Must do early: Meiji Shrine. Bookings: 🤼 Sumo 10:00 ✅ (moved from 27 Nov) · 🎟️ Shibuya Sky (book 13 Nov), target 15:40–16:00.",
-  intensity:5, leave:"06:20", out:[6.33,21.3], early:true, sunset:16.47,
-  rows:[["06:20","Leave Nishikasai"],["07:10–08:10","🥇 Meiji Shrine"],["08:30–09:00","Meiji-Jingū Gaien Ginkgo Avenue"],["09:00–09:37","Walk to Aoyama-itchōme → Toei Ōedo Line to Higashi-Shinjuku (change at Tochōmae) → 7 min walk"],["09:50","Check-in · Shinjuku Sumo Club, Sekisaku Bldg 2F, 2-5-22 Ōkubo"],["10:00–11:30","🤼 Shinjuku Sumo Show & Experience ✅ (moved from 27 Nov)"],["11:35–11:55","Walk to Higashi-Shinjuku → Fukutoshin Line to Meiji-jingūmae (7 min)"],["12:00–13:00","Kyushu Jangara vegan ramen (Harajuku)"],["13:00–14:30","Takeshita Street & Omotesando"],["14:30–15:30","Shibuya Crossing / Hachikō"],["15:40–16:00","🌇 Shibuya Sky entry 🎟️"],["~16:28","Sunset"],["17:00–18:00","Shibuya evening"],["18:30–20:30","Shinjuku · Omoide Yokocho (+ free Metropolitan Government Building observatory)"],["~21:15","Nishikasai"]],
-  notes:["🤼 Sumo ✅ Sat 28 Nov 10:00 (check in 09:50) at the Shinjuku Sumo Club, Sekisaku Bldg 2F, 2-5-22 Ōkubo, 7 min on foot from Higashi-Shinjuku · 🎟️ Shibuya Sky — book 13 Nov · target 15:40–16:00"],
-  blocks:[[6.33,7.1,"travel","→ Meiji"],[7.17,8.17,"sight","Meiji Shrine"],[8.33,8.5,"travel","→ Gaien"],[8.5,9,"sight","Gaien Ginkgo"],[9,9.62,"travel","→ Sumo Club"],[9.83,11.5,"timed","Sumo ✅"],[11.58,11.92,"travel","→ Harajuku"],[12,13,"meal","Jangara ramen"],[13,14.5,"sight","Takeshita · Omotesando"],[14.5,15.5,"sight","Shibuya Crossing"],[15.67,17,"timed","Shibuya Sky"],[17,18,"sight","Shibuya"],[18.25,18.5,"travel","→ Shinjuku"],[18.5,20.5,"sight","Omoide Yokocho"],[20.5,21.3,"travel","→ home"]],
-  tips:[{sev:"critical",ref:"shibuya-sky",text:"Shibuya Sky sale opens 14 Nov 00:00 JST, which is 13 Nov 20:30 IST."},
+  prio:"🥇 Must do early: Meiji Shrine. Bookings: 🤼 Sumo 10:00 ✅ (moved from 27 Nov) · 🌃 Shibuya Sky ✅ 18:40 · 🌇 free sunset from the Metropolitan Government Building.",
+  intensity:5, leave:"06:20", out:[6.33,21], early:true, sunset:16.47,
+  rows:[["06:20","Leave Nishikasai"],["07:10–08:10","🥇 Meiji Shrine"],["08:30–09:00","Meiji-Jingū Gaien Ginkgo Avenue"],["09:00–09:37","Walk to Aoyama-itchōme → Toei Ōedo Line to Higashi-Shinjuku (change at Tochōmae) → 7 min walk"],["09:50","Check-in · Shinjuku Sumo Club, Sekisaku Bldg 2F, 2-5-22 Ōkubo"],["10:00–11:30","🤼 Shinjuku Sumo Show & Experience ✅ (moved from 27 Nov)"],["11:35–11:55","Walk to Higashi-Shinjuku → Fukutoshin Line to Meiji-jingūmae (7 min)"],["12:00–13:00","Kyushu Jangara vegan ramen (Harajuku)"],["13:00–14:00","Takeshita Street (crepes · Kiddy Land)"],["14:00–14:40","Walk Cat Street to Shibuya"],["14:40–15:30","Shibuya Parco 6F: Nintendo TOKYO · Pokémon Center Shibuya"],["15:30–15:40","Shibuya Crossing (day) · Hachikō"],["15:42","Hanzōmon → Ōedo Line to Tochōmae (19 min)"],["16:05–16:50","🌇 Metropolitan Government Building South Observatory (free) · sunset 16:29"],["17:00–17:55","Dinner · Omoide Yokocho (Shinjuku)"],["18:07","JR Saikyō Line → Shibuya (3 min)"],["18:25","Shibuya Scramble Square 14F"],["18:40–19:45","🌃 Shibuya Sky ✅ (entry 18:40–18:59)"],["19:45–20:15","Shibuya Crossing (night)"],["20:22","Hanzōmon → Tozai Line home"],["~21:00","Nishikasai"]],
+  notes:["🤼 Sumo ✅ Sat 28 Nov 10:00 (check in 09:50) at the Shinjuku Sumo Club, Sekisaku Bldg 2F, 2-5-22 Ōkubo, 7 min on foot from Higashi-Shinjuku · 🌃 Shibuya Sky ✅ booked 13 Nov, entry 18:40–18:59 · 🌇 sunset 16:29 from the free Metropolitan Government Building"],
+  blocks:[[6.33,7.1,"travel","→ Meiji"],[7.17,8.17,"sight","Meiji Shrine"],[8.33,8.5,"travel","→ Gaien"],[8.5,9,"sight","Gaien Ginkgo"],[9,9.62,"travel","→ Sumo Club"],[9.83,11.5,"timed","Sumo ✅"],[11.58,11.92,"travel","→ Harajuku"],[12,13,"meal","Jangara ramen"],[13,14,"sight","Takeshita"],[14,14.67,"sight","Cat Street"],[14.67,15.5,"sight","Shibuya Parco"],[15.5,15.67,"sight","Crossing"],[15.7,16.02,"travel","→ Tochō"],[16.08,16.83,"sight","🌇 Tochō sunset"],[17,17.92,"meal","Omoide Yokocho"],[18.1,18.42,"travel","→ Shibuya Sky"],[18.67,19.75,"timed","🌃 Shibuya Sky ✅"],[19.75,20.25,"sight","Crossing (night)"],[20.37,21,"travel","→ home"]],
+  tips:[{sev:"tip",text:"Shibuya Sky entry is 18:40–18:59: be at Shibuya Scramble Square 14F by 18:25. The rooftop closes in rain or strong wind; the indoor deck stays open. Walk the Crossing afterwards, when it’s lit up."},
+        {sev:"tip",text:"The Metropolitan Government Building’s South Observatory is free, open until 22:00 and closed only on the 1st and 3rd Tuesdays. On a Saturday, arrive by ~16:05 for the 16:29 sunset; on a clear evening Mt Fuji shows to the southwest."},
         {sev:"medium",ref:"weekend",text:"It’s a Saturday: Takeshita and Shibuya will be at peak crowds, so keep the early start."},
         {sev:"tip",text:"Meiji Shrine → Gaien takes about 20 min (Chiyoda and Ginza lines plus a short walk). Gaien → sumo is about 35 min: walk 7 min to Aoyama-itchōme, take the Ōedo Line to Higashi-Shinjuku (change at Tochōmae), then 7 min on foot. Check-in is 09:50."},
         {sev:"good",text:"Sumo now sits between Gaien and Harajuku: about 40 min of extra travel instead of 1 h 40 min on 27 Nov."},
@@ -865,17 +861,18 @@ const DAYS = [
         {sev:"high",ref:"usj",text:"Make sure the Express Pass guarantees Super Nintendo World entry."},
         {sev:"good",text:"Your cabin bags wait at New Osaka Hotel: collect them after USJ, 3 min from the Shinkansen gates."},
         {sev:"tip",text:"In Smart EX, book ~19:30 and move it for free if the day runs long or short."}]},
- {id:"d5", date:"2026-12-05", dow:"Sat", dm:"5 Dec", region:"kamakura", short:"Flex: Kamakura or rest",
-  title:"Flexible Day", sub:"Decide based on how you feel after USJ", who:"You + Divyank", base:"Friend’s place, Nishikasai",
-  prio:"Option A: Kamakura + Enoshima (🥇 Hase-dera / Great Buddha early). Option B: recovery day. Don’t force Kamakura.",
-  intensity:3, leave:"07:30 (A)", out:[7.5,19], early:false, sunset:16.5, option:true,
+ {id:"d5", date:"2026-12-05", dow:"Sat", dm:"5 Dec", region:"kamakura", short:"Kamakura or rest · JDM night",
+  title:"Flexible Day + JDM night", sub:"Decide the day based on how you feel after USJ", who:"You + Divyank", base:"Friend’s place, Nishikasai",
+  prio:"Option A: a short Kamakura morning (🥇 Hase-dera / Great Buddha early). Option B: recovery day. Either way, 🏎️ JDM night in the evening. Don’t force Kamakura.",
+  intensity:3, leave:"06:55 (A)", out:[6.92,14], outLabel:"7 h + JDM", early:false, sunset:16.5, option:true,
   rows:[],
-  optA:[["07:30","Leave Nishikasai"],["~09:00","Kamakura / Hase"],["09:00–10:00","🥇 Hase-dera"],["10:00–11:00","Great Buddha"],["11:30–13:00","Kamakura lunch / Komachi"],["13:30–16:30","Enoshima"],["~17:00","Return"],["~19:00","Nishikasai"]],
-  optB:["Sleep in","Ueno","Akihabara","Shopping","Café","Nishikasai early"],
-  notes:["Don’t force Kamakura."],
-  blocks:[[7.5,9,"travel","→ Kamakura"],[9,10,"sight","Hase-dera"],[10,11,"sight","Great Buddha"],[11.5,13,"meal","Lunch"],[13.5,16.5,"sight","Enoshima"],[17,19,"travel","Return"]],
+  optA:[["06:55","Leave Nishikasai"],["08:28","Hase"],["08:30–09:30","🥇 Hase-dera"],["09:30–10:15","Great Buddha"],["10:21","Enoden → Kamakura"],["10:30–12:30","Komachi Street · lunch"],["12:37","Train home (77 min)"],["14:00–18:15","Rest at your friend’s place"],["18:15","Leave for the JDM tour (Tokyo Station pickup, ~19:00)"],["19:00–22:00","🏎️ JDM night: Daikoku PA car meet"],["22:14","Train home"],["~22:45","Nishikasai"]],
+  optB:["Sleep in","Ueno","Akihabara","Shopping","Café","🏎️ JDM night tour in the evening (~19:00–22:00)"],
+  notes:["Don’t force Kamakura.","🏎️ JDM night: book a Daikoku PA tour that starts around 19:00 (Klook, GetYourGuide or Viator)."],
+  blocks:[[6.92,8.47,"travel","→ Kamakura"],[8.5,9.5,"sight","Hase-dera"],[9.5,10.25,"sight","Great Buddha"],[10.5,12.5,"meal","Komachi · lunch"],[12.62,14,"travel","→ home"],[14,18.25,"rest","Rest"],[18.25,18.77,"travel","→ tour"],[19,22,"timed","🏎️ JDM night"],[22.23,22.75,"travel","→ home"]],
   tips:[{sev:"medium",ref:"fatigue",text:"Make Option B the default after 16.5 h at USJ, and decide the night before."},
-        {sev:"medium",ref:"weekend",text:"Option A on a Saturday: Hase-dera opens 08:00, so leave at 07:00."}]},
+        {sev:"medium",ref:"weekend",text:"Option A on a Saturday: Hase-dera opens at 08:00; leaving at 06:55 gets you there at 08:28."},
+        {sev:"tip",text:"🏎️ JDM night: Saturday is the busiest night at Daikoku PA. Book a shared tour that starts around 19:00 (about ¥20,000 each, free cancellation up to 24 h before). Police sometimes close Daikoku on busy nights; tours then switch to Tatsumi PA. With Option A, the 14:00–18:15 rest at home keeps the day manageable after USJ."}]},
  {id:"d6", date:"2026-12-06", dow:"Sun", dm:"6 Dec", region:"tokyo", short:"Palace · Pokémon · Ginza · Akiba",
   title:"Central Tokyo + Pokémon Café", sub:"🥇 Priority: Imperial Palace first", who:"You + Divyank", base:"Friend’s place, Nishikasai",
   prio:"🥇 Priority: Imperial Palace first. Booking: 🕓 Pokémon Café Tokyo, requested via Reserve-Japan; time slot TBC.",
@@ -909,7 +906,7 @@ const BOOKINGS = [
  {id:"skytree", item:"Tokyo Skytree", day:"d27", when:"Fri 27 Nov · 15:30", status:"booked", sale:"—", note:"Booked per your 27 Nov notes (15:30 entry, can be rescheduled)."},
  {id:"teamlab", item:"teamLab Planets", day:"d27", when:"Fri 27 Nov · 18:30", status:"booked", sale:"—", note:"Booked 11 Nov: 2 adults, 18:30 entry."},
  {id:"sumo", item:"Shinjuku Sumo Club · show & experience", day:"d28", when:"Sat 28 Nov · 10:00", status:"booked", sale:"—", note:"Rescheduled from 27 Nov on GetYourGuide (11 Nov). Venue: Sekisaku Bldg 2F, 2-5-22 Ōkubo, 7 min on foot from Higashi-Shinjuku. Check in by 09:50."},
- {id:"shibuya", item:"Shibuya Sky (sunset slot)", day:"d28", when:"Sat 28 Nov · 15:40", status:"pending", opens:"2026-11-13T15:00:00Z", sale:"14 Nov 00:00 JST<br><b>13 Nov 20:30 IST</b>", note:"Log in by 20:25 IST. Sunset slots sell out in minutes.", ref:"shibuya-sky"},
+ {id:"shibuya", item:"Shibuya Sky (night view)", day:"d28", when:"Sat 28 Nov · 18:40–18:59 entry", status:"booked", sale:"—", note:"Booked 13 Nov. Be at Shibuya Scramble Square 14F by 18:25. The rooftop closes in rain or strong wind; the indoor deck stays open."},
  {id:"romancecar", item:"Hakone transport (Romancecar, or Shinkansen to Odawara)", day:"d29", when:"Sun 29 Nov · ~07:00", status:"onsale", sale:"Since 29 Oct 10:00 JST (1 month ahead)", note:"Buy on EMot Online Tickets (English), ¥1,200 a seat each way. Going out, pick a right-hand window (usually D) for Mt Fuji near Shin-Matsuda; Hakone 1 is an EXE, so there are no observation seats, and the return runs after dark. On 13 Nov every 29 Nov train in both directions still showed plenty of seats, so booking 2–3 days ahead should work; booking now just locks in a right-side window. If you book early, a refund costs ¥100 a ticket before departure, same-day train changes are free and one date change is free. No-booking fallback: Shinkansen Tokyo → Odawara in the unreserved cars (Kodama 07:27 → 08:00, ¥3,280).", ref:"fuji-days"},
  {id:"freepass", item:"Hakone Freepass", day:"d29", when:"Sun 29 Nov", status:"later", buy:"Buy after the forecast", sale:"Any time (digital or at the station)", note:"Buy the Digital Hakone Freepass from Shinjuku (¥7,100, QR code) on EMot Online Tickets once the forecast looks good. Take the Odawara version if you go by Shinkansen.", ref:"fuji-days"},
  {id:"bus-out", item:"Bus Shinjuku → Fujisan Station", day:"d30", when:"Mon 30 Nov · 07:55", status:"onsale", sale:"On sale now", note:"Reaches Fujisan at 09:47; Shimoyoshida (Chureito) is two stops on. Book on highwaybus.com (English) and pick a left window (A seats): Mt Fuji appears ahead-left after Ōtsuki. Book now: the line sells out even on weekdays, and cancelling online before departure costs about ¥100 a seat. Train fallback: JR Fuji Excursion, Shinjuku 07:30 → Fujisan 09:18 (¥4,067 with a reserved seat).", ref:"kawaguchiko-tips"},
@@ -919,7 +916,8 @@ const BOOKINGS = [
  {id:"usj-pass", item:"USJ Studio Pass", day:"d4", when:"Fri 4 Dec", status:"onsale", sale:"On sale now", note:"Date-specific ticket.", ref:"book-now"},
  {id:"usj-express", item:"USJ Express Pass", day:"d4", when:"Fri 4 Dec", status:"onsale", sale:"On sale now", note:"Christmas season: these sell out. Choose one with Nintendo entry.", ref:"usj"},
  {id:"usj-snw", item:"Super Nintendo World access", day:"d4", when:"Fri 4 Dec", status:"onsale", sale:"With Express Pass, or in the app on the day", note:"Guaranteed with most Express Passes.", ref:"usj"},
- {id:"shink-2", item:"Shinkansen Shin-Osaka → Tokyo", day:"d4", when:"Fri 4 Dec · ~19:30", status:"onsale", sale:"Since 4 Nov 10:00 JST (06:30 IST)", note:"Standard Smart EX (¥14,520) can be moved for free if USJ runs long. EX Hayatoku 21 (¥12,980) closes 13 Nov 23:30 JST and can’t be changed.", ref:"usj"},
+ {id:"shink-2", item:"Shinkansen Shin-Osaka → Tokyo", day:"d4", when:"Fri 4 Dec · ~19:30", status:"onsale", sale:"Since 4 Nov 10:00 JST (06:30 IST)", note:"Standard Smart EX (¥14,520) can be moved for free if USJ runs long. EX Hayatoku 21 closed on 13 Nov; EX Hayatoku 7 on Hikari 664 (19:21 → 22:18, ¥12,490, no changes) is open until 27 Nov.", ref:"usj"},
+ {id:"jdm", item:"JDM night tour (Daikoku PA car meet)", day:"d5", when:"Sat 5 Dec · ~19:00–22:00", status:"onsale", sale:"Klook, GetYourGuide or Viator", note:"Shared tours ~¥20,000 per person (a guaranteed GT-R costs more), free cancellation up to 24 h before. Choose one that starts around 19:00 (some weekend tours start at 17:00) and ends near Tokyo Station, Shibuya or Shinjuku."},
  {id:"pokemon", item:"Pokémon Café Tokyo (via Reserve-Japan)", day:"d6", when:"Sun 6 Dec · time TBC", status:"requested", sale:"Opened 1 Nov 18:00 JST<br>(14:30 IST)", note:"Best effort, with a 100% refund if they can’t get a seat. They assign the time, so tick this once their confirmation arrives.", ref:"pokemon"},
  {grp:"Missing from your checklist"},
  {id:"flight-in", item:"AI-356 Mumbai → Haneda T3 (you)", day:"d24", when:"Tue 24 Nov · lands 04:55", status:"confirm", done:true, sale:"—", note:"Confirmed 12 Nov. Boeing 787-8, older cabin (AeroLOPA 788-1). Seat 34A booked 12 Nov: left window behind the wing, with the window centred on the seat. Left side: the Sea Link and South Mumbai at sunset just after take-off. Mt Fuji passes ~75 km to the left ~20 min before landing, in the dark but under a 99% moon; ask the crew to clear the dimmed windows. Web check-in 24–48 h before; Visit Japan Web QR ready."},
@@ -959,9 +957,9 @@ const LEGS = {
       {t:"08:19",a:"Meiji-jingūmae",b:"Gaiemmae",r:"Chiyoda Line → Ginza Line · change at Omotesandō",m:6,km:1.6,y:178,k:"ic",note:"Add the walk out of the shrine and about 5 min from Gaiemmae to the ginkgo avenue."},
       {t:"09:00",a:"Gaien Ginkgo Avenue",b:"Shinjuku Sumo Club",r:"walk 7 min to Aoyama-itchōme → Toei Ōedo Line (09:13) → walk 7 min from Higashi-Shinjuku · change at Tochōmae",m:37,km:7.4,y:220,k:"ic",note:"Arrives 09:37, 13 min before check-in. The club is on 2F of the Sekisaku Building, 2-5-22 Ōkubo."},
       {t:"11:35",a:"Shinjuku Sumo Club",b:"Meiji-jingūmae (Harajuku)",r:"walk 7 min to Higashi-Shinjuku → Fukutoshin Line (11:47)",m:19,km:4.3,y:178,k:"ic",note:"Or walk 12 min to Shin-Okubo for the JR Yamanote Line to Harajuku (8 min)."},
-      {t:"14:30",a:"Omotesandō",b:"Shibuya",r:"Hanzōmon Line",m:2,km:1.3,y:178,k:"ic"},
-      {t:"18:15",a:"Shibuya",b:"Shinjuku",r:"JR Saikyō Line",m:4,km:3.4,y:199,k:"ic"},
-      {t:"20:30",a:"Shinjuku",b:"Friend’s place",r:"Marunouchi Line → Tozai Line → walk 5 min · change at Ōtemachi",m:48,km:17.9,y:252,k:"ic"}],
+      {t:"15:42",a:"Shibuya",b:"Tochōmae",r:"Hanzōmon Line → Toei Ōedo Line · change at Aoyama-itchōme",m:19,km:6.8,y:286,k:"ic",note:"Tochōmae station is under the Metropolitan Government Building; follow the signs to the South Observatory lifts."},
+      {t:"18:07",a:"Shinjuku",b:"Shibuya",r:"JR Saikyō Line",m:3,km:3.4,y:199,k:"ic",note:"Omoide Yokocho is by Shinjuku’s west exit, so allow ~8 min to the platform. Scramble Square is connected to Shibuya Station."},
+      {t:"20:22",a:"Shibuya",b:"Friend’s place",r:"Hanzōmon Line → Tozai Line → walk 5 min · change at Kudanshita",m:38,km:18.1,y:252,k:"ic"}],
  d29:[{t:"05:50",a:"Friend’s place",b:"Shinjuku",r:"walk 5 min → Tozai Line (06:02) → Marunouchi Line · change at Ōtemachi",m:54,km:17.9,y:252,k:"ic",note:"Arrives 06:44, 16 min before the Romancecar."},
       {t:"07:00",a:"Shinjuku",b:"Hakone-Yumoto",r:"Odakyu Romancecar “Hakone 1” (reserved seat)",m:86,km:88.6,y:2461,k:"rc",note:"¥1,261 fare + ¥1,200 seat fee. A Freepass from Shinjuku covers the fare, not the seat fee."},
       {t:"08:39",a:"Hakone-Yumoto",b:"Gōra",r:"Hakone Tozan Railway",m:38,km:8.9,y:460,k:"fp",note:"From here to the bus back to Yumoto, every leg is covered by the Hakone Freepass."},
@@ -999,10 +997,11 @@ const LEGS = {
      {t:"18:00",a:"Universal City",b:"Shin-Osaka",r:"JR Yumesaki Line → JR Osaka Loop Line → JR Kyoto Line · change at Nishikujō, Osaka",m:20,km:10.6,y:240,k:"ic",note:"Collect your bags at the hotel (3 min each way) before the 19:30 Shinkansen."},
      {t:"19:30",a:"Shin-Osaka",b:"Tokyo",r:"Shinkansen Nozomi 52 (reserved seat)",m:147,km:552.6,y:14720,k:"sk",note:"¥8,910 fare + ¥5,810 seat at the station; Smart EX charges ¥14,520. The track itself is about 515 km."},
      {t:"22:11",a:"Tokyo",b:"Friend’s place",r:"Marunouchi Line → Tozai Line → walk 5 min · change at Ōtemachi",m:35,km:10,y:209,k:"ic"}],
- d5:[{t:"07:30",a:"Friend’s place",b:"Hase",r:"walk 5 min → Tozai Line (07:38) → Ginza Line → JR Tōkaidō Line → JR Yokosuka Line → Enoden · change at Nihombashi, Shimbashi, Totsuka, Kamakura",m:100,km:61.7,y:1311,k:"ic",opt:"Option A",note:"Simpler: Tozai → Marunouchi → JR Yokosuka Line straight to Kamakura (3 changes) reaches Hase at 09:24."},
-     {t:"11:17",a:"Hase",b:"Kamakura",r:"Enoden",m:4,km:1.7,y:200,k:"ic",opt:"Option A"},
-     {t:"13:18",a:"Kamakura",b:"Enoshima",r:"Enoden",m:25,km:6.7,y:260,k:"ic",opt:"Option A"},
-     {t:"16:49",a:"Enoshima",b:"Friend’s place",r:"walk 11 min to Katase-Enoshima → Odakyu Enoshima Line → Odakyu Line → Chiyoda Line → Tozai Line → walk 5 min · change at Fujisawa, Yoyogi-Uehara, Ōtemachi",m:131,km:75.2,y:901,k:"ic",opt:"Option A"}],
+ d5:[{t:"06:55",a:"Friend’s place",b:"Hase",r:"walk 5 min → Tozai Line (07:01) → Ginza Line → JR Tōkaidō Line → JR Yokosuka Line → Enoden · change at Nihombashi, Shimbashi, Totsuka, Kamakura",m:93,km:61.7,y:1311,k:"ic",opt:"Option A",note:"Simpler: Tozai → Marunouchi → JR Yokosuka Line straight to Kamakura (3 changes) reaches Hase at 09:24."},
+     {t:"10:21",a:"Hase",b:"Kamakura",r:"Enoden",m:4,km:1.7,y:200,k:"ic",opt:"Option A"},
+     {t:"12:37",a:"Kamakura",b:"Friend’s place",r:"JR Shōnan-Shinjuku Line → JR Tōkaidō Line → Ginza Line → Tozai Line → walk 5 min · change at Totsuka, Shimbashi, Nihombashi",m:82,km:60,y:1111,k:"ic",opt:"Option A"},
+     {t:"18:15",a:"Friend’s place",b:"Tokyo (tour pickup)",r:"walk 5 min → Tozai Line (18:20) → Marunouchi Line · change at Ōtemachi",m:31,km:10,y:209,k:"ic",note:"Use the meeting point on your tour booking; many meet near Tokyo Station, others in Shibuya or Shinjuku."},
+     {t:"22:14",a:"Tokyo (tour drop-off)",b:"Friend’s place",r:"Marunouchi Line → Tozai Line → walk 5 min · change at Ōtemachi",m:29,km:10,y:209,k:"ic"}],
  d6:[{t:"08:00",a:"Friend’s place",b:"Ōtemachi",r:"walk 5 min → Tozai Line (08:08)",m:24,km:9.4,y:209,k:"ic"},
      {t:"10:34",a:"Ōtemachi",b:"Nihombashi",r:"Tozai Line",m:1,km:0.8,y:178,k:"ic",note:"Or walk 15–20 min from the East Gardens."},
      {t:"13:47",a:"Nihombashi",b:"Ginza",r:"Ginza Line",m:3,km:1.4,y:178,k:"ic"},
@@ -1029,8 +1028,8 @@ const SHINK = [
   disc:["EX Hayatoku 7 · Hikari 637 · 09:36 → 12:12 (2 h 36 min)", 11940],
   rule:"✅ You booked this ride on 12 Nov. (EX Hayatoku 7 needed booking by 24 Nov and arrives 28 min later.)"},
  {ride:"Fri 4 Dec · Shin-Osaka → Tokyo", std:["Nozomi 52 · 19:30 → 21:57 (2 h 27 min)", 14520],
-  disc:["EX Hayatoku 21 · any Nozomi with seats left", 12980],
-  rule:"Book by <b>13 Nov, 23:30 JST (20:00 IST)</b>. The train can’t be changed after booking; cancelling costs ¥320. EX Hayatoku 7 on Hikari 664 (19:21 → 22:18) is ¥12,490 until 27 Nov."}
+  disc:["EX Hayatoku 7 · Hikari 664 · 19:21 → 22:18 (2 h 57 min)", 12490],
+  rule:"EX Hayatoku 21 closed on 13 Nov. EX Hayatoku 7 on Hikari 664 is ¥12,490 if booked by <b>27 Nov</b>, but the train can’t be changed and it reaches Tokyo 21 min later; cancelling costs ¥320."}
 ];
 /* ================= Rendering ================= */
 const $ = s => document.querySelector(s);
@@ -1120,9 +1119,8 @@ function renderStats() {
 }
 
 const ACT = [
-  ["shibuya-sky", "Shibuya Sky (28 Nov): be online at <b>20:25 IST on Fri 13 Nov</b>."],
-  ["book-now", "4 Dec Shinkansen: only if you’re sure of the train, book EX Hayatoku 21 (¥12,980 vs ¥14,520) by <b>20:00 IST on Fri 13 Nov</b>. Otherwise keep the flexible standard fare."],
-  ["book-now", "Book the USJ Studio + Express passes, the 4 Dec Shinkansen, the 30 Nov buses and Hakone transport."],
+  ["book-now", "JDM night (5 Dec): book a Daikoku PA tour that starts around 19:00 (free cancellation up to 24 h before)."],
+  ["book-now", "Book the USJ Studio + Express passes, the 4 Dec Shinkansen and the 30 Nov buses. The Romancecar can wait until 26–27 Nov."],
   ["arrival", "Message Wise Owl through Booking.com: arriving ~07:00 on 24 Nov, please hold my bag until check-in."]
 ];
 function renderOverview() {
@@ -1224,7 +1222,7 @@ function renderDays() {
     let plan = `<p class="prio">${d.prio}</p>`;
     if (d.rows.length) plan += rowsTable(d.rows);
     if (d.lists) plan += d.lists.map(([t, items]) => `<div class="subh">${t}</div><ul class="plist">${items.map(i => `<li>${i}</li>`).join("")}</ul>`).join("");
-    if (d.optA) plan += `<div class="opts"><div><div class="subh">Option A · Kamakura + Enoshima</div>${rowsTable(d.optA)}</div><div><div class="subh">Option B · Recovery day</div><ul class="plist">${d.optB.map(i => `<li>${i}</li>`).join("")}</ul></div></div>`;
+    if (d.optA) plan += `<div class="opts"><div><div class="subh">Option A · Kamakura morning + JDM night</div>${rowsTable(d.optA)}</div><div><div class="subh">Option B · Rest day + JDM night</div><ul class="plist">${d.optB.map(i => `<li>${i}</li>`).join("")}</ul></div></div>`;
     if (d.notes && d.notes.length) plan += `<ul class="pnotes">${d.notes.map(n => `<li>${n}</li>`).join("")}</ul>`;
     plan += legsBlock(d);
     let review = `<h4>Review</h4>${tipsList(d.tips)}`;
@@ -1279,7 +1277,7 @@ function renderQuote() {
   <div class="callout good"><b>Verdict: skip the JR Pass and book the two Shinkansen rides individually.</b> Even in its best 7-day window, a pass would replace only ${yen(cover)} of JR tickets on your plan. That’s ${yen(gap)} (${inr(gap)}) less than the ${yen(JRPASS.d7)} it costs, per person.</div>
   <div class="pk">
     <div class="card pkc good"><h4>Flexible · recommended</h4><b class="big">${yen(flex)}</b><span>per person: both rides at the standard Smart EX fare, free to change before departure</span><span><b>${two(flex)}</b></span></div>
-    <div class="card pkc tip"><h4>Lowest price</h4><b class="big">${yen(low)}</b><span>per person: EX Hayatoku 7 on 1 Dec (Hikari) plus EX Hayatoku 21 on 4 Dec (fixed train)</span><span><b>${two(low)}</b></span></div>
+    <div class="card pkc tip"><h4>Lowest price</h4><b class="big">${yen(low)}</b><span>per person: EX Hayatoku 7 on 1 Dec and 4 Dec (Hikari, fixed trains)</span><span><b>${two(low)}</b></span></div>
     <div class="card pkc crit"><h4>7-day JR Pass</h4><b class="big">${yen(JRPASS.d7)}</b><span>per person online (${yen(JRPASS.agent)} through agents), plus ${yen(JRPASS.nozomi)} for each Nozomi ride</span><span><b>${two(JRPASS.d7)}</b></span></div>
   </div>
   <div class="qgrid">
@@ -1339,13 +1337,13 @@ function statusPill(b, now) {
   return `<span class="st onsale">🟠 On sale, book now</span>`;
 }
 function renderBookings() {
-  const now = Date.now();
+  const now = Date.now(), ro = SYNC.loggedIn() ? "" : " disabled";
   let html = `<thead><tr><th>Done</th><th>Booking</th><th>For</th><th>Status</th><th>Sale window</th><th>Notes</th></tr></thead><tbody>`;
   BOOKINGS.forEach(b => {
     if (b.grp) { html += `<tr class="grp"><td colspan="6">${b.grp}</td></tr>`; return; }
     const done = isDone(b);
     html += `<tr class="${done ? "done" : ""}" data-id="${b.id}">
-      <td><input type="checkbox" aria-label="Done: ${b.item}"${done ? " checked" : ""}></td>
+      <td><input type="checkbox" aria-label="Done: ${b.item}"${done ? " checked" : ""}${ro}></td>
       <td class="item">${b.item}</td>
       <td><a class="dchip" href="#${b.day}">${b.when}</a></td>
       <td>${done && b.status !== "booked" ? `<span class="st booked">✅ Done</span>` : statusPill(b, now)}</td>
@@ -1356,13 +1354,14 @@ function renderBookings() {
   const L = listItems(), extra = bkItems().filter(b => b.status === "check" || b.status === "confirm");
   $("#bkbar").innerHTML = `<span>📋 From your checklist: <b>${L.filter(isDone).length} / ${L.length}</b> done</span>
     <span>➕ Missing items arranged: <b>${extra.filter(isDone).length} / ${extra.length}</b></span>
-    <span class="muted">Tick a row once it’s booked.</span>`;
+    <span class="muted">${ro ? "Read-only: log in below to tick rows." : "Tick a row once it’s booked."}</span>`;
 }
 
 function renderChecks() {
+  const ro = SYNC.loggedIn() ? "" : " disabled";
   $("#checks").innerHTML = CHECKS.map(([g, items], gi) => `<div class="card cg"><h3>${g}</h3>${items.map((t, ii) => {
     const k = `jp26-ck-${gi}-${ii}`, v = store.get(k), on = v === null ? t.done === true : v === "1";
-    return `<label class="${on ? "done" : ""}"><input type="checkbox" data-k="${k}"${on ? " checked" : ""}><span>${t.t || t}</span></label>`;
+    return `<label class="${on ? "done" : ""}"><input type="checkbox" data-k="${k}"${on ? " checked" : ""}${ro}><span>${t.t || t}</span></label>`;
   }).join("")}</div>`).join("");
   updateChkBar();
 }
@@ -1398,6 +1397,8 @@ function renderFooter() {
     <li>Where to buy (13 Nov): Romancecar seats (¥1,200 each way Shinjuku ⇄ Hakone-Yumoto) and the Digital Hakone Freepass (¥7,100 from Shinjuku) on Odakyu’s EMot Online Tickets; the Shinjuku–Fuji Five Lakes bus on highwaybus.com (English, linked from fuji.highwaybus.com/en); the Fuji-Q Afternoon Pass (up to ¥5,700, after 13:00, no refunds) on fujiq.jp. Fuji sides from travel guides: Romancecar to Hakone on the right (around Shin-Matsuda and Kaisei), bus to Kawaguchiko on the left.</li>
     <li>Hakone cost per person (13 Nov, Odakyu prices and Jorudan): Romancecar route ¥9,904 (Freepass from Shinjuku ¥7,100, two online Romancecar seats at ¥1,150, metro ¥252 each way), leaving Nishikasai 06:02 for Hakone-Yumoto 08:26 and back 16:57 → 19:10. Shinkansen route ¥12,978 (Freepass from Odawara ¥6,000, two unreserved Kodama tickets at ¥3,280, metro ¥209 each way), leaving 06:49 for 08:26 and back 16:59 → 18:54. JR Tōkaidō local route ¥9,608, leaving 06:02 for 08:13.</li>
     <li>Romancecar seats (e-Romancecar availability, 13 Nov): every Sun 29 Nov train showed ○ (plenty) both ways, including Hakone 1 (EXE10, 07:00) and Hakone 40 (EXE6, 16:57); Sat 5 Dec returns too. The GSE Hakone 18 (15:14 back) had its front observation seats sold out.</li>
+    <li>JDM night tours (13 Nov, Klook/GetYourGuide/Viator listings as summarised by travel guides): shared Daikoku PA tours about ¥20,000 per person and ~3 h, with weekend departures from about 17:00; police sometimes close Daikoku PA on busy nights and tours switch to Tatsumi or Umihotaru PA; free cancellation up to 24 h before. Jorudan (5 Dec): Nishi-kasai 18:20 → Tokyo 18:46; Tokyo 22:14 → Nishi-kasai 22:38.</li>
+    <li>28 Nov evening (13 Nov): Metropolitan Government Building South Observatory free, 9:30–22:00, closed on the 1st and 3rd Tuesdays (travel guides). Jorudan: Shibuya 15:42 → Tochōmae 16:01; Shinjuku 18:07 → Shibuya 18:10; Shibuya 20:22 → Nishi-kasai 20:55. 5 Dec Kamakura: Nishi-kasai 07:01 → Hase 08:28; Hase 10:21 → Kamakura 10:25; Kamakura 12:37 → Nishi-kasai 13:54.</li>
     <li>Flight views (12 Nov): on FlightAware tracks, AI-355 (9 flights, 29 Oct–12 Nov) passed Mt Fuji 2–13 km to the left 13–15 min after take-off, and AI-356 (4 flights) turned left over the sea after leaving Mumbai and passed Fuji 73–76 km to the left ~20 min before landing. Seat maps: AeroLOPA (Air India 787-8 layouts 788-1 for AI-356 and 788-3 for AI-355, matched seat by seat to your Air India seat maps). Sun and moon: US Naval Observatory (moon 99% full on 24 Nov, sets 05:51 JST; Mumbai sunset 17:59 on 23 Nov and 18:01 on 7 Dec).</li>
     <li>Window alignment (AeroLOPA seat notes, 12 Nov): on AI-356’s layout, 31A–35A have no window issues (measured: 34A’s window spans 33–81% of the seat from the front, 35A’s 0–46%), 36A’s window is set behind the seat, 37A has no window and 30A’s window sits well behind. On AI-355’s layout, 43A is rated above average and 39A–41A and 44A have no issues; 38A and 42A have the window behind the seat and 45A has no usable window.</li>
     <li>IC cards (11 Nov): Welcome Suica Mobile (App Store listing, v1.3.0, 29 Oct 2026): iOS 17.2+, Apple Pay top-ups only, balance expires after 180 days. TOURIST PASMO (pasmo.co.jp): HND T3 Keikyu counter and machine, NRT Keisei centres, valid 28 days. Apple Pay in India: apple.com/in names Axis Bank credit cards.</li>
@@ -1410,31 +1411,33 @@ function renderFooter() {
   <p>Taxi fares, travel times and sunset times (~) are estimates. JST = UTC+9, IST = UTC+5:30. This page is self-contained. Its only network requests are the optional tick sync with your GitHub repo (api.github.com).</p>`;
 }
 
-/* ---------- Optional tick sync: ticks.json + login.json on a "ticks" branch of your GitHub Pages repo ---------- */
-// login.json holds your GitHub token encrypted with the shared username and password (PBKDF2-SHA256 + AES-GCM).
-// After logging in, the decrypted token is kept only in this browser's localStorage. Reads need no login on a public repo.
+/* ---------- Shared ticks: anyone can see them; the shared username and password unlock editing ---------- */
+// login.json (on main, served by Pages) holds the GitHub token encrypted with that username and password (PBKDF2-SHA256 +
+// AES-GCM). The repo is public, so the token must never be stored in plain text. ticks.json lives on the "ticks" branch so
+// ticking doesn't rebuild the site, and ticks GitHub hasn't accepted yet wait in localStorage until they're saved.
 const SYNC = (() => {
-  const TOKEN = "jp26-gh-token", REPO = "jp26-gh-repo", BRANCH = "ticks", TICKS = "ticks.json", LOGIN = "login.json";
+  const TOKEN = "jp26-gh-token", PENDING = "jp26-sync-pending", REPO = "Aniruddha004/japan-trip";
+  const BRANCH = "ticks", TICKS = "ticks.json", LOGIN = "login.json";
   const KEY_OK = /^jp26-(bk|ck)-[A-Za-z0-9-]+$/;
   const onPages = /\.github\.io$/i.test(location.hostname);
   const enc = new TextEncoder(), pending = new Map();
-  let timer = null, busy = false, draft = null, root = null;
+  let inflight = new Map(), timer = null, busy = false, draft = null, root = null, defBranch = null;
   const escHtml = s => String(s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
   const now = () => new Date().toTimeString().slice(0, 5);
   const b64 = u8 => btoa(String.fromCharCode(...u8)), unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
-  const repoName = () => {
-    const saved = store.get(REPO);
-    if (saved) return saved;
-    if (!onPages) return null;
-    const owner = location.hostname.split(".")[0], first = location.pathname.split("/").filter(Boolean)[0];
-    return `${owner}/${first && !first.includes(".") ? first : owner + ".github.io"}`;
+  const loggedIn = () => !!store.get(TOKEN);
+  const idle = () => loggedIn() ? `Logged in · up to date ${now()}` : "Read-only · log in to tick";
+  const keep = () => {
+    const all = {...Object.fromEntries(inflight), ...Object.fromEntries(pending)};
+    if (Object.keys(all).length) store.set(PENDING, JSON.stringify(all)); else store.del(PENDING);
   };
-  const idle = () => store.get(TOKEN) ? `Logged in · up to date ${now()}` : repoName() ? "Showing the saved ticks · log in to update them" : "Off";
+  const refresh = () => { renderBookings(); renderStats(); renderCountdown(); renderChecks(); };
+  function setToken(t) { if (t) store.set(TOKEN, t); else store.del(TOKEN); refresh(); }
 
   function status(msg, err) {
     if (!root) return;
-    const repo = repoName(), on = !!store.get(TOKEN);
-    root.innerHTML = `<span>☁️ ${repo ? `GitHub sync: <b>${escHtml(repo)}</b>` : "GitHub sync is off"}</span>`
+    const on = loggedIn();
+    root.innerHTML = `<span>☁️ GitHub sync: <b>${REPO}</b></span>`
       + `<span class="${err ? "err" : ""}">${escHtml(msg)}</span>`
       + `<button type="button" data-act="${on ? "logout" : "login"}">${on ? "Log out" : "Log in"}</button>`;
   }
@@ -1442,7 +1445,6 @@ const SYNC = (() => {
     if (!root) return;
     const d = draft || {};
     root.innerHTML = `<span>☁️ ${first ? "First-time set-up creates the shared login" : "Log in to update the ticks"}</span>`
-      + (onPages ? "" : `<input data-f="repo" placeholder="owner/repo" autocomplete="off" value="${escHtml(d.repo || store.get(REPO) || "")}">`)
       + `<input data-f="user" placeholder="Username" autocomplete="username" autocapitalize="none" value="${escHtml(d.user || "")}">`
       + `<input data-f="pass" type="password" placeholder="Password" autocomplete="current-password" value="${escHtml(d.pass || "")}">`
       + (first ? `<input data-f="tok" type="password" placeholder="GitHub token (only this once)" autocomplete="off">` : "")
@@ -1456,18 +1458,22 @@ const SYNC = (() => {
     const headers = {Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"};
     if (token) headers.Authorization = `Bearer ${token}`;
     if (opts.body) headers["Content-Type"] = "application/json";
-    return fetch(`https://api.github.com/repos/${repoName()}${path}`, {...opts, headers, cache: "no-store"});
+    return fetch(`https://api.github.com/repos/${REPO}${path}`, {...opts, headers, cache: "no-store"});
   }
-  async function getFile(name) {
-    let r = await api(`/contents/${name}?ref=${BRANCH}`);
-    if (r.status === 401 && store.get(TOKEN)) { store.del(TOKEN); r = await api(`/contents/${name}?ref=${BRANCH}`, {}, null); }
+  const reason = async r => {
+    const m = await r.json().then(j => j.message, () => "");
+    return `GitHub ${r.status}${m ? `: ${m}` : ""}`;
+  };
+  async function getFile(name, branch = BRANCH) {
+    let r = await api(`/contents/${name}?ref=${branch}`);
+    if (r.status === 401 && loggedIn()) { setToken(null); r = await api(`/contents/${name}?ref=${branch}`, {}, null); }
     if (r.status === 404) return {data: null, sha: null};
     if (!r.ok) throw new Error(`GitHub ${r.status}`);
     const j = await r.json();
     return {data: JSON.parse(atob(j.content.replace(/\s/g, ""))), sha: j.sha};
   }
-  function putFile(name, data, sha, message) {
-    const body = {message, branch: BRANCH, content: btoa(JSON.stringify(data, null, 1))};
+  function putFile(name, data, sha, message, branch = BRANCH) {
+    const body = {message, branch, content: btoa(JSON.stringify(data, null, 1))};
     if (sha) body.sha = sha;
     return api(`/contents/${name}`, {method: "PUT", body: JSON.stringify(body)});
   }
@@ -1476,12 +1482,27 @@ const SYNC = (() => {
     for (const [k, v] of Object.entries((data && data.ticks) || {})) if (KEY_OK.test(k) && (v === "0" || v === "1")) ticks[k] = v;
     return {ticks, sha};
   }
+  async function defaultBranch() {
+    if (defBranch) return defBranch;
+    const r = await api("");
+    if (!r.ok) throw new Error(`GitHub ${r.status}`);
+    return (defBranch = (await r.json()).default_branch);
+  }
+  const loginUrl = () => {
+    if (onPages) return new URL(LOGIN, location.href).href;
+    const [o, r] = REPO.split("/"), owner = o.toLowerCase();
+    return r.toLowerCase() === `${owner}.github.io` ? `https://${owner}.github.io/${LOGIN}` : `https://${owner}.github.io/${r}/${LOGIN}`;
+  };
+  // The Pages site serves login.json publicly even when the repo is private; the API covers a just-created login on a public repo.
+  async function getLogin() {
+    try { const r = await fetch(loginUrl(), {cache: "no-store"}); if (r.ok) return await r.json(); } catch (e) { /* not published yet */ }
+    try { return (await getFile(LOGIN, await defaultBranch().catch(() => "main"))).data; } catch (e) { return null; }
+  }
   async function ensureBranch() {
     const r = await api(`/git/ref/heads/${BRANCH}`);
     if (r.ok) return;
     if (r.status !== 404) throw new Error(`GitHub ${r.status}`);
-    const repo = await (await api("")).json();
-    const base = await (await api(`/git/ref/heads/${repo.default_branch}`)).json();
+    const base = await (await api(`/git/ref/heads/${await defaultBranch()}`)).json();
     const c = await api("/git/refs", {method: "POST", body: JSON.stringify({ref: `refs/heads/${BRANCH}`, sha: base.object.sha})});
     if (!c.ok && c.status !== 422) throw new Error(`GitHub ${c.status}`);
   }
@@ -1502,37 +1523,38 @@ const SYNC = (() => {
   }
 
   async function flush() {
+    clearTimeout(timer); timer = null;
     if (busy) { timer = setTimeout(flush, 1000); return; }
-    if (!pending.size) return;
+    if (!pending.size || !loggedIn()) return;
     busy = true;
-    const batch = new Map(pending); pending.clear();
+    inflight = new Map(pending); pending.clear();
     try {
       for (let attempt = 0; attempt < 3; attempt++) {
         const cur = await pull();
-        if (!store.get(TOKEN)) throw new Error("logged out");
+        if (!loggedIn()) throw new Error("logged out");
         if (!cur.sha) await ensureBranch();
-        const ticks = {...cur.ticks}; batch.forEach((v, k) => { ticks[k] = v; });
-        const r = await putFile(TICKS, {updated: new Date().toISOString(), ticks}, cur.sha, `Update ${batch.size} tick${batch.size > 1 ? "s" : ""}`);
-        if (r.ok) { status(`Saved ${now()}`); return; }
-        if (r.status !== 409 && r.status !== 422) throw new Error(`GitHub ${r.status}`);
+        const ticks = {...cur.ticks}; inflight.forEach((v, k) => { ticks[k] = v; });
+        const r = await putFile(TICKS, {updated: new Date().toISOString(), ticks}, cur.sha, `Update ${inflight.size} tick${inflight.size > 1 ? "s" : ""}`);
+        if (r.ok) { inflight = new Map(); keep(); status(`Saved ${now()}`); return; }
+        if (r.status !== 409 && r.status !== 422) throw new Error(await reason(r));
       }
       throw new Error("the file kept changing");
     } catch (e) {
-      batch.forEach((v, k) => { if (!pending.has(k)) pending.set(k, v); });
-      status(`Not saved yet (${e.message}); it retries with your next tick`, true);
+      inflight.forEach((v, k) => { if (!pending.has(k)) pending.set(k, v); });
+      inflight = new Map(); keep();
+      status(loggedIn() ? `Not saved yet (${e.message}); retrying` : "Login expired · log in again to save your ticks", true);
+      if (loggedIn()) { clearTimeout(timer); timer = setTimeout(flush, 30000); }
     } finally { busy = false; }
   }
   function queue(k, v) {
-    if (!store.get(TOKEN) || !repoName()) return;
-    pending.set(k, v); clearTimeout(timer); timer = setTimeout(flush, 1500); status("Saving…");
+    if (!loggedIn()) return;
+    pending.set(k, v); keep(); clearTimeout(timer); timer = setTimeout(flush, 1500); status("Saving…");
   }
-  const refresh = () => { renderBookings(); renderStats(); renderCountdown(); renderChecks(); };
   async function load() {
-    if (!repoName()) { status("Open the page on your GitHub Pages site, or log in to pick a repo"); return null; }
     try {
       const {ticks} = await pull();
       let changed = 0;
-      for (const [k, v] of Object.entries(ticks)) if (store.get(k) !== v) { store.set(k, v); changed++; }
+      for (const [k, v] of Object.entries(ticks)) if (!pending.has(k) && !inflight.has(k) && store.get(k) !== v) { store.set(k, v); changed++; }
       if (changed) refresh();
       status(idle());
       return ticks;
@@ -1542,54 +1564,46 @@ const SYNC = (() => {
     const remote = await load();
     if (!remote) return;
     // Upload ticks this browser has that the repo doesn't know about yet.
-    try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (KEY_OK.test(k) && !(k in remote)) queue(k, store.get(k)); } } catch (e) { /* storage unavailable */ }
-  }
-  function useRepo(vals) {
-    if (onPages) return true;
-    if (!/^[\w.-]+\/[\w.-]+$/.test(vals.repo)) return false;
-    store.set(REPO, vals.repo);
-    return true;
+    try { Object.keys(localStorage).forEach(k => { if (KEY_OK.test(k) && !(k in remote) && !pending.has(k)) queue(k, store.get(k)); }); } catch (e) { /* storage unavailable */ }
+    flush();
   }
   async function submit(vals) {
     draft = vals;
-    if (!useRepo(vals)) return form(false, "Use the form owner/repo");
     if (!vals.user || !vals.pass) return form(false, "Enter the username and password");
     status("Checking…");
-    let box;
-    try { box = (await getFile(LOGIN)).data; } catch (e) { return form(false, `Couldn’t reach GitHub (${e.message})`); }
-    if (!box) return form(true, "No login exists yet: paste your GitHub token once to create it");
+    const box = await getLogin();
+    if (!box) return form(true, "No login found. If you just created it, wait a minute and try again; otherwise paste your GitHub token once to create it");
     let token;
     try { token = await unseal(box, vals.user, vals.pass); } catch (e) { return form(false, "Wrong username or password"); }
     const r = await api("", {}, token).catch(() => null);
     if (!r || !r.ok) return form(true, "The saved login’s token no longer works: paste a new token to renew it");
-    store.set(TOKEN, token); draft = null;
+    draft = null; setToken(token);
     await afterLogin();
   }
   async function setup(vals) {
     draft = vals;
-    if (!useRepo(vals)) return form(true, "Use the form owner/repo");
     if (!vals.user || !vals.pass || !vals.tok) return form(true, "Fill in the username, password and token");
     status("Setting up…");
     const r = await api("", {}, vals.tok).catch(() => null);
-    if (!r || !r.ok) return form(true, `Token not accepted${r ? ` (GitHub ${r.status})` : ""}`);
+    if (!r || !r.ok) return form(true, `Token not accepted (${r ? await reason(r) : "no response from GitHub"})`);
     store.set(TOKEN, vals.tok);
     try {
-      await ensureBranch();
-      const cur = await getFile(LOGIN);
-      const w = await putFile(LOGIN, await seal(vals.tok, vals.user, vals.pass), cur.sha, "Set up the shared login");
-      if (!w.ok) throw new Error(`GitHub ${w.status}`);
+      const db = await defaultBranch(), cur = await getFile(LOGIN, db);
+      const w = await putFile(LOGIN, await seal(vals.tok, vals.user, vals.pass), cur.sha, "Set up the shared login", db);
+      if (!w.ok) throw new Error(await reason(w));
     } catch (e) { store.del(TOKEN); return form(true, `Couldn’t save the login (${e.message})`); }
-    draft = null;
+    draft = null; setToken(vals.tok);
     await afterLogin();
+    if (!pending.size) status("Login created · other devices can log in once the site updates (about a minute)");
   }
   function bind(el) {
     root = el;
     const val = f => { const i = root.querySelector(`[data-f="${f}"]`); return i ? i.value : ""; };
-    const read = () => ({repo: val("repo").trim(), user: val("user").trim(), pass: val("pass"), tok: val("tok").trim()});
+    const read = () => ({user: val("user").trim(), pass: val("pass"), tok: val("tok").trim()});
     root.addEventListener("click", e => {
       const act = e.target && e.target.dataset ? e.target.dataset.act : null;
       if (act === "login") form(false);
-      else if (act === "logout") { store.del(TOKEN); status("Logged out on this device"); }
+      else if (act === "logout") { setToken(null); status("Logged out on this device · read-only"); }
       else if (act === "cancel") { draft = null; status(idle()); }
       else if (act === "submit") submit(read());
       else if (act === "setup") setup(read());
@@ -1599,19 +1613,27 @@ const SYNC = (() => {
       const b = root.querySelector('[data-act="submit"],[data-act="setup"]'); if (b) b.click();
     });
   }
-  function init() { status(repoName() ? "Checking…" : "Off"); load(); }
-  return {init, queue, bind};
+  function init() {
+    try {
+      for (const [k, v] of Object.entries(JSON.parse(store.get(PENDING) || "{}"))) if (KEY_OK.test(k) && (v === "0" || v === "1")) pending.set(k, v);
+    } catch (e) { /* ignore a corrupt queue */ }
+    status("Checking…");
+    load().then(remote => { if (remote) flush(); });
+    window.addEventListener("online", () => load().then(remote => { if (remote) flush(); }));
+    document.addEventListener("visibilitychange", () => { if (document.hidden) flush(); });
+  }
+  return {init, queue, bind, loggedIn};
 })();
 
 function wire() {
   $("#bk").addEventListener("change", e => {
-    const tr = e.target.closest("tr[data-id]"); if (!tr) return;
+    const tr = e.target.closest("tr[data-id]"); if (!tr || !SYNC.loggedIn()) return;
     store.set(bkKey(tr.dataset.id), e.target.checked ? "1" : "0");
     SYNC.queue(bkKey(tr.dataset.id), e.target.checked ? "1" : "0");
     renderBookings(); renderStats(); renderCountdown();
   });
   $("#checks").addEventListener("change", e => {
-    const k = e.target.dataset.k; if (!k) return;
+    const k = e.target.dataset.k; if (!k || !SYNC.loggedIn()) return;
     store.set(k, e.target.checked ? "1" : "0");
     SYNC.queue(k, e.target.checked ? "1" : "0");
     e.target.closest("label").classList.toggle("done", e.target.checked);
